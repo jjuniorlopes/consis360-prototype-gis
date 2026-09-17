@@ -1,0 +1,354 @@
+/* ==========================================================================
+   CONSIS360 — Componentes (cards, botões, modal, badges)
+   ========================================================================== */
+
+/* ---- Grid de cards de navegação (padrão layout_pagina_3) ---- */
+.grade-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
+  justify-content: center;
+  gap: var(--esp-5);
+}
+
+/* ---- Card "Mapa Consórcios" (mapa dobrado + pin, faixa colorida embaixo) ---- */
+.card-mapa {
+  display: flex;
+  flex-direction: column;
+  background: var(--cor-card-fundo);
+  border: 2px solid transparent;
+  border-radius: var(--raio-card);
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: var(--sombra-card);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.card-mapa:hover,
+.card-mapa:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-card-hover);
+}
+.card-mapa--multi { border-color: var(--cor-azul-700); }
+.card-mapa--saude { border-color: var(--cor-vermelho-700); }
+
+.card-mapa__topo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--esp-3);
+  padding: var(--esp-6) var(--esp-4);
+}
+.card-mapa__icone {
+  width: 64px;
+  height: 64px;
+}
+.card-mapa--multi .card-mapa__icone,
+.card-mapa--multi .card-mapa__titulo {
+  color: var(--cor-azul-700);
+}
+.card-mapa--saude .card-mapa__icone,
+.card-mapa--saude .card-mapa__titulo {
+  color: var(--cor-vermelho-700);
+}
+.card-mapa__titulo {
+  font-family: var(--fonte-titulos);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+.card-mapa__rodape {
+  font-family: var(--fonte-titulos);
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #fff;
+  padding: var(--esp-3) var(--esp-4);
+}
+.card-mapa--multi .card-mapa__rodape { background: var(--cor-azul-700); }
+.card-mapa--saude .card-mapa__rodape { background: var(--cor-vermelho-700); }
+
+/* ---- Card de consórcio (usado no painel lateral dos mapas) ---- */
+.card-consorcio {
+  background: var(--cor-card-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-card);
+  padding: var(--esp-4);
+  display: flex;
+  gap: var(--esp-3);
+  align-items: flex-start;
+}
+.card-consorcio__logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--cor-borda);
+  padding: 4px;
+  flex-shrink: 0;
+}
+.card-consorcio__nome {
+  margin: 0 0 var(--esp-1) 0;
+  font-size: 1rem;
+}
+.card-consorcio__regiao {
+  color: var(--cor-texto-suave);
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+/* ---- Botões ---- */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--esp-2);
+  padding: var(--esp-3) var(--esp-5);
+  border-radius: var(--raio-botao);
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid transparent;
+  font-size: 0.95rem;
+  background: var(--cor-azul-700);
+  color: #fff;
+}
+.botao:hover { background: var(--cor-azul-900); color: #fff; }
+.botao--secundario {
+  background: transparent;
+  border-color: var(--cor-azul-700);
+  color: var(--cor-azul-700);
+}
+.botao--secundario:hover { background: var(--cor-azul-100); color: var(--cor-azul-900); }
+.botao--voltar {
+  margin-bottom: var(--esp-5);
+}
+.botao svg { width: 18px; height: 18px; }
+
+/* ---- Botão "Voltar" (círculo azul + seta, referência ba.gov.br) ---- */
+.botao-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--esp-2);
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  padding: 4px 18px 4px 4px;
+  margin-bottom: var(--esp-5);
+  color: var(--cor-azul-700);
+  font-family: var(--fonte-titulos);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.botao-voltar:hover {
+  background: var(--cor-azul-100);
+  color: var(--cor-azul-900);
+}
+.botao-voltar__icone {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--cor-azul-700);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ---- Estatísticas (cards numéricos ao lado do mapa) — alto relevo 3D ---- */
+.grade-estatisticas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--esp-4);
+}
+.estatistica-card {
+  background: var(--cor-card-fundo);
+  border-radius: 18px;
+  padding: var(--esp-5) var(--esp-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--esp-3);
+  box-shadow:
+    0 1px 1px rgba(15, 40, 90, 0.04),
+    0 8px 16px -6px rgba(15, 40, 90, 0.16),
+    0 22px 40px -20px rgba(15, 40, 90, 0.28);
+  border: 1px solid rgba(15, 40, 90, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.estatistica-card:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 1px 1px rgba(15, 40, 90, 0.05),
+    0 10px 20px -6px rgba(15, 40, 90, 0.2),
+    0 28px 48px -20px rgba(15, 40, 90, 0.32);
+}
+[data-tema="escuro"] .estatistica-card {
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.3),
+    0 8px 16px -6px rgba(0, 0, 0, 0.4),
+    0 22px 40px -20px rgba(0, 0, 0, 0.5);
+  border-color: var(--cor-borda);
+}
+.estatistica-card__texto {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.estatistica-card__rotulo {
+  font-family: var(--fonte-titulos);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--cor-azul-700);
+  order: -1;
+}
+.estatistica-card__valor {
+  font-family: var(--fonte-titulos);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--cor-azul-900);
+  display: block;
+}
+.estatistica-card__icone {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  filter: drop-shadow(0 3px 3px rgba(15, 40, 90, 0.18));
+}
+@media (max-width: 720px) {
+  .grade-estatisticas { grid-template-columns: 1fr; }
+}
+
+/* ---- Modal de detalhes do consórcio ---- */
+.modal-fundo {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 20, 40, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--esp-4);
+  z-index: var(--z-modal);
+}
+.modal-fundo.aberto { display: flex; }
+
+.modal-caixa {
+  background: var(--cor-fundo);
+  border-radius: var(--raio-card);
+  max-width: 620px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  padding: var(--esp-6);
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+.modal-caixa__fechar {
+  position: absolute;
+  top: var(--esp-3);
+  right: var(--esp-3);
+  background: var(--cor-fundo-alt);
+  border: 1px solid var(--cor-borda);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+.modal-caixa__cabecalho {
+  display: flex;
+  gap: var(--esp-4);
+  align-items: center;
+  margin-bottom: var(--esp-5);
+  padding-right: var(--esp-6);
+}
+.modal-caixa__logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border: 1px solid var(--cor-borda);
+  border-radius: 10px;
+  padding: 6px;
+  background: #fff;
+}
+.modal-caixa__titulo { margin: 0; }
+.modal-caixa__regiao { margin: var(--esp-1) 0 0; color: var(--cor-texto-suave); }
+
+.ficha-tecnica {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--esp-3) var(--esp-5);
+  margin-bottom: var(--esp-5);
+}
+.ficha-tecnica dt {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--cor-texto-suave);
+  margin: 0;
+}
+.ficha-tecnica dd {
+  margin: 0;
+  font-weight: 600;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.ficha-tecnica dd a {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+@media (max-width: 520px) {
+  .ficha-tecnica { grid-template-columns: minmax(0, 1fr); }
+}
+
+.municipios-lista__titulo {
+  margin: 0 0 var(--esp-2);
+  font-size: 0.95rem;
+}
+.municipios-lista__tags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-2);
+}
+.municipios-lista__tags li {
+  background: var(--cor-fundo-alt);
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  padding: var(--esp-1) var(--esp-3);
+  font-size: 0.82rem;
+}
+
+/* ---- Aviso de dado pendente (quando a fonte não trouxe o campo) ---- */
+.dado-pendente {
+  font-style: italic;
+  color: var(--cor-texto-suave);
+}
+
+/* ---- Alerta informativo (usado na página LAI / erros de carregamento) ---- */
+.alerta {
+  border-left: 4px solid var(--cor-azul-700);
+  background: var(--cor-azul-100);
+  padding: var(--esp-4);
+  border-radius: 8px;
+  margin-bottom: var(--esp-5);
+}
+.alerta--erro {
+  border-left-color: var(--cor-alerta);
+  background: #fdecec;
+}

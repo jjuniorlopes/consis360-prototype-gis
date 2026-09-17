@@ -1,0 +1,167 @@
+/* ==========================================================================
+   CONSIS360 — Ícones fixos de acessibilidade e painel flutuante
+   ========================================================================== */
+
+/* ---- Coluna de ícones fixos (canto direito, presente em todas as páginas) ---- */
+.icones-fixos {
+  position: fixed;
+  right: var(--esp-4);
+  bottom: var(--esp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--esp-3);
+  z-index: var(--z-painel-acessibilidade);
+}
+
+/* O posicionamento do widget real do VLibras (window.VLibrasWidget.access,
+   dentro de Shadow DOM) é feito via JavaScript em navegacao.js — usando a
+   referência direta que o próprio script oficial expõe, não seletor CSS,
+   já que CSS externo não alcança conteúdo dentro de Shadow DOM. */
+
+.icone-fixo-item {
+  position: relative;
+  display: flex;
+}
+
+.icone-fixo {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+.icone-fixo svg { width: 26px; height: 26px; }
+.icone-fixo--acessibilidade { background: var(--cor-azul-900); }
+.icone-fixo:hover { filter: brightness(1.1); }
+
+/* ---- Legenda (tooltip) ao passar o mouse/focar no ícone de acessibilidade ---- */
+.icone-fixo__legenda {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translate(6px, -50%);
+  display: flex;
+  align-items: center;
+  gap: var(--esp-2);
+  white-space: nowrap;
+  background: var(--cor-azul-900);
+  color: #fff;
+  padding: var(--esp-2) var(--esp-4) var(--esp-2) var(--esp-2);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  font-size: 0.85rem;
+  font-weight: 700;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.icone-fixo__legenda svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.18);
+  border-radius: 50%;
+  padding: 3px;
+}
+.icone-fixo-item:hover .icone-fixo__legenda,
+.icone-fixo-item:focus-within .icone-fixo__legenda {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -50%);
+}
+
+/* ---- Painel de acessibilidade (abre ao clicar no ícone universal) ---- */
+.painel-acessibilidade {
+  position: fixed;
+  right: var(--esp-4);
+  bottom: calc(var(--esp-5) + 60px);
+  width: 300px;
+  max-width: calc(100vw - 2rem);
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-card);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.3);
+  z-index: var(--z-painel-acessibilidade);
+  display: none;
+  overflow: hidden;
+}
+.painel-acessibilidade.aberto { display: block; }
+
+.painel-acessibilidade__cabecalho {
+  background: var(--cor-azul-900);
+  color: #fff;
+  padding: var(--esp-3) var(--esp-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.painel-acessibilidade__cabecalho h2 {
+  font-size: 0.95rem;
+  margin: 0;
+  color: #fff;
+}
+.painel-acessibilidade__fechar {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: var(--esp-1);
+}
+
+.painel-acessibilidade__lista {
+  list-style: none;
+  margin: 0;
+  padding: var(--esp-2);
+  display: grid;
+  gap: var(--esp-1);
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.painel-acessibilidade__item button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--esp-3);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: var(--esp-3);
+  text-align: left;
+  color: var(--cor-texto);
+  font-size: 0.9rem;
+}
+.painel-acessibilidade__item button:hover {
+  background: var(--cor-fundo-alt);
+}
+.painel-acessibilidade__item button[aria-pressed="true"] {
+  background: var(--cor-azul-100);
+  border-color: var(--cor-azul-700);
+  font-weight: 700;
+}
+.painel-acessibilidade__item svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--cor-azul-700);
+}
+
+.painel-acessibilidade__rodape {
+  padding: var(--esp-3);
+  border-top: 1px solid var(--cor-borda);
+}
+.painel-acessibilidade__resetar {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .icones-fixos { right: var(--esp-3); bottom: var(--esp-4); }
+  .painel-acessibilidade { right: var(--esp-3); }
+}

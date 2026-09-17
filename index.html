@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONSIS360 — Sistema de Informação Geográficas (SIG/GIS) dos Consórcios Públicos da Bahia</title>
+  <meta name="description" content="Protótipo do SIG/GIS CONSIS360: mapas interativos dos Consórcios Públicos Multifinalitários e de Saúde do Estado da Bahia.">
+  <link rel="icon" href="assets/img/icones/logo-consis360.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="css/variaveis.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/acessibilidade.css">
+  <script>window.CONSIS360_BASE = "";</script>
+</head>
+<body>
+  <div id="app-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <section class="banner-principal">
+      <img
+        class="banner-principal__imagem"
+        src="assets/img/banner/banner-consorcios-bahia.jpg"
+        alt="Banner: Consórcios Públicos mais integrados, Bahia mais forte. Informação geográfica a serviço do planejamento, da transparência e da eficiência na gestão pública. Mapas interativos e georreferenciados; dados estratégicos para melhores decisões; integração entre municípios e regiões; mais gestão, mais resultados para o cidadão."
+        width="1140" height="290">
+      <!-- Texto do banner replicado como conteúdo acessível para leitor de tela,
+           já que a imagem acima carrega o texto "queimado" no pixel (e-MAG exige
+           alternativa textual equivalente para imagens com informação). -->
+      <div class="sr-only">
+        <h2>Consórcios Públicos mais integrados, Bahia mais forte.</h2>
+        <p>Informação geográfica a serviço do planejamento, da transparência e da eficiência na gestão pública.</p>
+        <ul>
+          <li>Mapas interativos e georreferenciados: visualize a área de atuação de cada consórcio direto no mapa da Bahia.</li>
+          <li>Dados estratégicos para melhores decisões: população atendida, área ocupacional e número de municípios conveniados.</li>
+          <li>Integração entre municípios e regiões: cada consórcio reúne prefeituras vizinhas em torno de objetivos comuns.</li>
+          <li>Mais gestão, mais resultados para o cidadão: transparência ativa em conformidade com a Lei de Acesso à Informação.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="secao">
+      <div class="container">
+        <div class="secao__titulo">
+          <h2>Escolha o mapa de consórcios</h2>
+          <p class="secao__subtitulo">Cada mapa apresenta as regiões coloridas por consórcio, com ficha técnica completa ao clicar em cada área.</p>
+        </div>
+
+        <div class="grade-cards">
+          <a class="card-mapa card-mapa--multi" href="paginas/mapa-multifinalitarios.html">
+            <div class="card-mapa__topo">
+              <svg class="card-mapa__icone" viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M6 12 18 8l12 4 12-4v28l-12 4-12-4-12 4Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M18 8v28M30 12v28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M24 5a7.5 7.5 0 0 1 7.5 7.5c0 5.4-7.5 14-7.5 14s-7.5-8.6-7.5-14A7.5 7.5 0 0 1 24 5Z" fill="currentColor"/>
+                <circle cx="24" cy="12.5" r="2.6" fill="#fff"/>
+              </svg>
+              <span class="card-mapa__titulo">Mapa Consórcios</span>
+            </div>
+            <div class="card-mapa__rodape">Multifinalitários</div>
+          </a>
+
+          <a class="card-mapa card-mapa--saude" href="paginas/mapa-saude.html">
+            <div class="card-mapa__topo">
+              <svg class="card-mapa__icone" viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M6 12 18 8l12 4 12-4v28l-12 4-12-4-12 4Z" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+                <path d="M18 8v28M30 12v28" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M24 5a7.5 7.5 0 0 1 7.5 7.5c0 5.4-7.5 14-7.5 14s-7.5-8.6-7.5-14A7.5 7.5 0 0 1 24 5Z" fill="currentColor"/>
+                <circle cx="24" cy="12.5" r="2.6" fill="#fff"/>
+              </svg>
+              <span class="card-mapa__titulo">Mapa Consórcios</span>
+            </div>
+            <div class="card-mapa__rodape">Saúde</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="app-rodape"></div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/acessibilidade.js"></script>
+  <script src="js/navegacao.js"></script>
+</body>
+</html>

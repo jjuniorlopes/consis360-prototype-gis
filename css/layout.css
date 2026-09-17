@@ -1,0 +1,311 @@
+/* ==========================================================================
+   CONSIS360 — Layout (banner superior, cabeçalho, hero, rodapé)
+   ========================================================================== */
+
+/* ---- Banner superior de acessibilidade (topo azul) ---- */
+.banner-topo {
+  background: rgb(7, 86, 177);
+  color: rgb(255, 255, 255);
+  font-family: var(--fonte-titulos);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-banner);
+}
+
+.banner-topo__conteudo {
+  max-width: var(--largura-maxima);
+  margin: 0 auto;
+  padding: 14px var(--esp-5);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--esp-5);
+}
+
+.banner-topo__grupo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.banner-topo__separador {
+  width: 1px;
+  height: 1.1rem;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.banner-topo__link {
+  font-family: var(--fonte-banner);
+  font-size: 16px;
+  font-weight: 700 !important;
+  line-height: 22px;
+}
+
+.banner-topo button,
+.banner-topo a {
+  background: transparent;
+  border: 1px solid transparent;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  cursor: pointer;
+  font-family: var(--fonte-banner);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+.banner-topo button:hover,
+.banner-topo a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.banner-topo button[aria-pressed="true"] {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.banner-topo__fonte-btn {
+  min-width: 2.1rem;
+  text-align: center;
+  padding: 6px 8px;
+  font-weight: 700;
+}
+.banner-topo__contraste {
+  padding: 6px 8px;
+}
+.banner-topo i {
+  color: rgb(255, 255, 255);
+  font-size: 19px;
+  line-height: 19px;
+  font-style: normal;
+}
+
+/* ---- Cabeçalho institucional ---- */
+.cabecalho {
+  background: var(--cor-fundo);
+  border-bottom: 1px solid var(--cor-borda);
+  padding: var(--esp-4) 0;
+}
+
+.cabecalho__conteudo {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-4);
+}
+
+.cabecalho__logo {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.cabecalho__titulo {
+  font-family: var(--fonte-titulos);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28.8px;
+  margin: 0;
+  color: #0756b1;
+  text-transform: uppercase;
+}
+
+.cabecalho__linha {
+  height: 3px;
+  background: var(--cor-azul-700);
+  margin-top: var(--esp-3);
+  border: none;
+}
+
+/* ---- Trilha de navegação (breadcrumb): "Página Inicial" / página atual ---- */
+.trilha {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-2);
+  padding: var(--esp-4) 0;
+  font-family: var(--fonte-titulos);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.trilha__inicio {
+  color: #2888f6;
+  text-decoration: underline;
+}
+.trilha__inicio:hover { color: var(--cor-azul-900); }
+.trilha__separador { color: var(--cor-texto-suave); }
+.trilha__atual { color: var(--cor-texto); }
+
+/* ---- Banner principal (imagem institucional, logo abaixo do cabeçalho) ---- */
+.banner-principal {
+  border-bottom: 1px solid var(--cor-borda);
+  background: var(--cor-fundo);
+  line-height: 0; /* remove espaço fantasma abaixo da imagem inline */
+}
+.banner-principal__imagem {
+  display: block;
+  width: 100%;
+  height: auto; /* mantém a proporção original (1140x290) em qualquer largura */
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* ---- Seção principal ---- */
+.secao {
+  padding: var(--esp-7) 0;
+}
+.secao__titulo {
+  text-align: center;
+  margin-bottom: var(--esp-6);
+}
+.secao__titulo h2 {
+  font-family: var(--fonte-titulos);
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 39.6px;
+  color: rgba(0, 0, 0, 0.87);
+  border-bottom: 1px solid rgb(209, 209, 209);
+  padding-bottom: 20px;
+  margin: 10px 0 20px;
+  display: inline-block;
+}
+[data-tema="escuro"] .secao__titulo h2 {
+  color: rgba(255, 255, 255, 0.92);
+  border-bottom-color: var(--cor-borda);
+}
+.secao__subtitulo {
+  font-family: var(--fonte-titulos);
+  color: rgb(83, 83, 83);
+  font-size: 18px;
+  line-height: 29px;
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+}
+[data-tema="escuro"] .secao__subtitulo {
+  color: var(--cor-texto-suave);
+}
+
+/* ---- Rodapé ---- */
+.rodape {
+  background: var(--cor-fundo-alt);
+  border-top: 1px solid var(--cor-borda);
+  padding: var(--esp-6) 0;
+  margin-top: var(--esp-7);
+}
+.rodape__conteudo {
+  display: flex;
+  align-items: center;
+  gap: var(--esp-4);
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+}
+.rodape__brasao {
+  width: 42px;
+  height: auto;
+  flex-shrink: 0;
+}
+.rodape__selo {
+  display: block;
+  margin-top: var(--esp-1);
+  font-size: 0.85rem;
+}
+
+/* ---- Página de conteúdo simples (Acessibilidade / LAI / Privacidade) ---- */
+.container--estreito {
+  max-width: 900px;
+  margin: 0 auto;
+}
+/* ---- Seção do mapa: mais larga que o conteúdo de texto, pra dar mais espaço ao mapa/lista/painel ---- */
+.container--largo {
+  max-width: 1520px;
+  margin: 0 auto;
+}
+.pagina-conteudo {
+  padding: 0 0 var(--esp-8);
+}
+.pagina-conteudo__linha {
+  height: 3px;
+  background: rgb(7, 86, 177);
+  border: none;
+  margin: 0 0 var(--esp-6);
+}
+.pagina-conteudo__cartao {
+  background: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-card);
+  box-shadow: var(--sombra-card);
+  padding: var(--esp-7) var(--esp-7);
+}
+.pagina-conteudo__titulo {
+  font-family: var(--fonte-titulos);
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 39.6px;
+  color: rgba(0, 0, 0, 0.87);
+  border-bottom: 1px solid rgb(209, 209, 209);
+  padding-bottom: 20px;
+  margin: 10px 0 35px;
+}
+[data-tema="escuro"] .pagina-conteudo__titulo {
+  color: rgba(255, 255, 255, 0.92);
+  border-bottom-color: var(--cor-borda);
+}
+.pagina-conteudo__corpo {
+  font-family: var(--fonte-titulos);
+}
+.pagina-conteudo__corpo p {
+  color: rgb(83, 83, 83);
+  font-size: 18px;
+  line-height: 29px;
+  text-align: justify;
+  margin: 0 0 25px;
+}
+.pagina-conteudo__corpo h2 {
+  color: rgb(83, 83, 83);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: justify;
+  margin: 0 0 40px;
+}
+.pagina-conteudo__corpo ul {
+  margin-bottom: var(--esp-4);
+  color: rgb(83, 83, 83);
+  font-size: 18px;
+  line-height: 29px;
+}
+.pagina-conteudo__corpo li {
+  margin-bottom: var(--esp-2);
+}
+.pagina-conteudo__corpo strong {
+  font-weight: 600;
+}
+[data-tema="escuro"] .pagina-conteudo__corpo p,
+[data-tema="escuro"] .pagina-conteudo__corpo h2,
+[data-tema="escuro"] .pagina-conteudo__corpo ul {
+  color: var(--cor-texto-suave);
+}
+
+/* Variante da LAI: alinhamento à esquerda e cor ligeiramente diferente
+   (referência real: ba.gov.br/comunicacao/lei-de-acesso-a-informacao,
+   template distinto do usado em Acessibilidade/Política de Privacidade). */
+.pagina-conteudo__corpo--lai p {
+  color: rgb(87, 87, 87);
+  text-align: left;
+  line-height: 29px;
+  margin-bottom: 16px;
+}
+[data-tema="escuro"] .pagina-conteudo__corpo--lai p {
+  color: var(--cor-texto-suave);
+}
+
+@media (max-width: 640px) {
+  .cabecalho__titulo { font-size: 18px; line-height: 22px; }
+  .pagina-conteudo__cartao { padding: var(--esp-5); }
+}

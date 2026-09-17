@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Consórcios de Saúde — CONSIS360</title>
+  <meta name="description" content="Mapa interativo das 24 regiões de Consórcios Públicos Interfederativos de Saúde da Bahia, com ficha técnica por região.">
+  <link rel="icon" href="../assets/img/icones/logo-consis360.png">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/variaveis.css?v=20260917-4">
+  <link rel="stylesheet" href="../css/base.css?v=20260917-4">
+  <link rel="stylesheet" href="../css/layout.css?v=20260917-4">
+  <link rel="stylesheet" href="../css/componentes.css?v=20260917-4">
+  <link rel="stylesheet" href="../css/acessibilidade.css?v=20260917-4">
+  <link rel="stylesheet" href="../css/mapas.css?v=20260917-4">
+  <script>window.CONSIS360_BASE = "../";</script>
+</head>
+<body>
+  <div id="app-cabecalho"></div>
+
+  <main id="conteudo-principal">
+    <div class="container">
+      <div id="app-trilha" data-pagina="Mapa Consórcios Saúde"></div>
+
+      <div id="app-botao-voltar"></div>
+
+      <h1>Mapa de Consórcios de Saúde</h1>
+      <p class="pagina-mapa__subtitulo">24 regiões de saúde interfederativas da Bahia. Passe o mouse sobre uma região para ver os números principais, ou clique para abrir a ficha técnica completa.</p>
+
+      <div class="grade-estatisticas" style="margin-bottom:1.5rem;">
+        <div class="estatistica-card">
+          <div class="estatistica-card__texto">
+            <span class="estatistica-card__rotulo">Regiões cadastradas</span>
+            <span class="estatistica-card__valor" id="estatistica-regioes">—</span>
+          </div>
+          <svg class="estatistica-card__icone" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M32 4 48 13v18L32 40 16 31V13Z" fill="#CBD5E1"/>
+            <path d="M32 4 48 13 32 22 16 13Z" fill="#E7ECF3"/>
+            <path d="M32 22v18L16 31V13Z" fill="#8FA0B8"/>
+            <path d="M32 22v18l16-9V13Z" fill="#AFBED2"/>
+            <path d="M18 40 30 47v14L18 54Z" fill="#8FA0B8"/>
+            <path d="M18 40 30 47 18 54 6 47Z" fill="#CBD5E1"/>
+            <path d="M6 47 18 54v13L6 60Z" fill="#6E829C"/>
+            <path d="M46 40 58 47v13L46 53Z" fill="#6E829C"/>
+            <path d="M46 40 58 47 46 53 34 47Z" fill="#CBD5E1"/>
+            <path d="M34 47 46 53v14L34 60Z" fill="#8FA0B8"/>
+          </svg>
+        </div>
+        <div class="estatistica-card">
+          <div class="estatistica-card__texto">
+            <span class="estatistica-card__rotulo">Municípios conveniados</span>
+            <span class="estatistica-card__valor" id="estatistica-municipios">—</span>
+          </div>
+          <svg class="estatistica-card__icone" viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M32 4 54 16v34L32 62 10 50V16Z" fill="#E7ECF3"/>
+            <path d="M15 19 32 9l17 10v32l-17 10-17-10Z" fill="#CBD5E1"/>
+            <path d="M32 9v53l17-10V19Z" fill="#8FA0B8"/>
+            <g fill="#E7ECF3">
+              <rect x="19" y="20" width="5" height="5" rx="1"/>
+              <rect x="19" y="30" width="5" height="5" rx="1"/>
+              <rect x="19" y="40" width="5" height="5" rx="1"/>
+            </g>
+            <g fill="#6E829C">
+              <rect x="38" y="20" width="5" height="5" rx="1"/>
+              <rect x="38" y="30" width="5" height="5" rx="1"/>
+              <rect x="38" y="40" width="5" height="5" rx="1"/>
+            </g>
+            <rect x="27" y="46" width="10" height="16" fill="#AFBED2"/>
+          </svg>
+        </div>
+        <div class="estatistica-card">
+          <div class="estatistica-card__texto">
+            <span class="estatistica-card__rotulo">População atendida</span>
+            <span class="estatistica-card__valor" id="estatistica-populacao">—</span>
+          </div>
+          <svg class="estatistica-card__icone" viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="14" r="9" fill="#8FA0B8"/>
+            <path d="M32 25c-8 0-13 5-13 12v3h26v-3c0-7-5-12-13-12Z" fill="#AFBED2"/>
+            <circle cx="14" cy="24" r="7" fill="#CBD5E1"/>
+            <path d="M14 33c-6.5 0-10.5 4-10.5 9.5V45h21v-2.5C24.5 37 20.5 33 14 33Z" fill="#E7ECF3"/>
+            <circle cx="50" cy="24" r="7" fill="#6E829C"/>
+            <path d="M50 33c-6.5 0-10.5 4-10.5 9.5V45h21v-2.5C60.5 37 56.5 33 50 33Z" fill="#8FA0B8"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="pagina-mapa">
+        <div class="pagina-mapa__grade">
+          <div class="mapa-caixa">
+            <div id="mapa-leaflet" role="img" aria-label="Mapa interativo da Bahia colorido por região de consórcio de saúde"></div>
+            <div class="mapa-legenda">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1" stroke-linecap="round"/></svg>
+              Passe o mouse ou clique em uma área colorida. Salvador aparece em branco por não integrar consórcio de saúde nesta base.
+            </div>
+          </div>
+
+          <aside class="painel-lateral" aria-label="Lista de regiões de saúde">
+            <div>
+              <h2 class="painel-lateral__titulo">Todas as regiões (24)</h2>
+              <label for="busca-municipio" class="sr-only">Buscar região ou município</label>
+              <input type="search" id="busca-municipio" class="busca-municipio" placeholder="Buscar região ou município...">
+            </div>
+            <p class="painel-lateral__instrucao">Esta lista é a alternativa acessível ao mapa: use o teclado (Tab) para navegar por ela com leitor de tela.</p>
+            <div id="lista-regioes" class="lista-regioes" aria-live="polite"></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="app-rodape"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="../js/utils.js?v=20260917-4"></script>
+  <script src="../js/acessibilidade.js?v=20260917-4"></script>
+  <script src="../js/navegacao.js?v=20260917-4"></script>
+  <script>
+    window.CONSIS360_MAPA_CONFIG = {
+      dadosUrl: "../data/consorcios_saude.json",
+      geojsonUrl: "../data/municipios_saude.geojson",
+      mostrarSecretario: false
+    };
+  </script>
+  <script src="../js/mapa-consorcios.js?v=20260917-4"></script>
+  <script>iniciarMapaConsorcios();</script>
+</body>
+</html>

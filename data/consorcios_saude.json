@@ -1,0 +1,2050 @@
+[
+  {
+    "id": 1,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região do Agreste Baiano",
+    "nomeReduzido": "CLINAB - Região do Agreste Baiano",
+    "regiao": "Litoral Norte e Agreste Baiano",
+    "presidente": "Leandro Dantas de Jesus Costa",
+    "municipioPresidente": "Crisópolis",
+    "sede": " Alagoinhas",
+    "populacao": 32136,
+    "totalConsorciados": 19,
+    "areaTotalKm2": 314.932,
+    "logo": "assets/img/logos-saude/01-clinab-regiao-agreste-baiano.png",
+    "cor": "#2166ac",
+    "municipios": [
+      {
+        "nome": "Pojuca",
+        "ibge": "2925204"
+      },
+      {
+        "nome": "Acajutiba",
+        "ibge": "2900306"
+      },
+      {
+        "nome": "Alagoinhas",
+        "ibge": "2900702"
+      },
+      {
+        "nome": "Aporá",
+        "ibge": "2901908"
+      },
+      {
+        "nome": "Araçás",
+        "ibge": "2902054"
+      },
+      {
+        "nome": "Aramari",
+        "ibge": "2902203"
+      },
+      {
+        "nome": "Cardeal Da Silva",
+        "ibge": "2907004"
+      },
+      {
+        "nome": "Catu",
+        "ibge": "2907509"
+      },
+      {
+        "nome": "Crisópolis",
+        "ibge": "2909604"
+      },
+      {
+        "nome": "Entre Rios",
+        "ibge": "2910503"
+      },
+      {
+        "nome": "Esplanada",
+        "ibge": "2910602"
+      },
+      {
+        "nome": "Inhambupe",
+        "ibge": "2913705"
+      },
+      {
+        "nome": "Itanagra",
+        "ibge": "2915908"
+      },
+      {
+        "nome": "Itapicuru",
+        "ibge": "2916500"
+      },
+      {
+        "nome": "Jandaíra",
+        "ibge": "2917904"
+      },
+      {
+        "nome": "Ouriçangas",
+        "ibge": "2923308"
+      },
+      {
+        "nome": "Pedrão",
+        "ibge": "2924108"
+      },
+      {
+        "nome": "Rio Real",
+        "ibge": "2927002"
+      },
+      {
+        "nome": "Sátiro Dias",
+        "ibge": "2929701"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "consorcio": "Consórcio Público Interfederativo de Saúde Região Barreiras e Ibotirama",
+    "nomeReduzido": "CONSIOB - Região Barreiras e Ibotirama",
+    "regiao": "Barreiras e Ibotirama",
+    "presidente": "Beatriz Batista Ribeiro Calado",
+    "municipioPresidente": "Cotegipe",
+    "sede": "Barreiras",
+    "populacao": 13732,
+    "totalConsorciados": 22,
+    "areaTotalKm2": 1530.05,
+    "logo": "assets/img/logos-saude/02-consiob-regiao-barreiras-e-ibotirama.png",
+    "cor": "#bf812d",
+    "municipios": [
+      {
+        "nome": "Angical",
+        "ibge": "2901403"
+      },
+      {
+        "nome": "Baianópolis",
+        "ibge": "2902500"
+      },
+      {
+        "nome": "Barreiras",
+        "ibge": "2903201"
+      },
+      {
+        "nome": "Brejolândia",
+        "ibge": "2904407"
+      },
+      {
+        "nome": "Catolândia",
+        "ibge": "2907400"
+      },
+      {
+        "nome": "Cotegipe",
+        "ibge": "2909406"
+      },
+      {
+        "nome": "Cristópolis",
+        "ibge": "2909703"
+      },
+      {
+        "nome": "Formosa Do Rio Preto",
+        "ibge": "2911105"
+      },
+      {
+        "nome": "Luís Eduardo Magalhães",
+        "ibge": "2919553"
+      },
+      {
+        "nome": "Mansidão",
+        "ibge": "2920452"
+      },
+      {
+        "nome": "Riachão Das Neves",
+        "ibge": "2926202"
+      },
+      {
+        "nome": "Santa Rita De Cássia",
+        "ibge": "2928406"
+      },
+      {
+        "nome": "São Desidério",
+        "ibge": "2928901"
+      },
+      {
+        "nome": "Tabocas Do Brejo Velho",
+        "ibge": "2930907"
+      },
+      {
+        "nome": "Wanderley",
+        "ibge": "2933455"
+      },
+      {
+        "nome": "Brotas De Macaúbas",
+        "ibge": "2904506"
+      },
+      {
+        "nome": "Ibotirama",
+        "ibge": "2913200"
+      },
+      {
+        "nome": "Morpará",
+        "ibge": "2921609"
+      },
+      {
+        "nome": "Muquem De São Francisco",
+        "ibge": "2922250"
+      },
+      {
+        "nome": "Oliveira Dos Brejinhos",
+        "ibge": "2923209"
+      },
+      {
+        "nome": "Paratinga",
+        "ibge": "2923704"
+      },
+      {
+        "nome": "Serra Dourada",
+        "ibge": "2930303"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "consorcio": "Consórcio Público Interfederativo de Saúde Região Brumado",
+    "nomeReduzido": "Região de Brumado",
+    "regiao": "Brumado",
+    "presidente": "Phellipe Ramonn Gonçalves Brito",
+    "municipioPresidente": " Ituaçu",
+    "sede": "Brumado",
+    "populacao": 10604,
+    "totalConsorciados": 20,
+    "areaTotalKm2": 735.249,
+    "logo": "assets/img/logos-saude/03-regiao-brumado.png",
+    "cor": "#762a83",
+    "municipios": [
+      {
+        "nome": "Érico Cardoso",
+        "ibge": "2900504"
+      },
+      {
+        "nome": "Aracatu",
+        "ibge": "2902005"
+      },
+      {
+        "nome": "Barra Da Estiva",
+        "ibge": "2902807"
+      },
+      {
+        "nome": "Boquira",
+        "ibge": "2904100"
+      },
+      {
+        "nome": "Brumado",
+        "ibge": "2904605"
+      },
+      {
+        "nome": "Caturama",
+        "ibge": "2907558"
+      },
+      {
+        "nome": "Contendas Do Sincorá",
+        "ibge": "2908804"
+      },
+      {
+        "nome": "Dom Basílio",
+        "ibge": "2910107"
+      },
+      {
+        "nome": "Guajeru",
+        "ibge": "2911659"
+      },
+      {
+        "nome": "Ibicoara",
+        "ibge": "2912202"
+      },
+      {
+        "nome": "Ibipitanga",
+        "ibge": "2912509"
+      },
+      {
+        "nome": "Ituaçu",
+        "ibge": "2917201"
+      },
+      {
+        "nome": "Jussiape",
+        "ibge": "2918605"
+      },
+      {
+        "nome": "Livramento De Nossa Senhora",
+        "ibge": "2919504"
+      },
+      {
+        "nome": "Macaúbas",
+        "ibge": "2919801"
+      },
+      {
+        "nome": "Malhada De Pedras",
+        "ibge": "2920304"
+      },
+      {
+        "nome": "Paramirim",
+        "ibge": "2923605"
+      },
+      {
+        "nome": "Rio De Contas",
+        "ibge": "2926707"
+      },
+      {
+        "nome": "Rio Do Pires",
+        "ibge": "2926905"
+      },
+      {
+        "nome": "Tanhaçu",
+        "ibge": "2931004"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região de Porto Seguro",
+    "nomeReduzido": "CISCD - Região de Porto Seguro",
+    "regiao": "Porto Seguro",
+    "presidente": "Isan do Nascimento Botelho",
+    "municipioPresidente": "Itapebi",
+    "sede": "Eunápolis",
+    "populacao": 20121,
+    "totalConsorciados": 8,
+    "areaTotalKm2": 1939.447,
+    "logo": "assets/img/logos-saude/04-ciscd-regiao-de-porto-seguro.png",
+    "cor": "#1b7837",
+    "municipios": [
+      {
+        "nome": "Belmonte",
+        "ibge": "2903409"
+      },
+      {
+        "nome": "Eunápolis",
+        "ibge": "2910727"
+      },
+      {
+        "nome": "Guaratinga",
+        "ibge": "2911808"
+      },
+      {
+        "nome": "Itabela",
+        "ibge": "2914653"
+      },
+      {
+        "nome": "Itagimirim",
+        "ibge": "2915304"
+      },
+      {
+        "nome": "Itapebi",
+        "ibge": "2916302"
+      },
+      {
+        "nome": "Porto Seguro",
+        "ibge": "2925303"
+      },
+      {
+        "nome": "Santa Cruz Cabrália",
+        "ibge": "2927705"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região do Portal do Sertão",
+    "nomeReduzido": "Região Portal do Sertão",
+    "regiao": "Portal do Sertão",
+    "presidente": "Mauro Selmo Oliveira Vieira",
+    "municipioPresidente": "Anguera",
+    "sede": "Feira de Santana",
+    "populacao": 20800,
+    "totalConsorciados": 29,
+    "areaTotalKm2": 164.798,
+    "logo": "assets/img/logos-saude/05-regiao-portal-do-sertao.png",
+    "cor": "#c51b7d",
+    "municipios": [
+      {
+        "nome": "Conceição Da Feira",
+        "ibge": "2908200"
+      },
+      {
+        "nome": "Amélia Rodrigues",
+        "ibge": "2901106"
+      },
+      {
+        "nome": "Anguera",
+        "ibge": "2901502"
+      },
+      {
+        "nome": "Antônio Cardoso",
+        "ibge": "2901700"
+      },
+      {
+        "nome": "Baixa Grande",
+        "ibge": "2902609"
+      },
+      {
+        "nome": "Candeal",
+        "ibge": "2906402"
+      },
+      {
+        "nome": "Capela Do Alto Alegre",
+        "ibge": "2906857"
+      },
+      {
+        "nome": "Conceição Do Jacuípe",
+        "ibge": "2908507"
+      },
+      {
+        "nome": "Coração De Maria",
+        "ibge": "2908903"
+      },
+      {
+        "nome": "Feira De Santana",
+        "ibge": "2910800"
+      },
+      {
+        "nome": "Gavião",
+        "ibge": "2911253"
+      },
+      {
+        "nome": "Ichu",
+        "ibge": "2913309"
+      },
+      {
+        "nome": "Ipecaetá",
+        "ibge": "2913804"
+      },
+      {
+        "nome": "Ipirá",
+        "ibge": "2914000"
+      },
+      {
+        "nome": "Nova Fátima",
+        "ibge": "2922730"
+      },
+      {
+        "nome": "Pé De Serra",
+        "ibge": "2924058"
+      },
+      {
+        "nome": "Pintadas",
+        "ibge": "2924652"
+      },
+      {
+        "nome": "Rafael Jambeiro",
+        "ibge": "2925956"
+      },
+      {
+        "nome": "Riachão Do Jacuípe",
+        "ibge": "2926301"
+      },
+      {
+        "nome": "Santa Bárbara",
+        "ibge": "2927507"
+      },
+      {
+        "nome": "Santanópolis",
+        "ibge": "2928307"
+      },
+      {
+        "nome": "Santo Estêvão",
+        "ibge": "2928802"
+      },
+      {
+        "nome": "São Gonçalo Dos Campos",
+        "ibge": "2929305"
+      },
+      {
+        "nome": "Serra Preta",
+        "ibge": "2930402"
+      },
+      {
+        "nome": "Tanquinho",
+        "ibge": "2931103"
+      },
+      {
+        "nome": "Teodoro Sampaio",
+        "ibge": "2931400"
+      },
+      {
+        "nome": "Terra Nova",
+        "ibge": "2931707"
+      },
+      {
+        "nome": "Água Fria",
+        "ibge": "2900405"
+      },
+      {
+        "nome": "Irará",
+        "ibge": "2914505"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região do Alto Sertão",
+    "nomeReduzido": "Região do Alto Sertão",
+    "regiao": "Alto Sertão",
+    "presidente": "Newton Franscisco Neves Cotrim",
+    "municipioPresidente": "Igaporã",
+    "sede": "Guanambi",
+    "populacao": 22462,
+    "totalConsorciados": 23,
+    "areaTotalKm2": 610.983,
+    "logo": "assets/img/logos-saude/06-regiao-do-alto-sertao.png",
+    "cor": "#4393c3",
+    "municipios": [
+      {
+        "nome": "Caculé",
+        "ibge": "2905008"
+      },
+      {
+        "nome": "Caetité",
+        "ibge": "2905206"
+      },
+      {
+        "nome": "Candiba",
+        "ibge": "2906600"
+      },
+      {
+        "nome": "Carinhanha",
+        "ibge": "2907103"
+      },
+      {
+        "nome": "Feira Da Mata",
+        "ibge": "2910776"
+      },
+      {
+        "nome": "Guanambi",
+        "ibge": "2911709"
+      },
+      {
+        "nome": "Ibiassucê",
+        "ibge": "2912004"
+      },
+      {
+        "nome": "Igaporã",
+        "ibge": "2913408"
+      },
+      {
+        "nome": "Iuiú",
+        "ibge": "2917334"
+      },
+      {
+        "nome": "Jacaraci",
+        "ibge": "2917409"
+      },
+      {
+        "nome": "Lagoa Real",
+        "ibge": "2918753"
+      },
+      {
+        "nome": "Licínio De Almeida",
+        "ibge": "2919405"
+      },
+      {
+        "nome": "Malhada",
+        "ibge": "2920205"
+      },
+      {
+        "nome": "Matina",
+        "ibge": "2921054"
+      },
+      {
+        "nome": "Mortugaba",
+        "ibge": "2921807"
+      },
+      {
+        "nome": "Palmas De Monte Alto",
+        "ibge": "2923407"
+      },
+      {
+        "nome": "Pindaí",
+        "ibge": "2924504"
+      },
+      {
+        "nome": "Riacho De Santana",
+        "ibge": "2926400"
+      },
+      {
+        "nome": "Rio Do Antônio",
+        "ibge": "2926806"
+      },
+      {
+        "nome": "Sebastião Laranjeiras",
+        "ibge": "2930006"
+      },
+      {
+        "nome": "Tanque Novo",
+        "ibge": "2931053"
+      },
+      {
+        "nome": "Urandi",
+        "ibge": "2932606"
+      },
+      {
+        "nome": "Botuporã",
+        "ibge": "2904209"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região de Irecê",
+    "nomeReduzido": "CRS Irecê",
+    "regiao": "Irecê",
+    "presidente": "Roberto Carlos Alves de Souza",
+    "municipioPresidente": "Presidente Dutra",
+    "sede": "Irecê",
+    "populacao": 9935,
+    "totalConsorciados": 26,
+    "areaTotalKm2": 1055.76,
+    "logo": "assets/img/logos-saude/07-crs-irece.png",
+    "cor": "#d6604d",
+    "municipios": [
+      {
+        "nome": "Ipupiara",
+        "ibge": "2914109"
+      },
+      {
+        "nome": "Xique-Xique",
+        "ibge": "2933604"
+      },
+      {
+        "nome": "Bonito",
+        "ibge": "2904050"
+      },
+      {
+        "nome": "Souto Soares",
+        "ibge": "2930808"
+      },
+      {
+        "nome": "América Dourada",
+        "ibge": "2901155"
+      },
+      {
+        "nome": "Barra Do Mendes",
+        "ibge": "2903003"
+      },
+      {
+        "nome": "Barro Alto",
+        "ibge": "2903235"
+      },
+      {
+        "nome": "Cafarnaum",
+        "ibge": "2905305"
+      },
+      {
+        "nome": "Canarana",
+        "ibge": "2906204"
+      },
+      {
+        "nome": "Central",
+        "ibge": "2907608"
+      },
+      {
+        "nome": "Gentio Do Ouro",
+        "ibge": "2911303"
+      },
+      {
+        "nome": "Ibipeba",
+        "ibge": "2912400"
+      },
+      {
+        "nome": "Ibititá",
+        "ibge": "2913101"
+      },
+      {
+        "nome": "Irecê",
+        "ibge": "2914604"
+      },
+      {
+        "nome": "Itaguaçu Da Bahia",
+        "ibge": "2915353"
+      },
+      {
+        "nome": "João Dourado",
+        "ibge": "2918357"
+      },
+      {
+        "nome": "Jussara",
+        "ibge": "2918506"
+      },
+      {
+        "nome": "Lapão",
+        "ibge": "2919157"
+      },
+      {
+        "nome": "Mulungu Do Morro",
+        "ibge": "2922052"
+      },
+      {
+        "nome": "Presidente Dutra",
+        "ibge": "2925600"
+      },
+      {
+        "nome": "São Gabriel",
+        "ibge": "2929255"
+      },
+      {
+        "nome": "Uibaí",
+        "ibge": "2932408"
+      },
+      {
+        "nome": "Morro Do Chapéu",
+        "ibge": "2921708"
+      },
+      {
+        "nome": "Tapiramutá",
+        "ibge": "2931301"
+      },
+      {
+        "nome": "Barra",
+        "ibge": "2902708"
+      },
+      {
+        "nome": "Buritirama",
+        "ibge": "2904753"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região Chapada Unida",
+    "nomeReduzido": "Região Chapada Unida",
+    "regiao": "Chapada Unida",
+    "presidente": "Nixon Duarte Muniz Ferreira",
+    "municipioPresidente": "Iaçu",
+    "sede": "Itaberaba",
+    "populacao": 13080,
+    "totalConsorciados": 23,
+    "areaTotalKm2": 1590.316,
+    "logo": "assets/img/logos-saude/08-regiao-chapada-unida.png",
+    "cor": "#8073ac",
+    "municipios": [
+      {
+        "nome": "Andaraí",
+        "ibge": "2901304"
+      },
+      {
+        "nome": "Boa Vista Do Tupim",
+        "ibge": "2903805"
+      },
+      {
+        "nome": "Iaçu",
+        "ibge": "2911907"
+      },
+      {
+        "nome": "Ibiquera",
+        "ibge": "2912608"
+      },
+      {
+        "nome": "Itaberaba",
+        "ibge": "2914703"
+      },
+      {
+        "nome": "Itaeté",
+        "ibge": "2915007"
+      },
+      {
+        "nome": "Lajedinho",
+        "ibge": "2919009"
+      },
+      {
+        "nome": "Macajuba",
+        "ibge": "2919603"
+      },
+      {
+        "nome": "Marcionílio Souza",
+        "ibge": "2920809"
+      },
+      {
+        "nome": "Nova Redenção",
+        "ibge": "2922854"
+      },
+      {
+        "nome": "Ruy Barbosa",
+        "ibge": "2927200"
+      },
+      {
+        "nome": "Utinga",
+        "ibge": "2932804"
+      },
+      {
+        "nome": "Wagner",
+        "ibge": "2933406"
+      },
+      {
+        "nome": "Abaíra",
+        "ibge": "2900108"
+      },
+      {
+        "nome": "Boninal",
+        "ibge": "2904001"
+      },
+      {
+        "nome": "Ibitiara",
+        "ibge": "2913002"
+      },
+      {
+        "nome": "Iraquara",
+        "ibge": "2914406"
+      },
+      {
+        "nome": "Lençóis",
+        "ibge": "2919306"
+      },
+      {
+        "nome": "Mucugê",
+        "ibge": "2921906"
+      },
+      {
+        "nome": "Novo Horizonte",
+        "ibge": "2923035"
+      },
+      {
+        "nome": "Palmeiras",
+        "ibge": "2923506"
+      },
+      {
+        "nome": "Piatã",
+        "ibge": "2924306"
+      },
+      {
+        "nome": "Seabra",
+        "ibge": "2929909"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região de Itabuna e Ilheús",
+    "nomeReduzido": "CISCAU - Região de Itabuna e Ilheús",
+    "regiao": " Itabuna e Ilheus",
+    "presidente": "Reinaldo Martins de Almeida",
+    "municipioPresidente": "Itapé",
+    "sede": "Itabuna",
+    "populacao": 4873,
+    "totalConsorciados": 22,
+    "areaTotalKm2": 172.353,
+    "logo": "assets/img/logos-saude/09-ciscau-regiao-de-itabuna-e-ilheus.png",
+    "cor": "#35978f",
+    "municipios": [
+      {
+        "nome": "Firmino Alves",
+        "ibge": "2910909"
+      },
+      {
+        "nome": "Itororó",
+        "ibge": "2917102"
+      },
+      {
+        "nome": "Potiraguá",
+        "ibge": "2925402"
+      },
+      {
+        "nome": "Arataca",
+        "ibge": "2902252"
+      },
+      {
+        "nome": "Mascote",
+        "ibge": "2920908"
+      },
+      {
+        "nome": "Almadina",
+        "ibge": "2900900"
+      },
+      {
+        "nome": "Aurelino Leal",
+        "ibge": "2902401"
+      },
+      {
+        "nome": "Barro Preto",
+        "ibge": "2903300"
+      },
+      {
+        "nome": "Buerarema",
+        "ibge": "2904704"
+      },
+      {
+        "nome": "Camacan",
+        "ibge": "2905602"
+      },
+      {
+        "nome": "Floresta Azul",
+        "ibge": "2911006"
+      },
+      {
+        "nome": "Ibicaraí",
+        "ibge": "2912103"
+      },
+      {
+        "nome": "Ibirapitanga",
+        "ibge": "2912707"
+      },
+      {
+        "nome": "Itabuna",
+        "ibge": "2914802"
+      },
+      {
+        "nome": "Itaju Do Colônia",
+        "ibge": "2915403"
+      },
+      {
+        "nome": "Itajuípe",
+        "ibge": "2915502"
+      },
+      {
+        "nome": "Itapé",
+        "ibge": "2916203"
+      },
+      {
+        "nome": "Itapitanga",
+        "ibge": "2916609"
+      },
+      {
+        "nome": "Jussari",
+        "ibge": "2918555"
+      },
+      {
+        "nome": "Pau Brasil",
+        "ibge": "2923902"
+      },
+      {
+        "nome": "Santa Cruz Da Vitória",
+        "ibge": "2927804"
+      },
+      {
+        "nome": "São José Da Vitória",
+        "ibge": "2929354"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região do Piemonte da Chapada",
+    "nomeReduzido": "CONSAN - Região do Piemonte da Chapada",
+    "regiao": "Piemonte da Chapada",
+    "presidente": "Gildo Mota Bispo",
+    "municipioPresidente": "Serrolândia",
+    "sede": "Jacobina",
+    "populacao": 17305,
+    "totalConsorciados": 18,
+    "areaTotalKm2": 1491.99,
+    "logo": "assets/img/logos-saude/10-consan-regiao-do-piemonte-da-chapada.png",
+    "cor": "#b2182b",
+    "municipios": [
+      {
+        "nome": "Mundo Novo",
+        "ibge": "2922102"
+      },
+      {
+        "nome": "Caém",
+        "ibge": "2905107"
+      },
+      {
+        "nome": "Caldeirão Grande",
+        "ibge": "2905503"
+      },
+      {
+        "nome": "Capim Grosso",
+        "ibge": "2906873"
+      },
+      {
+        "nome": "Jacobina",
+        "ibge": "2917508"
+      },
+      {
+        "nome": "Mairi",
+        "ibge": "2920106"
+      },
+      {
+        "nome": "Miguel Calmon",
+        "ibge": "2921203"
+      },
+      {
+        "nome": "Mirangaba",
+        "ibge": "2921401"
+      },
+      {
+        "nome": "Ourolândia",
+        "ibge": "2923357"
+      },
+      {
+        "nome": "Piritiba",
+        "ibge": "2924801"
+      },
+      {
+        "nome": "Quixabeira",
+        "ibge": "2925931"
+      },
+      {
+        "nome": "São José Do Jacuípe",
+        "ibge": "2929370"
+      },
+      {
+        "nome": "Saúde",
+        "ibge": "2929800"
+      },
+      {
+        "nome": "Serrolândia",
+        "ibge": "2930600"
+      },
+      {
+        "nome": "Umburanas",
+        "ibge": "2932457"
+      },
+      {
+        "nome": "Várzea Da Roça",
+        "ibge": "2933059"
+      },
+      {
+        "nome": "Várzea Do Poço",
+        "ibge": "2933109"
+      },
+      {
+        "nome": "Várzea Nova",
+        "ibge": "2933158"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região de Jequié",
+    "nomeReduzido": "CISRJ - Região de Jequié",
+    "regiao": "Jequié",
+    "presidente": "Edione de Oliveira Agostinone",
+    "municipioPresidente": "Jaguaquara",
+    "sede": "Jequié",
+    "populacao": 16094,
+    "totalConsorciados": 27,
+    "areaTotalKm2": 177.643,
+    "logo": "assets/img/logos-saude/11-cisrj-regiao-de-jequie.png",
+    "cor": "#e08214",
+    "municipios": [
+      {
+        "nome": "Ubatã",
+        "ibge": "2932309"
+      },
+      {
+        "nome": "Aiquara",
+        "ibge": "2900603"
+      },
+      {
+        "nome": "Apuarema",
+        "ibge": "2901957"
+      },
+      {
+        "nome": "Barra Do Rocha",
+        "ibge": "2903102"
+      },
+      {
+        "nome": "Boa Nova",
+        "ibge": "2903706"
+      },
+      {
+        "nome": "Brejões",
+        "ibge": "2904308"
+      },
+      {
+        "nome": "Cravolândia",
+        "ibge": "2909505"
+      },
+      {
+        "nome": "Dário Meira",
+        "ibge": "2910008"
+      },
+      {
+        "nome": "Ibirataia",
+        "ibge": "2912905"
+      },
+      {
+        "nome": "Ipiaú",
+        "ibge": "2913903"
+      },
+      {
+        "nome": "Irajuba",
+        "ibge": "2914208"
+      },
+      {
+        "nome": "Iramaia",
+        "ibge": "2914307"
+      },
+      {
+        "nome": "Itagi",
+        "ibge": "2915106"
+      },
+      {
+        "nome": "Itagibá",
+        "ibge": "2915205"
+      },
+      {
+        "nome": "Itamari",
+        "ibge": "2915700"
+      },
+      {
+        "nome": "Itaquara",
+        "ibge": "2916708"
+      },
+      {
+        "nome": "Itiruçu",
+        "ibge": "2916906"
+      },
+      {
+        "nome": "Jaguaquara",
+        "ibge": "2917607"
+      },
+      {
+        "nome": "Jequié",
+        "ibge": "2918001"
+      },
+      {
+        "nome": "Jitaúna",
+        "ibge": "2918308"
+      },
+      {
+        "nome": "Lafaiete Coutinho",
+        "ibge": "2918704"
+      },
+      {
+        "nome": "Lajedo Do Tabocal",
+        "ibge": "2919058"
+      },
+      {
+        "nome": "Manoel Vitorino",
+        "ibge": "2920403"
+      },
+      {
+        "nome": "Maracás",
+        "ibge": "2920502"
+      },
+      {
+        "nome": "Nova Itarana",
+        "ibge": "2922805"
+      },
+      {
+        "nome": "Planaltino",
+        "ibge": "2924900"
+      },
+      {
+        "nome": "Santa Inês",
+        "ibge": "2927903"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região de Juazeiro",
+    "nomeReduzido": "Região de Juazeiro",
+    "regiao": "Juazeiro",
+    "presidente": "Marcos Henrique Lobo Rosa",
+    "municipioPresidente": "Uáuá",
+    "sede": "Juazeiro",
+    "populacao": 30671,
+    "totalConsorciados": 10,
+    "areaTotalKm2": 2914.587,
+    "logo": "assets/img/logos-saude/12-regiao-de-juazeiro.png",
+    "cor": "#5aae61",
+    "municipios": [
+      {
+        "nome": "Campo Alegre De Lourdes",
+        "ibge": "2905909"
+      },
+      {
+        "nome": "Canudos",
+        "ibge": "2906824"
+      },
+      {
+        "nome": "Casa Nova",
+        "ibge": "2907202"
+      },
+      {
+        "nome": "Curaçá",
+        "ibge": "2909901"
+      },
+      {
+        "nome": "Juazeiro",
+        "ibge": "2918407"
+      },
+      {
+        "nome": "Pilão Arcado",
+        "ibge": "2924405"
+      },
+      {
+        "nome": "Remanso",
+        "ibge": "2926004"
+      },
+      {
+        "nome": "Sento Sé",
+        "ibge": "2930204"
+      },
+      {
+        "nome": "Sobradinho",
+        "ibge": "2930774"
+      },
+      {
+        "nome": "Uauá",
+        "ibge": "2932002"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região de Paulo Afonso",
+    "nomeReduzido": "CISRP - Região de Paulo Afonso",
+    "regiao": "Paulo Afonso",
+    "presidente": "Emanuel Rodrigues Ferreira",
+    "municipioPresidente": "Rodelas",
+    "sede": "Paulo Afonso",
+    "populacao": 17639,
+    "totalConsorciados": 9,
+    "areaTotalKm2": 1604.923,
+    "logo": "assets/img/logos-saude/13-cisrp-regiao-de-paulo-afonso.png",
+    "cor": "#807dba",
+    "municipios": [
+      {
+        "nome": "Abaré",
+        "ibge": "2900207"
+      },
+      {
+        "nome": "Chorrochó",
+        "ibge": "2907707"
+      },
+      {
+        "nome": "Glória",
+        "ibge": "2911402"
+      },
+      {
+        "nome": "Jeremoabo",
+        "ibge": "2918100"
+      },
+      {
+        "nome": "Macururé",
+        "ibge": "2919900"
+      },
+      {
+        "nome": "Paulo Afonso",
+        "ibge": "2924009"
+      },
+      {
+        "nome": "Pedro Alexandre",
+        "ibge": "2924207"
+      },
+      {
+        "nome": "Rodelas",
+        "ibge": "2927101"
+      },
+      {
+        "nome": "Santa Brígida",
+        "ibge": "2927606"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região Ribeira do Pombal",
+    "nomeReduzido": "COISAN -  Região Ribeira do Pombal",
+    "regiao": "Ribeira do Pombal",
+    "presidente": "Fábio José Reis Araújo",
+    "municipioPresidente": "Fátima",
+    "sede": "Ribeira do Pombal",
+    "populacao": 48736,
+    "totalConsorciados": 16,
+    "areaTotalKm2": 2198.237,
+    "logo": "assets/img/logos-saude/14-coisan-regiao-ribeira-do-pombal.png",
+    "cor": "#01665e",
+    "municipios": [
+      {
+        "nome": "Tucano",
+        "ibge": "2931905"
+      },
+      {
+        "nome": "Adustina",
+        "ibge": "2900355"
+      },
+      {
+        "nome": "Antas",
+        "ibge": "2901601"
+      },
+      {
+        "nome": "Banzaê",
+        "ibge": "2902658"
+      },
+      {
+        "nome": "Cícero Dantas",
+        "ibge": "2907806"
+      },
+      {
+        "nome": "Cipó",
+        "ibge": "2907905"
+      },
+      {
+        "nome": "Coronel João Sá",
+        "ibge": "2909208"
+      },
+      {
+        "nome": "Fátima",
+        "ibge": "2910750"
+      },
+      {
+        "nome": "Heliópolis",
+        "ibge": "2911857"
+      },
+      {
+        "nome": "Nova Soure",
+        "ibge": "2922904"
+      },
+      {
+        "nome": "Novo Triunfo",
+        "ibge": "2923050"
+      },
+      {
+        "nome": "Olindina",
+        "ibge": "2923100"
+      },
+      {
+        "nome": "Paripiranga",
+        "ibge": "2923803"
+      },
+      {
+        "nome": "Ribeira Do Amparo",
+        "ibge": "2926509"
+      },
+      {
+        "nome": "Ribeira Do Pombal",
+        "ibge": "2926608"
+      },
+      {
+        "nome": "Sítio Do Quinto",
+        "ibge": "2930766"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "consorcio": "Consórcio Público Interfederativo de Saúde MRN",
+    "nomeReduzido": "MRN - Região  Metro Recôncavo Norte",
+    "regiao": " Metro Recôncavo Norte",
+    "presidente": "Agostinho Batista dos Santos Neto",
+    "municipioPresidente": "Mata de São João",
+    "sede": "Mata de São João",
+    "populacao": 300372,
+    "totalConsorciados": 6,
+    "areaTotalKm2": 785.421,
+    "logo": "assets/img/logos-saude/15-mrn-regiao-do-metro-reconcavo-norte.png",
+    "cor": "#f1a340",
+    "municipios": [
+      {
+        "nome": "Camaçari",
+        "ibge": "2905701"
+      },
+      {
+        "nome": "Dias D'avila",
+        "ibge": "2910057"
+      },
+      {
+        "nome": "Lauro De Freitas",
+        "ibge": "2919207"
+      },
+      {
+        "nome": "Conde",
+        "ibge": "2908606"
+      },
+      {
+        "nome": "Mata De São João",
+        "ibge": "2921005"
+      },
+      {
+        "nome": "Simões Filho",
+        "ibge": "2930709"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Bacia do Rio Corrente",
+    "nomeReduzido": "CISBARC - Região da Bacia do Rio Corrente",
+    "regiao": "Bacia do Rio Corrente",
+    "presidente": "Clewton Domingues de Souza",
+    "municipioPresidente": "Cocos",
+    "sede": "Santa Maria da Vitória",
+    "populacao": 65550,
+    "totalConsorciados": 11,
+    "areaTotalKm2": 4115.51,
+    "logo": "assets/img/logos-saude/16-cisbarc-regiao-da-bacia-do-rio-corrente.png",
+    "cor": "#41ab5d",
+    "municipios": [
+      {
+        "nome": "Bom Jesus Da Lapa",
+        "ibge": "2903904"
+      },
+      {
+        "nome": "Canápolis",
+        "ibge": "2906105"
+      },
+      {
+        "nome": "Jaborandi",
+        "ibge": "2917359"
+      },
+      {
+        "nome": "Santa Maria Da Vitória",
+        "ibge": "2928109"
+      },
+      {
+        "nome": "Sítio Do Mato",
+        "ibge": "2930758"
+      },
+      {
+        "nome": "Cocos",
+        "ibge": "2908101"
+      },
+      {
+        "nome": "Coribe",
+        "ibge": "2909109"
+      },
+      {
+        "nome": "Correntina",
+        "ibge": "2909307"
+      },
+      {
+        "nome": "Santana",
+        "ibge": "2928208"
+      },
+      {
+        "nome": "São Félix Do Coribe",
+        "ibge": "2929057"
+      },
+      {
+        "nome": "Serra Do Ramalho",
+        "ibge": "2930154"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região do Reconvale",
+    "nomeReduzido": "Região do Reconvale",
+    "regiao": "Reconvale",
+    "presidente": "Pedro André Braz Silva Santana",
+    "municipioPresidente": "Cachoeira",
+    "sede": "Santo Antônio de Jesus",
+    "populacao": 36521,
+    "totalConsorciados": 31,
+    "areaTotalKm2": 431.655,
+    "logo": "assets/img/logos-saude/17-regiao-do-reconvale.png",
+    "cor": "#9970ab",
+    "municipios": [
+      {
+        "nome": "Amargosa",
+        "ibge": "2901007"
+      },
+      {
+        "nome": "Cabaceiras Do Paraguaçu",
+        "ibge": "2904852"
+      },
+      {
+        "nome": "Cachoeira",
+        "ibge": "2904902"
+      },
+      {
+        "nome": "Dom Macedo Costa",
+        "ibge": "2910206"
+      },
+      {
+        "nome": "Elísio Medrado",
+        "ibge": "2910305"
+      },
+      {
+        "nome": "Jaguaripe",
+        "ibge": "2917805"
+      },
+      {
+        "nome": "Jiquiriçá",
+        "ibge": "2918209"
+      },
+      {
+        "nome": "Maragojipe",
+        "ibge": "2920601"
+      },
+      {
+        "nome": "Milagres",
+        "ibge": "2921302"
+      },
+      {
+        "nome": "Mutuípe",
+        "ibge": "2922409"
+      },
+      {
+        "nome": "Nazaré",
+        "ibge": "2922508"
+      },
+      {
+        "nome": "Presidente Tancredo Neves",
+        "ibge": "2925758"
+      },
+      {
+        "nome": "Santo Antônio De Jesus",
+        "ibge": "2928703"
+      },
+      {
+        "nome": "São Felipe",
+        "ibge": "2929107"
+      },
+      {
+        "nome": "Cruz Das Almas",
+        "ibge": "2909802"
+      },
+      {
+        "nome": "Governador Mangabeira",
+        "ibge": "2911600"
+      },
+      {
+        "nome": "Muritiba",
+        "ibge": "2922300"
+      },
+      {
+        "nome": "Vera Cruz",
+        "ibge": "2933208"
+      },
+      {
+        "nome": "Aratuípe",
+        "ibge": "2902302"
+      },
+      {
+        "nome": "Castro Alves",
+        "ibge": "2907301"
+      },
+      {
+        "nome": "Conceição Do Almeida",
+        "ibge": "2908309"
+      },
+      {
+        "nome": "Itatim",
+        "ibge": "2916856"
+      },
+      {
+        "nome": "Laje",
+        "ibge": "2918803"
+      },
+      {
+        "nome": "Muniz Ferreira",
+        "ibge": "2922201"
+      },
+      {
+        "nome": "Salinas Da Margarida",
+        "ibge": "2927309"
+      },
+      {
+        "nome": "Santa Teresinha",
+        "ibge": "2928505"
+      },
+      {
+        "nome": "São Miguel Das Matas",
+        "ibge": "2929404"
+      },
+      {
+        "nome": "Ubaíra",
+        "ibge": "2932101"
+      },
+      {
+        "nome": "Varzedo",
+        "ibge": "2933174"
+      },
+      {
+        "nome": "Sapeaçu",
+        "ibge": "2929602"
+      },
+      {
+        "nome": "São Félix",
+        "ibge": "2929008"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região Baía de Todos os Santos",
+    "nomeReduzido": "Região Baía de Todos os Santos",
+    "regiao": "Baía de Todos os Santos",
+    "presidente": "Dailton Raimundo de Jesus Filho",
+    "municipioPresidente": "Madre de Deus",
+    "sede": "São Francisco do Conde",
+    "populacao": 72382,
+    "totalConsorciados": 6,
+    "areaTotalKm2": 251.808,
+    "logo": "assets/img/logos-saude/18-regiao-baia-de-todos-os-santos.png",
+    "cor": "#2c7fb8",
+    "municipios": [
+      {
+        "nome": "Candeias",
+        "ibge": "2906501"
+      },
+      {
+        "nome": "Madre De Deus",
+        "ibge": "2919926"
+      },
+      {
+        "nome": "Santo Amaro",
+        "ibge": "2928604"
+      },
+      {
+        "nome": "Saubara",
+        "ibge": "2929750"
+      },
+      {
+        "nome": "São Francisco Do Conde",
+        "ibge": "2929206"
+      },
+      {
+        "nome": "São Sebastião Do Passé",
+        "ibge": "2929503"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região de Senhor do Bonfim",
+    "nomeReduzido": "Região de Senhor do Bonfim",
+    "regiao": "Senhor do Bonfim",
+    "presidente": "Silvania Silva Matos",
+    "municipioPresidente": "Monte Santo",
+    "sede": "Senhor do Bonfim",
+    "populacao": 15012,
+    "totalConsorciados": 13,
+    "areaTotalKm2": 1362.386,
+    "logo": "assets/img/logos-saude/19-regiao-de-senhor-do-bonfim.png",
+    "cor": "#d73027",
+    "municipios": [
+      {
+        "nome": "Andorinha",
+        "ibge": "2901353"
+      },
+      {
+        "nome": "Campo Formoso",
+        "ibge": "2906006"
+      },
+      {
+        "nome": "Cansanção",
+        "ibge": "2906808"
+      },
+      {
+        "nome": "Jaguarari",
+        "ibge": "2917706"
+      },
+      {
+        "nome": "Nordestina",
+        "ibge": "2922656"
+      },
+      {
+        "nome": "Ponto Novo",
+        "ibge": "2925253"
+      },
+      {
+        "nome": "Queimadas",
+        "ibge": "2925808"
+      },
+      {
+        "nome": "Monte Santo",
+        "ibge": "2921500"
+      },
+      {
+        "nome": "Antônio Gonçalves",
+        "ibge": "2901809"
+      },
+      {
+        "nome": "Filadélfia",
+        "ibge": "2910859"
+      },
+      {
+        "nome": "Itiúba",
+        "ibge": "2917003"
+      },
+      {
+        "nome": "Pindobaçu",
+        "ibge": "2924603"
+      },
+      {
+        "nome": "Senhor Do Bonfim",
+        "ibge": "2930105"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região de Serrinha",
+    "nomeReduzido": "CONPIS - Região de Serrinha",
+    "regiao": "Serrinha",
+    "presidente": "Ilário Antonio Neto Rios Carneiro",
+    "municipioPresidente": "São Domingos",
+    "sede": "Serrinha",
+    "populacao": 15203,
+    "totalConsorciados": 13,
+    "areaTotalKm2": 207.297,
+    "logo": "assets/img/logos-saude/20-conpis-regiao-de-serrinha.png",
+    "cor": "#66bd63",
+    "municipios": [
+      {
+        "nome": "Barrocas",
+        "ibge": "2903276"
+      },
+      {
+        "nome": "Biritinga",
+        "ibge": "2903607"
+      },
+      {
+        "nome": "Conceição Do Coité",
+        "ibge": "2908408"
+      },
+      {
+        "nome": "Quijingue",
+        "ibge": "2925907"
+      },
+      {
+        "nome": "Retirolândia",
+        "ibge": "2926103"
+      },
+      {
+        "nome": "Santaluz",
+        "ibge": "2928000"
+      },
+      {
+        "nome": "Teofilândia",
+        "ibge": "2931509"
+      },
+      {
+        "nome": "Valente",
+        "ibge": "2933000"
+      },
+      {
+        "nome": "Araci",
+        "ibge": "2902104"
+      },
+      {
+        "nome": "Euclides Da Cunha",
+        "ibge": "2910701"
+      },
+      {
+        "nome": "Lamarão",
+        "ibge": "2919108"
+      },
+      {
+        "nome": "São Domingos",
+        "ibge": "2928950"
+      },
+      {
+        "nome": "Serrinha",
+        "ibge": "2930501"
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região do Extremo Sul",
+    "nomeReduzido": "CONSAÚDE - Região do Extremo Sul",
+    "regiao": "Extremo Sul",
+    "presidente": "Adalberto Alves Pinto",
+    "municipioPresidente": "Medeiros Neto",
+    "sede": "Teixeira de Freitas",
+    "populacao": 24530,
+    "totalConsorciados": 13,
+    "areaTotalKm2": 1477.929,
+    "logo": "assets/img/logos-saude/21-consaude-regiao-do-extremo-sul.png",
+    "cor": "#8c96c6",
+    "municipios": [
+      {
+        "nome": "Alcobaça",
+        "ibge": "2900801"
+      },
+      {
+        "nome": "Caravelas",
+        "ibge": "2906907"
+      },
+      {
+        "nome": "Ibirapuã",
+        "ibge": "2912806"
+      },
+      {
+        "nome": "Itamaraju",
+        "ibge": "2915601"
+      },
+      {
+        "nome": "Itanhém",
+        "ibge": "2916005"
+      },
+      {
+        "nome": "Jucuruçu",
+        "ibge": "2918456"
+      },
+      {
+        "nome": "Lajedão",
+        "ibge": "2918902"
+      },
+      {
+        "nome": "Medeiros Neto",
+        "ibge": "2921104"
+      },
+      {
+        "nome": "Mucuri",
+        "ibge": "2922003"
+      },
+      {
+        "nome": "Nova Viçosa",
+        "ibge": "2923001"
+      },
+      {
+        "nome": "Prado",
+        "ibge": "2925501"
+      },
+      {
+        "nome": "Teixeira De Freitas",
+        "ibge": "2931350"
+      },
+      {
+        "nome": "Vereda",
+        "ibge": "2933257"
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região do Baixo Sul",
+    "nomeReduzido": "Região do Baixo Sul",
+    "regiao": "Baixo Sul",
+    "presidente": "Maria Baitinga",
+    "municipioPresidente": "Teolândia",
+    "sede": "Valença",
+    "populacao": 17761,
+    "totalConsorciados": 13,
+    "areaTotalKm2": 448.846,
+    "logo": "assets/img/logos-saude/22-regiao-do-baixo-sul.png",
+    "cor": "#fdae61",
+    "municipios": [
+      {
+        "nome": "Cairu",
+        "ibge": "2905404"
+      },
+      {
+        "nome": "Camamu",
+        "ibge": "2905800"
+      },
+      {
+        "nome": "Gandu",
+        "ibge": "2911204"
+      },
+      {
+        "nome": "Igrapiúna",
+        "ibge": "2913457"
+      },
+      {
+        "nome": "Ituberá",
+        "ibge": "2917300"
+      },
+      {
+        "nome": "Nilo Peçanha",
+        "ibge": "2922607"
+      },
+      {
+        "nome": "Nova Ibiá",
+        "ibge": "2922755"
+      },
+      {
+        "nome": "Piraí Do Norte",
+        "ibge": "2924678"
+      },
+      {
+        "nome": "Taperoá",
+        "ibge": "2931202"
+      },
+      {
+        "nome": "Teolândia",
+        "ibge": "2931608"
+      },
+      {
+        "nome": "Valença",
+        "ibge": "2932903"
+      },
+      {
+        "nome": "Wenceslau Guimarães",
+        "ibge": "2933505"
+      },
+      {
+        "nome": "Itaparica",
+        "ibge": "2916104"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região de Vitória da Conquista e Itapetinga",
+    "nomeReduzido": "CISVITA - Região de Vitória da Conquista e Itapetinga",
+    "regiao": "Vitória da Conquista e Itapetinga",
+    "presidente": "Maurílio Lemos das Virgens",
+    "municipioPresidente": "Cândido Sales",
+    "sede": "Vitória da Conquista",
+    "populacao": 6205,
+    "totalConsorciados": 28,
+    "areaTotalKm2": 512.436,
+    "logo": "assets/img/logos-saude/23-cisvita-regiao-de-vitoria-da-conquista-e-itapetinga.png",
+    "cor": "#4d9221",
+    "municipios": [
+      {
+        "nome": "Caatiba",
+        "ibge": "2904803"
+      },
+      {
+        "nome": "Ibicuí",
+        "ibge": "2912301"
+      },
+      {
+        "nome": "Iguaí",
+        "ibge": "2913507"
+      },
+      {
+        "nome": "Itambé",
+        "ibge": "2915809"
+      },
+      {
+        "nome": "Itapetinga",
+        "ibge": "2916401"
+      },
+      {
+        "nome": "Itarantim",
+        "ibge": "2916807"
+      },
+      {
+        "nome": "Macarani",
+        "ibge": "2919702"
+      },
+      {
+        "nome": "Maiquinique",
+        "ibge": "2920007"
+      },
+      {
+        "nome": "Nova Canaã",
+        "ibge": "2922706"
+      },
+      {
+        "nome": "Anagé",
+        "ibge": "2901205"
+      },
+      {
+        "nome": "Barra Do Choça",
+        "ibge": "2902906"
+      },
+      {
+        "nome": "Belo Campo",
+        "ibge": "2903508"
+      },
+      {
+        "nome": "Bom Jesus Da Serra",
+        "ibge": "2903953"
+      },
+      {
+        "nome": "Caetanos",
+        "ibge": "2905156"
+      },
+      {
+        "nome": "Cândido Sales",
+        "ibge": "2906709"
+      },
+      {
+        "nome": "Caraíbas",
+        "ibge": "2906899"
+      },
+      {
+        "nome": "Condeúba",
+        "ibge": "2908705"
+      },
+      {
+        "nome": "Cordeiros",
+        "ibge": "2909000"
+      },
+      {
+        "nome": "Encruzilhada",
+        "ibge": "2910404"
+      },
+      {
+        "nome": "Maetinga",
+        "ibge": "2919959"
+      },
+      {
+        "nome": "Mirante",
+        "ibge": "2921450"
+      },
+      {
+        "nome": "Piripá",
+        "ibge": "2924702"
+      },
+      {
+        "nome": "Planalto",
+        "ibge": "2925006"
+      },
+      {
+        "nome": "Poções",
+        "ibge": "2925105"
+      },
+      {
+        "nome": "Presidente Jânio Quadros",
+        "ibge": "2925709"
+      },
+      {
+        "nome": "Ribeirão Do Largo",
+        "ibge": "2926657"
+      },
+      {
+        "nome": "Tremendal",
+        "ibge": "2931806"
+      },
+      {
+        "nome": "Vitória Da Conquista",
+        "ibge": "2933307"
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "consorcio": "Consórcio Público Interfederativo de Saúde da Região do Cacau",
+    "nomeReduzido": "CISTEC - Região Terras do Cacau",
+    "regiao": "Terras do Cacau",
+    "presidente": "Edson Arante Santos Mendes",
+    "municipioPresidente": "Itacaré",
+    "sede": " Ilhéus",
+    "populacao": 32683,
+    "totalConsorciados": 10,
+    "areaTotalKm2": 1334.284,
+    "logo": "assets/img/logos-saude/24-cistec-regiao-terras-do-cacau-cistec.png",
+    "cor": "#c2a5cf",
+    "municipios": [
+      {
+        "nome": "Canavieiras",
+        "ibge": "2906303"
+      },
+      {
+        "nome": "Ilhéus",
+        "ibge": "2913606"
+      },
+      {
+        "nome": "Itacaré",
+        "ibge": "2914901"
+      },
+      {
+        "nome": "Santa Luzia",
+        "ibge": "2928059"
+      },
+      {
+        "nome": "Una",
+        "ibge": "2932507"
+      },
+      {
+        "nome": "Uruçuca",
+        "ibge": "2932705"
+      },
+      {
+        "nome": "Coaraci",
+        "ibge": "2908002"
+      },
+      {
+        "nome": "Gongogi",
+        "ibge": "2911501"
+      },
+      {
+        "nome": "Maraú",
+        "ibge": "2920700"
+      },
+      {
+        "nome": "Ubaitaba",
+        "ibge": "2932200"
+      }
+    ]
+  }
+]

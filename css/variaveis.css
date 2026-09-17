@@ -1,0 +1,92 @@
+/* ==========================================================================
+   CONSIS360 — Variáveis globais de design
+   Tokens de cor, tipografia e espaçamento. Tudo em variáveis CSS para que
+   o modo alto contraste / escuro só precise sobrescrever este arquivo.
+   ========================================================================== */
+
+:root {
+  /* Paleta institucional */
+  --cor-azul-900: #0b2f6b;
+  --cor-azul-700: #0f4c9c;
+  --cor-azul-600: #1560c4;
+  --cor-azul-500: #1a6fe0;
+  --cor-azul-100: #e6f0fd;
+  --cor-vermelho-700: #a30f22;
+  --cor-vermelho-600: #c31432;
+
+  --cor-texto: #1c2530;
+  --cor-texto-suave: #4a5568;
+  --cor-fundo: #ffffff;
+  --cor-fundo-alt: #f4f7fb;
+  --cor-borda: #d7e0ec;
+  --cor-card-fundo: #ffffff;
+  --cor-card-sombra: rgba(15, 40, 90, 0.10);
+
+  --cor-foco: #ffb703;
+  --cor-link: #0f4c9c;
+  --cor-link-visitado: #5a3ea3;
+
+  --cor-sucesso: #1b7a3d;
+  --cor-alerta: #a30f22;
+
+  /* Tipografia */
+  --fonte-base: "Segoe UI", Arial, Helvetica, sans-serif;
+  --fonte-titulos: "Poppins", "Segoe UI", Arial, sans-serif;
+  --fonte-banner: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --fonte-dislexia: "OpenDyslexic", "Comic Sans MS", Verdana, sans-serif;
+  --fonte-tamanho-base: 16px;
+  --fonte-escala: 1;
+  --espaco-letras: normal;
+  --espaco-linhas: 1.6;
+
+  /* Espaçamento (escala 4px) */
+  --esp-1: 0.25rem;
+  --esp-2: 0.5rem;
+  --esp-3: 0.75rem;
+  --esp-4: 1rem;
+  --esp-5: 1.5rem;
+  --esp-6: 2rem;
+  --esp-7: 3rem;
+  --esp-8: 4rem;
+
+  /* Bordas e sombras */
+  --raio-card: 14px;
+  --raio-botao: 8px;
+  --sombra-card: 0 6px 18px var(--cor-card-sombra);
+  --sombra-card-hover: 0 10px 26px rgba(15, 40, 90, 0.18);
+
+  /* Camadas */
+  --z-banner: 100;
+  --z-painel-acessibilidade: 200;
+  --z-modal: 300;
+  --z-skiplink: 400;
+
+  /* Largura de conteúdo */
+  --largura-maxima: 1280px;
+}
+
+/* Modo escuro / alto contraste para baixa visão */
+[data-tema="escuro"] {
+  --cor-texto: #eef2f8;
+  --cor-texto-suave: #c3ccd9;
+  --cor-fundo: #10161f;
+  --cor-fundo-alt: #171f2c;
+  --cor-borda: #35415a;
+  --cor-card-fundo: #1b2432;
+  --cor-card-sombra: rgba(0, 0, 0, 0.5);
+  --cor-azul-100: #1b2c46;
+  --cor-link: #7db4ff;
+  --cor-link-visitado: #c9a6ff;
+  --cor-foco: #ffd166;
+}
+
+/* Fonte para dislexia */
+[data-fonte="dislexia"] {
+  --fonte-base: var(--fonte-dislexia);
+}
+
+/* --fonte-escala é ajustada via JS (inline style no <html>) pelos botões A-, A, A+ */
+
+/* Espaçamento de letras/linhas controlado pelo painel de acessibilidade */
+[data-espaco-letras="ativo"] { --espaco-letras: 0.06em; }
+[data-espaco-linhas="ativo"] { --espaco-linhas: 2.1; }
