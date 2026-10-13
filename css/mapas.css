@@ -74,6 +74,21 @@
   flex-wrap: wrap;
 }
 
+.mapa-exportar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--esp-3);
+  padding: 0 var(--esp-4) var(--esp-4);
+}
+.mapa-exportar .botao {
+  font-size: 0.85rem;
+  padding: var(--esp-2) var(--esp-4);
+}
+.mapa-exportar .botao[disabled] {
+  opacity: 0.6;
+  cursor: progress;
+}
+
 /* Tooltip do Leaflet (hover) — sobrescreve estilo padrão da biblioteca */
 .leaflet-tooltip.tooltip-consorcio {
   background: var(--cor-fundo);
@@ -263,5 +278,10 @@
   color: var(--cor-texto-suave);
   font-size: 0.82rem;
   margin: -8px 0 var(--esp-4);
+}
+.painel-detalhe__sem-consorcio {
+  color: var(--cor-texto-suave);
+  font-size: 0.95rem;
+  margin: var(--esp-2) 0 0;
 }
 

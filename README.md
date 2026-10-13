@@ -292,3 +292,63 @@ do placeholder genérico *e* o erro real vai para o console do navegador
 (F12 → Console) — se o problema persistir, essa mensagem/console vai dizer
 exatamente onde travou.
 
+
+## Rodada — filtro ATIVO=S, exportação PDF/XLS, renomeações
+
+- **Filtro de consórcios ativos**: a planilha agora tem a coluna `ATIVO`
+  (por linha de município, não por consórcio). Apenas linhas `ATIVO = "S"`
+  entram no site. O SOMAR (ID 15) tinha as 3 linhas com `ATIVO = "N"` — foi
+  excluído por completo (0 linhas ativas). "Consórcios cadastrados" caiu de
+  30 para **29** automaticamente, já que o card reflete `regioes.length`
+  após o filtro.
+- **Bug de interpretação de label corrigido**: "CDS Litoral Norte e Agreste
+  Baiano" é o nome de UM consórcio (o "e" faz parte do nome), mas minha
+  lógica antiga de detectar dupla filiação (split por `" e "`) confundia
+  isso com dois consórcios diferentes. Corrigido: agora primeiro verifico
+  se o rótulo inteiro já bate com um nome de consórcio conhecido antes de
+  tentar dividir.
+- **Área dos municípios "Sem Consórcio"**: não tinha o arquivo de área
+  oficial do IBGE desta vez (sessão nova). Para os 17 municípios sem área
+  em cache, calculei a área geodésica diretamente da geometria (projeção
+  equirretangular escalada pela latitude) — conferi contra valores reais
+  conhecidos (Salvador: 709,72 km² calculado vs 693 km² oficial, ~2% de
+  diferença; Camaçari: 787,02 km² calculado vs ~785 km² oficial, quase
+  exato). Documentando essa aproximação para transparência.
+- **Ibiquera**: não tem o mesmo problema de anéis múltiplos que Caravelas
+  tinha (só 1 anel, 18 pontos). O contorno de baixa resolução parece ser
+  uma limitação da fonte gratuita que uso (`geojs-29-mun.json`,
+  `tbrugz/geodata-br`) — não encontrei uma fonte alternativa com licença
+  aberta e melhor resolução. Se você tiver acesso a um shapefile oficial
+  do IBGE para este município eu reprocesso.
+- **Textos renomeados** em todas as páginas de mapa: "Municípios
+  conveniados" → "Municípios consorciados"; "População atendida" →
+  "População beneficiada".
+- **Clique em município sem consórcio**: agora mostra "Esta cidade não
+  está vinculada a nenhum consórcio." — no painel lateral (Multifinalitários)
+  ou no modal (Saúde), ao lado/sobre o mapa, como pedido.
+- **Exportação PDF**: desenhado num `<canvas>` a partir do próprio GeoJSON
+  (projeção equirretangular simples), não é uma captura de tela do mapa —
+  capturar o Leaflet ao vivo quebra por CORS (as imagens de tile do
+  OpenStreetMap não liberam `Access-Control-Allow-Origin`, o que
+  "contaminaria" o canvas e impediria exportar). O PDF inclui título, mapa
+  colorido e legenda (cor + nome de cada consórcio/região). Bibliotecas:
+  jsPDF 2.5.2 e SheetJS (xlsx) 0.18.5, carregadas sob demanda via CDN
+  (`cdnjs.cloudflare.com`) só quando o botão é clicado.
+- **Exportação XLS**: uma linha por município, com os dados do consórcio
+  repetidos nas colunas correspondentes — disponível nas duas páginas de
+  mapa (Multifinalitários e Saúde).
+
+## Rodada 9 — correções de exportação
+- **PDF/XLS**: jsPDF 2.5.2 e SheetJS 0.18.5 agora ficam em `assets/lib/` (sem depender de CDN; cdnjs é só plano B). A mensagem de erro passa a mostrar o detalhe técnico real.
+- **XLS**: 29 consórcios distintos com IDs sequenciais 1..29 (SOMAR fora); municípios sem consórcio recebem ID 30 (último ID + 1), "Consórcio" = SEM CONSÓRCIO, campos do consórcio em branco e população/área preenchidas com os dados do município.
+- Cache-busting: `?v=20261009-8`.
+
+## Rodada 10 — mapa de Saúde v2, pinos e banner
+- **Saúde**: `paginas/mapa-saude.html` agora usa o motor `js/mapa-consorcios-v2.js` (mesmo layout de Multifinalitários: lista | mapa | painel). O antigo `js/mapa-consorcios.js` não é mais usado.
+- **Dados**: `data/consorcios_saude.json` e `data/municipios_saude.geojson` regenerados a partir de `RELAÇÃO_DE_CONSORCIOS_DE_SAUDE_v2.xlsx` (24 consórcios, 416 municípios; Salvador sem consórcio) e `Cor_Municipos_Saude.txt` (cores). A malha (com Caravelas corrigida) é a mesma de Multifinalitários.
+- **População/área**: soma por município (mesma base do mapa Multifinalitários), não o valor da planilha.
+- **Pino**: `assets/img/icones/pino-hospital-saude.png` (fundo transparente) marca a cidade em "Município Sede".
+- **Pinos sede (Multi)**: a sede é localizada por código IBGE (`sedeIbge`) e, na falta, por nome normalizado — corrige CIMA (Camacã/Camacan) e CIIDSCV (Boquira com espaços sobrando).
+- **Banner**: novo `assets/img/banner/banner-consorcios-bahia.jpg` (1844×582).
+- Logos de Saúde atualizados do `IMAGENS.zip`. Cache-busting `?v=20261010-9`.
+- Pendência de dados: CDS Velho Chico (Multi) tem sede "Salvador", que não é município do consórcio — por isso não exibe pino.

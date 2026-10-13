@@ -1,10 +1,10 @@
 /**
  * CONSIS360 — Motor do mapa de consórcios v2 (painel lateral)
  * ------------------------------------------------------------------
- * Usado exclusivamente pela página de Mapa de Consórcios Multifinalitários
- * (paginas/mapa-multifinalitarios.html). A página de Saúde continua usando
- * o motor antigo (js/mapa-consorcios.js, com modal central) até receber
- * seu próprio layout novo.
+ * Usado pelas páginas de Mapa de Consórcios Multifinalitários e de Saúde
+ * (paginas/mapa-multifinalitarios.html e paginas/mapa-saude.html). O que muda
+ * entre as duas vem de window.CONSIS360_MAPA_CONFIG (ícone do pino da sede,
+ * rótulos, campos extras da ficha técnica).
  *
  * Diferenças em relação ao motor v1:
  *   - Ficha técnica abre num PAINEL LATERAL (3ª coluna), não um modal
@@ -14,7 +14,7 @@
  *   - Clique (lista ou mapa) dá zoom na região, esmaece as demais
  *     (fillOpacity baixo) e abre o painel.
  *   - Cards de estatística: "Consórcios cadastrados" fica fixo (total do
- *     estado); "Municípios conveniados" e "População atendida" mostram o
+ *     estado); "Municípios consorciados" e "População beneficiada" mostram o
  *     total da região em foco (hover ou seleção) e voltam ao total geral
  *     quando nada está em foco.
  *   - Pino da cidade-sede aparece no mapa quando uma região é selecionada.
@@ -34,6 +34,8 @@
   var regiaoSelecionadaId = null;
   var marcadorSede = null;
   var camadaComTooltipAberto = null;
+  var regioesCarregadas = null;
+  var geojsonCarregado = null;
 
   function fecharTooltipAberto() {
     if (camadaComTooltipAberto && camadaComTooltipAberto.closeTooltip) {
@@ -54,11 +56,14 @@
       .then(function (resultados) {
         var regioes = resultados[0];
         var geojson = resultados[1];
+        regioesCarregadas = regioes;
+        geojsonCarregado = geojson;
         regioes.forEach(function (r) { regioesPorId[r.id] = r; });
         calcularTotaisGerais(regioes);
         aplicarEstatisticas(totalGeral.municipios, totalGeral.populacao, totalGeral.regioes);
         montarListaRegioes(regioes);
         montarMapa(geojson);
+        configurarBotoesExportacao();
       })
       .catch(function (erro) {
         exibirErroCarregamento(erro);
@@ -87,7 +92,7 @@
 
   function calcularTotaisGerais(regioes) {
     totalGeral.regioes = regioes.length;
-    // Municípios conveniados: contagem de municípios ÚNICOS (um município em 2
+    // Municípios consorciados: contagem de municípios ÚNICOS (um município em 2
     // consórcios ao mesmo tempo é contado uma vez só no total geral do estado).
     var ibgesUnicos = {};
     regioes.forEach(function (r) {
@@ -151,7 +156,6 @@
               '<p class="item-regiao__regiao-nome">' + util.escaparHtml(r.regiao) + '</p>' +
             '</span>';
           item.addEventListener("click", function () {
-            console.log("[CONSIS360] clique na lista — região:", r.nomeReduzido, "| id:", r.id);
             selecionarRegiao(r.id);
           });
           lista.appendChild(item);
@@ -204,7 +208,7 @@
 
     mapa.getContainer().setAttribute(
       "aria-label",
-      "Mapa interativo dos municípios da Bahia coloridos por consórcio multifinalitário. Para navegação por teclado ou leitor de tela, use a lista de consórcios ao lado, que traz as mesmas informações."
+      "Mapa interativo dos municípios da Bahia coloridos por consórcio " + (config.rotuloTipo || "multifinalitário") + ". Para navegação por teclado ou leitor de tela, use a lista de consórcios ao lado, que traz as mesmas informações."
     );
   }
 
@@ -257,14 +261,13 @@
     });
 
     camada.on("click", function () {
-      console.log("[CONSIS360] clique no mapa — município:", props.nome, "| regionId:", props.regionId, "| consorcios:", props.consorcios);
       var listaConsorcios = props.consorcios || [];
       if (listaConsorcios.length > 1) {
         abrirEscolhaMunicipioMultiplo(props);
       } else if (props.regionId !== null && props.regionId !== undefined) {
         selecionarRegiao(props.regionId);
       } else {
-        console.log("[CONSIS360] município sem consórcio associado — nada a abrir.");
+        abrirPainelSemConsorcio(props);
       }
     });
   }
@@ -277,7 +280,7 @@
     if (props.regionId === null || props.regionId === undefined) {
       return (
         '<p class="tooltip-consorcio__titulo">' + util.escaparHtml(props.nome) + "</p>" +
-        "<p>Município não integra nenhum consórcio multifinalitário cadastrado.</p>"
+        "<p>Município não integra nenhum consórcio " + (config.rotuloTipo || "multifinalitário") + " cadastrado.</p>"
       );
     }
     var titulo = (props.consorcios || [])
@@ -290,14 +293,13 @@
     return (
       '<p class="tooltip-consorcio__titulo">' + util.escaparHtml(titulo) + "</p>" +
       '<div class="tooltip-consorcio__linha"><span>Município</span><strong>' + util.escaparHtml(props.nome) + "</strong></div>" +
-      '<div class="tooltip-consorcio__linha"><span>População atendida</span><strong>' + util.formatarNumero(props.populacao) + "</strong></div>" +
+      '<div class="tooltip-consorcio__linha"><span>População beneficiada</span><strong>' + util.formatarNumero(props.populacao) + "</strong></div>" +
       '<div class="tooltip-consorcio__linha"><span>Área ocupacional</span><strong>' + util.formatarArea(props.areaKm2) + "</strong></div>" +
       extra
     );
   }
 
   function selecionarRegiao(regionId) {
-    console.log("[CONSIS360] selecionarRegiao chamada com id:", regionId);
     var regiao = regioesPorId[regionId];
     if (!regiao) {
       console.warn("[CONSIS360] nenhuma região encontrada para id:", regionId, "— regioesPorId tem chaves:", Object.keys(regioesPorId));
@@ -354,27 +356,37 @@
     if (lista && lista.__renderizar) lista.__renderizar("");
   }
 
+  function normalizarNome(s) {
+    return String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ").trim().toLowerCase();
+  }
+
+  /* A sede é localizada pelo código IBGE (sedeIbge); se ele não existir,
+     cai para o nome normalizado (sem acento/espaço sobrando) — assim
+     "Camacã" acha "Camacan" e "Boquira  " acha "Boquira". */
   function posicionarPinoSede(regiao) {
     removerPinoSede();
     if (!regiao || !regiao.sede || !camadaGeojson) return;
     var alvoCamada = null;
+    var nomeSede = normalizarNome(regiao.sede);
     camadaGeojson.eachLayer(function (camada) {
       if (alvoCamada) return;
       var props = camada.feature.properties;
-      if (props.nome === regiao.sede && pertenceARegiao(props, regiao.id)) {
-        alvoCamada = camada;
-      }
+      if (!pertenceARegiao(props, regiao.id)) return;
+      var confere = regiao.sedeIbge ? String(props.ibge) === String(regiao.sedeIbge) : normalizarNome(props.nome) === nomeSede;
+      if (confere) alvoCamada = camada;
     });
     if (!alvoCamada || !alvoCamada.getBounds) return;
     var centro = alvoCamada.getBounds().getCenter();
+    var cfgPino = config.pinoSede || {};
+    var tam = cfgPino.tamanho || [22, 29];
     var icone = L.icon({
-      iconUrl: (window.CONSIS360_BASE || "") + "assets/img/icones/pino-cidade-sede.png",
-      iconSize: [22, 29],
-      iconAnchor: [11, 29],
-      popupAnchor: [0, -26]
+      iconUrl: (window.CONSIS360_BASE || "") + (cfgPino.url || "assets/img/icones/pino-cidade-sede.png"),
+      iconSize: tam,
+      iconAnchor: [tam[0] / 2, tam[1]],
+      popupAnchor: [0, -tam[1]]
     });
     marcadorSede = L.marker(centro, { icon: icone, zIndexOffset: 1000, keyboard: false, alt: "Cidade sede: " + regiao.sede }).addTo(mapa);
-    marcadorSede.bindTooltip("Sede: " + regiao.sede, { direction: "top", offset: [0, -26] });
+    marcadorSede.bindTooltip("Sede: " + regiao.sede, { direction: "top", offset: [0, -tam[1] + 3] });
   }
 
   function removerPinoSede() {
@@ -385,7 +397,6 @@
   }
 
   function abrirPainelRegiao(regionId) {
-    console.log("[CONSIS360] abrirPainelRegiao chamada com id:", regionId);
     var regiao = regioesPorId[regionId];
     if (!regiao) return;
     fecharTooltipAberto();
@@ -397,7 +408,6 @@
     try {
       painel.innerHTML = montarFichaTecnica(regiao);
       painel.classList.add("aberto");
-      console.log("[CONSIS360] painel preenchido com sucesso para:", regiao.nomeReduzido, "| innerHTML tem", painel.innerHTML.length, "caracteres | classList:", painel.className);
       var botaoFechar = painel.querySelector(".painel-detalhe__fechar");
       if (botaoFechar) {
         botaoFechar.addEventListener("click", function () {
@@ -435,7 +445,7 @@
     painel.innerHTML =
       '<button type="button" class="painel-detalhe__fechar" aria-label="Fechar">&times;</button>' +
       "<h2>" + util.escaparHtml(props.nome) + "</h2>" +
-      "<p>Este município é conveniado a mais de um consórcio multifinalitário. Selecione qual deseja consultar:</p>" +
+      "<p>Este município é conveniado a mais de um consórcio " + (config.rotuloTipo || "multifinalitário") + ". Selecione qual deseja consultar:</p>" +
       '<ul style="list-style:none;padding:0;display:grid;gap:8px;">' + opcoes + "</ul>";
 
     painel.classList.add("aberto");
@@ -445,6 +455,19 @@
         selecionarRegiao(Number(botao.getAttribute("data-abrir-regiao")));
       });
     });
+  }
+
+  function abrirPainelSemConsorcio(props) {
+    fecharTooltipAberto();
+    var painel = document.getElementById("painel-detalhe");
+    if (!painel) return;
+    painel.innerHTML =
+      '<button type="button" class="painel-detalhe__fechar" aria-label="Fechar">&times;</button>' +
+      '<h2 class="painel-detalhe__titulo">' + util.escaparHtml(props.nome) + "</h2>" +
+      '<p class="painel-detalhe__sem-consorcio">Esta cidade não está vinculada a nenhum consórcio.</p>';
+    painel.classList.add("aberto");
+    var botaoFechar = painel.querySelector(".painel-detalhe__fechar");
+    if (botaoFechar) botaoFechar.addEventListener("click", function () { resetarSelecao(); });
   }
 
   function fecharPainel() {
@@ -458,6 +481,16 @@
   function montarFichaTecnica(regiao) {
     var linhaSecretario = config.mostrarSecretario
       ? '<div><dt>Secretário(a)</dt><dd>' + util.valorOuPendente(regiao.secretario) + "</dd></div>"
+      : "";
+    var linhaDiretor = regiao.diretorExecutivo
+      ? "<div><dt>Diretor Executivo</dt><dd>" + util.escaparHtml(regiao.diretorExecutivo) + "</dd></div>"
+      : "";
+    var linhaVice = regiao.vicePresidente
+      ? "<div><dt>Vice-presidente</dt><dd>" + util.escaparHtml(regiao.vicePresidente) +
+        (regiao.municipioVicePresidente ? " (" + util.escaparHtml(regiao.municipioVicePresidente) + ")" : "") + "</dd></div>"
+      : "";
+    var linhaEndereco = regiao.endereco
+      ? "<div><dt>Endereço</dt><dd>" + util.escaparHtml(regiao.endereco) + "</dd></div>"
       : "";
     var linhaEmail = regiao.email
       ? '<div><dt>E-mail</dt><dd><a href="mailto:' + util.escaparHtml(regiao.email) + '">' + util.escaparHtml(regiao.email) + "</a></dd></div>"
@@ -490,18 +523,91 @@
         "<div><dt>Município Pres.</dt><dd>" + util.valorOuPendente(regiao.municipioPresidente) + "</dd></div>" +
         "<div><dt>Sede</dt><dd>" + util.valorOuPendente(regiao.sede) + "</dd></div>" +
         linhaSecretario +
+        linhaDiretor +
+        linhaVice +
         "<div><dt>Total de conveniados</dt><dd>" + util.formatarNumero(regiao.totalConsorciados) + "</dd></div>" +
-        "<div><dt>População atendida</dt><dd>" + util.formatarNumero(regiao.populacao) + "</dd></div>" +
+        "<div><dt>População beneficiada</dt><dd>" + util.formatarNumero(regiao.populacao) + "</dd></div>" +
         "<div><dt>Área total</dt><dd>" + util.formatarArea(regiao.areaTotalKm2) + "</dd></div>" +
+        linhaEndereco +
         linhaEmail +
         linhaCnpj +
         linhaSite +
       "</dl>" +
       '<div class="municipios-lista">' +
-        '<p class="municipios-lista__titulo">Municípios conveniados (' + (regiao.municipios || []).length + ")</p>" +
+        '<p class="municipios-lista__titulo">Municípios consorciados (' + (regiao.municipios || []).length + ")</p>" +
         '<ul class="municipios-lista__tags">' + listaMunicipios + "</ul>" +
       "</div>"
     );
+  }
+
+  /* Municípios que não pertencem a nenhum consórcio (regionId nulo no
+     GeoJSON carregado) — usados só na exportação XLS. */
+  function municipiosSemConsorcio() {
+    if (!geojsonCarregado) return [];
+    return geojsonCarregado.features
+      .filter(function (f) { return f.properties.regionId === null || f.properties.regionId === undefined; })
+      .map(function (f) {
+        return {
+          nome: f.properties.nome,
+          ibge: f.properties.ibge,
+          populacao: f.properties.populacao,
+          areaKm2: f.properties.areaKm2
+        };
+      });
+  }
+
+  /* ---------------------------------------------------------------
+   * Exportação — PDF (mapa + legenda) e XLS (dados tabulados)
+   * --------------------------------------------------------------- */
+  function configurarBotoesExportacao() {
+    var botaoPdf = document.getElementById("botao-exportar-pdf");
+    var botaoXls = document.getElementById("botao-exportar-xls");
+
+    if (botaoPdf) {
+      botaoPdf.addEventListener("click", function () {
+        if (!window.Consis360Exportar || !regioesCarregadas || !geojsonCarregado) return;
+        var textoOriginal = botaoPdf.innerHTML;
+        botaoPdf.disabled = true;
+        botaoPdf.textContent = "Gerando PDF...";
+        window.Consis360Exportar.exportarPDF(
+          regioesCarregadas,
+          geojsonCarregado,
+          config.arquivoPdf || "consis360-mapa-multifinalitarios.pdf",
+          config.tituloPdf || "Mapa de Consórcios Multifinalitários — CONSIS360"
+        ).then(function () {
+          botaoPdf.disabled = false;
+          botaoPdf.innerHTML = textoOriginal;
+        }).catch(function (erro) {
+          console.error("CONSIS360: falha ao gerar PDF", erro);
+          botaoPdf.disabled = false;
+          botaoPdf.innerHTML = textoOriginal;
+          window.alert("Não foi possível gerar o PDF. Detalhe técnico: " + (erro && erro.message ? erro.message : erro));
+        });
+      });
+    }
+
+    if (botaoXls) {
+      botaoXls.addEventListener("click", function () {
+        if (!window.Consis360Exportar || !regioesCarregadas) return;
+        var textoOriginal = botaoXls.innerHTML;
+        botaoXls.disabled = true;
+        botaoXls.textContent = "Gerando XLS...";
+        window.Consis360Exportar.exportarXLS(
+          regioesCarregadas,
+          municipiosSemConsorcio(),
+          config.arquivoXls || "consis360-consorcios-multifinalitarios.xlsx",
+          config.mostrarSecretario
+        ).then(function () {
+          botaoXls.disabled = false;
+          botaoXls.innerHTML = textoOriginal;
+        }).catch(function (erro) {
+          console.error("CONSIS360: falha ao gerar XLS", erro);
+          botaoXls.disabled = false;
+          botaoXls.innerHTML = textoOriginal;
+          window.alert("Não foi possível gerar o XLS. Detalhe técnico: " + (erro && erro.message ? erro.message : erro));
+        });
+      });
+    }
   }
 
   window.iniciarMapaConsorcios = iniciar;
