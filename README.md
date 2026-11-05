@@ -352,3 +352,7 @@ exatamente onde travou.
 - **Banner**: novo `assets/img/banner/banner-consorcios-bahia.jpg` (1844×582).
 - Logos de Saúde atualizados do `IMAGENS.zip`. Cache-busting `?v=20261010-9`.
 - Pendência de dados: CDS Velho Chico (Multi) tem sede "Salvador", que não é município do consórcio — por isso não exibe pino.
+
+## Rodada 11 — pino da sede dentro do município
+- O pino da sede agora usa um ponto interno ao contorno do município (`pontoInternoLatLng`, mais distante das bordas) em vez do centro da caixa envolvente — Boquira (CIIDSCV) fica dentro de Boquira, não de Oliveira dos Brejinhos. Validado: 417/417 municípios com ponto interno.
+- Ícone `pino-cidade-sede.png` com fundo transparente. Cache-busting `?v=20261013-10`.

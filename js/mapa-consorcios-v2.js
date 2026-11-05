@@ -356,6 +356,55 @@
     if (lista && lista.__renderizar) lista.__renderizar("");
   }
 
+  /* Ponto garantidamente DENTRO do município (o centro da caixa envolvente
+     cai fora quando o contorno é irregular — ex.: Boquira). Busca em grade o
+     ponto interno mais distante das bordas (aprox. do "pólo de inacessibilidade"). */
+  function dentroDoAnel(x, y, anel) {
+    var dentro = false;
+    for (var i = 0, j = anel.length - 1; i < anel.length; j = i++) {
+      var xi = anel[i][0], yi = anel[i][1], xj = anel[j][0], yj = anel[j][1];
+      if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) dentro = !dentro;
+    }
+    return dentro;
+  }
+  function distanciaAoAnel(x, y, anel) {
+    var min = Infinity;
+    for (var i = 0, j = anel.length - 1; i < anel.length; j = i++) {
+      var ax = anel[j][0], ay = anel[j][1], bx = anel[i][0], by = anel[i][1];
+      var dx = bx - ax, dy = by - ay, l2 = dx * dx + dy * dy;
+      var u = l2 ? Math.max(0, Math.min(1, ((x - ax) * dx + (y - ay) * dy) / l2)) : 0;
+      var px = ax + u * dx - x, py = ay + u * dy - y;
+      var d = px * px + py * py;
+      if (d < min) min = d;
+    }
+    return Math.sqrt(min);
+  }
+  function pontoInternoLatLng(geometria) {
+    var poligonos = geometria.type === "Polygon" ? [geometria.coordinates] : geometria.coordinates;
+    var melhor = null, melhorDist = -1;
+    poligonos.forEach(function (poli) {
+      var aneis = poli;
+      var minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      aneis[0].forEach(function (c) {
+        if (c[0] < minX) minX = c[0]; if (c[0] > maxX) maxX = c[0];
+        if (c[1] < minY) minY = c[1]; if (c[1] > maxY) maxY = c[1];
+      });
+      var N = 48;
+      for (var a = 0; a <= N; a++) {
+        for (var b = 0; b <= N; b++) {
+          var x = minX + (maxX - minX) * a / N, y = minY + (maxY - minY) * b / N;
+          if (!dentroDoAnel(x, y, aneis[0])) continue;
+          var furo = false;
+          for (var k = 1; k < aneis.length; k++) { if (dentroDoAnel(x, y, aneis[k])) { furo = true; break; } }
+          if (furo) continue;
+          var d = distanciaAoAnel(x, y, aneis[0]);
+          if (d > melhorDist) { melhorDist = d; melhor = [y, x]; }
+        }
+      }
+    });
+    return melhor;
+  }
+
   function normalizarNome(s) {
     return String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, " ").trim().toLowerCase();
   }
@@ -376,7 +425,8 @@
       if (confere) alvoCamada = camada;
     });
     if (!alvoCamada || !alvoCamada.getBounds) return;
-    var centro = alvoCamada.getBounds().getCenter();
+    var interno = pontoInternoLatLng(alvoCamada.feature.geometry);
+    var centro = interno ? L.latLng(interno[0], interno[1]) : alvoCamada.getBounds().getCenter();
     var cfgPino = config.pinoSede || {};
     var tam = cfgPino.tamanho || [22, 29];
     var icone = L.icon({
