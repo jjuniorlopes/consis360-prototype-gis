@@ -126,36 +126,67 @@
 }
 .botao svg { width: 18px; height: 18px; }
 
-/* ---- Botão "Voltar" (círculo azul + seta, referência ba.gov.br) ---- */
-.botao-voltar {
+/* ---- Botão "Voltar" (círculo azul + seta + palavra Voltar na mesma cor azul do botão) ---- */
+.botao-voltar,
+.botao-voltar:link,
+.botao-voltar:visited {
   display: inline-flex;
   align-items: center;
   gap: var(--esp-2);
   background: var(--cor-fundo);
-  border: 1px solid var(--cor-borda);
+  border: 1.5px solid #0756B1;
   border-radius: 999px;
   padding: 4px 18px 4px 4px;
-  margin-bottom: var(--esp-5);
-  color: var(--cor-azul-700);
+  margin-bottom: 0;
+  color: #0756B1;
   font-family: var(--fonte-titulos);
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
+  transition: background-color 0.15s ease, transform 0.15s ease;
 }
-.botao-voltar:hover {
+.botao-voltar:hover,
+.botao-voltar:focus-visible {
   background: var(--cor-azul-100);
-  color: var(--cor-azul-900);
+  color: #0756B1;
+  border-color: #0756B1;
+  text-decoration: none;
+}
+.botao-voltar__texto {
+  color: #0756B1;
 }
 .botao-voltar__icone {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: var(--cor-azul-700);
-  color: #fff;
+  background: #0756B1;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+[data-tema="escuro"] .botao-voltar,
+[data-tema="escuro"] .botao-voltar:visited,
+[data-tema="escuro"] .botao-voltar .botao-voltar__texto {
+  color: #7db4ff;
+  border-color: #7db4ff;
+}
+[data-tema="escuro"] .botao-voltar__icone {
+  background: #7db4ff;
+  color: #10161f;
+}
+
+[data-alto-contraste="ativo"] .botao-voltar,
+[data-alto-contraste="ativo"] .botao-voltar:visited,
+[data-alto-contraste="ativo"] .botao-voltar .botao-voltar__texto {
+  color: #ffff00;
+  border-color: #ffff00;
+}
+[data-alto-contraste="ativo"] .botao-voltar__icone {
+  background: #ffff00;
+  color: #000000;
 }
 
 /* ---- Estatísticas (cards numéricos ao lado do mapa) — alto relevo 3D ---- */
@@ -192,6 +223,19 @@
     0 8px 16px -6px rgba(0, 0, 0, 0.4),
     0 22px 40px -20px rgba(0, 0, 0, 0.5);
   border-color: var(--cor-borda);
+}
+[data-alto-contraste="ativo"] .estatistica-card,
+[data-alto-contraste="ativo"] .card-mapa {
+  border: 2px solid #ffffff;
+  box-shadow: none;
+}
+[data-alto-contraste="ativo"] .estatistica-card__valor {
+  color: #ffffff;
+}
+[data-alto-contraste="ativo"] .card-mapa--multi .card-mapa__rodape,
+[data-alto-contraste="ativo"] .card-mapa--saude .card-mapa__rodape {
+  background: #ffff00;
+  color: #000000;
 }
 .estatistica-card__texto {
   display: flex;

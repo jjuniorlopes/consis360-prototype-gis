@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acessibilidade — CONSIS360</title>
-  <meta name="description" content="Recursos e diretrizes de acessibilidade do portal CONSIS360, em conformidade com o e-MAG.">
+  <meta name="description" content="Recursos e diretrizes de acessibilidade do portal CONSIS360, em conformidade com a ABNT NBR 17225:2025 (WCAG 2.2 AA) e o e-MAG.">
   <link rel="icon" href="../assets/img/icones/logo-consis360.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="../css/variaveis.css">
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/componentes.css">
-  <link rel="stylesheet" href="../css/acessibilidade.css">
+  <link rel="stylesheet" href="../css/variaveis.css?v=20261106-18">
+  <link rel="stylesheet" href="../css/base.css?v=20261106-18">
+  <link rel="stylesheet" href="../css/layout.css?v=20261106-18">
+  <link rel="stylesheet" href="../css/componentes.css?v=20261106-18">
+  <link rel="stylesheet" href="../css/acessibilidade.css?v=20261106-18">
   <script>window.CONSIS360_BASE = "../";</script>
 </head>
 <body>
   <div id="app-cabecalho"></div>
 
-  <main id="conteudo-principal">
+  <main id="conteudo-principal" tabindex="-1">
     <div class="container container--estreito">
       <div id="app-trilha" data-pagina="Acessibilidade"></div>
     </div>
@@ -33,43 +33,48 @@
         <h1 class="pagina-conteudo__titulo">Acessibilidade</h1>
 
         <div class="pagina-conteudo__corpo">
-        <p>Este portal segue as diretrizes do e-MAG (Modelo de Acessibilidade em Governo Eletrônico), conforme as normas do Governo Federal, em obediência ao Decreto 5.296, de 2.12.2004.</p>
+          <p>Este portal segue as diretrizes técnicas da norma brasileira <strong>ABNT NBR 17225:2025</strong> (equivalente ao padrão internacional <strong>WCAG 2.2 nível AA</strong> do W3C) e do <strong>e-MAG (Modelo de Acessibilidade em Governo Eletrônico)</strong>, em obediência ao Decreto nº 5.296/2004 e à Lei Brasileira de Inclusão (Lei nº 13.146/2015).</p>
 
-        <p>O termo acessibilidade significa incluir a pessoa com deficiência na participação de atividades como o uso de produtos, serviços e informações. Alguns exemplos são os prédios com rampas de acesso para cadeira de rodas e banheiros adaptados para deficientes.</p>
+          <p>O termo acessibilidade significa incluir a pessoa com deficiência na participação de atividades como o uso de produtos, serviços e informações. Na internet, garante que qualquer cidadão — independentemente de limitações visuais, auditivas, motoras, cognitivas ou tecnológicas — possa perceber, compreender, navegar e interagir com todos os serviços públicos digitais.</p>
 
-        <p>Na internet, acessibilidade refere-se principalmente às recomendações do WCAG (World Content Accessibility Guide) do W3C e no caso do Governo Brasileiro ao e-MAG (Modelo de Acessibilidade em Governo Eletrônico). O e-MAG está alinhado as recomendações internacionais, mas estabelece padrões de comportamento acessível para sites governamentais.</p>
+          <p>Na barra superior do portal e no botão flutuante lateral de Acessibilidade estão disponíveis ferramentas de personalização visual, tipográfica e auditiva que funcionam em todas as páginas do sistema e permanecem salvas durante toda a navegação.</p>
 
-        <p>Na parte superior do portal existe uma área de acessibilidade onde se encontra opções para alterar o tamanho da fonte e a opção para alterar o contraste. Essas ferramentas estão disponíveis em todas as páginas do portal.</p>
+          <h2>Menu Flutuante de Acessibilidade</h2>
+          <p>Ao acionar o ícone flutuante de acessibilidade no canto direito da tela (ou pressionar <strong>Alt + 0</strong>), você dispõe dos seguintes controles:</p>
+          <ul>
+            <li><strong>Aumentar Fonte (A+) e Diminuir Fonte (A-):</strong> ajusta progressivamente o tamanho de todos os textos do portal (de 80% até 160%).</li>
+            <li><strong>Alterar cor da Fonte:</strong> permite selecionar uma cor da paleta código RGB para aplicar em todos os textos do portal; ao clicar novamente na cor ativa (ou em Redefinir Ajustes / Restaurar Padrões), retorna à cor original.</li>
+            <li><strong>Alto Contraste:</strong> aplica contraste máximo (fundo preto com textos em branco e links em amarelo vibrante), atendendo pessoas com baixa visão severa.</li>
+            <li><strong>Modo Escuro:</strong> reduz a emissão de luz da tela com paleta escura confortável.</li>
+            <li><strong>Escala Cinza (Monocromático):</strong> remove a saturação de cores da página para usuários com sensibilidade cromática ou daltonismo.</li>
+            <li><strong>Destacar Links:</strong> evidencia visualmente todos os hiperlinks da página com fundo amarelo, sublinhado reforçado e contorno.</li>
+            <li><strong>Fonte para Dislexia:</strong> substitui a tipografia por fonte amigável à leitura para pessoas com dislexia.</li>
+            <li><strong>Espaçamento das Letras e Espaçamento das Linhas:</strong> amplia em dois níveis o espaçamento entre caracteres, palavras e linhas de texto (WCAG 2.2 SC 1.4.12).</li>
+            <li><strong>Esconder Imagens:</strong> oculta imagens ilustrativas e elementos gráficos para leitura sem distrações visuais.</li>
+            <li><strong>Modo Leitura:</strong> simplifica a visualização do conteúdo principal com espaçamento confortável e foco nos blocos de texto.</li>
+            <li><strong>Aumentar Cursor e Aumentar e Escurecer Cursor:</strong> amplia o tamanho do ponteiro do mouse em versão clara (com contorno preto) ou totalmente preenchida em preto (com contorno branco) para alta visibilidade.</li>
+            <li><strong>Ativar e Desativar Som:</strong> habilita confirmação sonora e retorno por voz ao acionar controles de acessibilidade.</li>
+            <li><strong>Ler Conteúdo e Parar Conteúdo:</strong> realiza a leitura em voz alta (português do Brasil) do conteúdo principal da página, destacando visualmente o trecho em leitura.</li>
+            <li><strong>Libras (VLibras):</strong> abre o tradutor oficial do Governo Federal para a Língua Brasileira de Sinais.</li>
+            <li><strong>Atalhos, Restaurar Padrões e Redefinir Ajustes:</strong> exibe a lista de teclas de atalho e permite restaurar todas as configurações ao padrão com um clique.</li>
+          </ul>
 
-        <h2>Recursos de Acessibilidade</h2>
+          <h2>Teclas de Atalho (Padrão e-MAG)</h2>
+          <p>Utilize a tecla <strong>Tab</strong> para percorrer elementos interativos (e <strong>Shift + Tab</strong> para retroceder), ou acione diretamente as teclas de atalho padronizadas em qualquer página do portal:</p>
+          <ul>
+            <li><strong>Alt + 1:</strong> Ir direto para o Conteúdo Principal da página</li>
+            <li><strong>Alt + 2:</strong> Ir direto para o Menu Principal</li>
+            <li><strong>Alt + 3:</strong> Ir direto para o Rodapé da página</li>
+            <li><strong>Alt + 4:</strong> Ir para a página de Acessibilidade</li>
+            <li><strong>Alt + 5:</strong> Alternar o modo de Alto Contraste</li>
+            <li><strong>Alt + 6:</strong> Acionar o intérprete virtual VLibras</li>
+            <li><strong>Alt + 7:</strong> Iniciar ou parar a Leitura da Página em voz alta</li>
+            <li><strong>Alt + 0:</strong> Abrir ou fechar o Menu Flutuante de Acessibilidade</li>
+          </ul>
+          <p><em>Nota sobre navegadores:</em> no Google Chrome, Microsoft Edge e Opera (Windows/Linux), utilize <strong>Alt + número</strong>; no Mozilla Firefox, utilize <strong>Alt + Shift + número</strong>; no macOS, utilize <strong>Control + Option + número</strong> (ou <strong>Option + número</strong>).</p>
 
-        <p><strong>Navegação por Tabulação:</strong> Utilize a tecla TAB para percorrer elementos interativos no site, como links, botões e campos de formulários, seguindo a ordem em que eles são apresentados na página. Pressione Shift + TAB para retroceder, proporcionando uma navegação sem a necessidade do mouse e beneficiando pessoas com deficiência motora.</p>
-
-        <p><strong>Tamanho da Letra:</strong> Para facilitar a leitura para pessoas com problemas de visão, o ba.gov.br incorpora uma funcionalidade de redimensionamento do texto (botões "A+", "A-" e "A"). Essa funcionalidade permite que os usuários ajustem o tamanho da fonte de acordo com suas preferências, tornando o conteúdo do portal mais acessível a pessoas com diferentes níveis de visão.</p>
-
-        <p><strong>Teclas de Acesso:</strong> Teclas de atalho representam uma ferramenta de navegação que capacita você a explorar este site de maneira eficiente, proporcionando uma experiência intuitiva e acessível. Utilize as teclas de atalho para acessar cada funcionalidade, seguindo a sequência indicada abaixo:</p>
-        <ul>
-          <li>Conteúdo Inicial da Página: "Alt + 1"</li>
-          <li>Menu Principal: "Alt + 2"</li>
-          <li>Rodapé: "Alt + 3"</li>
-          <li>Acessibilidade: "Alt + 4"</li>
-          <li>Alto Contraste: "Alt + 5"</li>
-          <li>VLibras: "Alt + 6"</li>
-        </ul>
-        <p>Esses atalhos valem para o navegador Chrome.</p>
-
-        <p><strong>Tela de Acessibilidade:</strong> Apresenta informações sobre a acessibilidade do site e recursos oferecidos.</p>
-
-        <p><strong>Intérprete de línguas de sinais (VLibras):</strong> O portal utiliza o VLibras, um recurso que traduz todo conteúdo em formato digital para a língua brasileira de sinais (LIBRAS). Tornando assim, todos os conteúdos acessíveis para pessoas com deficiência auditiva.</p>
-
-        <p><strong>Leitores de Tela:</strong> O Portal foi desenvolvido para ser compatível com softwares leitores de tela, garantindo que o conteúdo seja acessível para pessoas com deficiência visual. Os leitores de telas são programas que, interagindo com o Sistema Operacional do computador, capturam toda e qualquer informação apresentada na forma de texto e a transforma em uma resposta falada utilizando um sintetizador de voz.</p>
-
-        <p>O portal é compatível com os principais leitores de tela disponíveis, incluindo:</p>
-        <ul>
-          <li>NVDA (NonVisual Desktop Access)</li>
-          <li>ORCA</li>
-          <li>Virtual Vision</li>
-        </ul>
+          <h2>Leitores de Tela e Mapas Acessíveis</h2>
+          <p>O portal foi arquitetado desde a primeira linha de código para compatibilidade com leitores de tela (como <strong>NVDA</strong>, <strong>JAWS</strong>, <strong>ORCA</strong>, <strong>VoiceOver</strong> e <strong>TalkBack</strong>), contando com regiões semânticas (landmarks), alertas dinâmicos (<code>aria-live</code>) e alternativa textual navegável por teclado para todos os consórcios nas páginas de mapas interativos.</p>
         </div>
       </div>
     </div>
@@ -77,8 +82,8 @@
 
   <div id="app-rodape"></div>
 
-  <script src="../js/utils.js"></script>
-  <script src="../js/acessibilidade.js"></script>
-  <script src="../js/navegacao.js"></script>
+  <script src="../js/utils.js?v=20261106-18"></script>
+  <script src="../js/acessibilidade.js?v=20261106-18"></script>
+  <script src="../js/navegacao.js?v=20261106-18"></script>
 </body>
 </html>

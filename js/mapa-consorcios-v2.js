@@ -145,10 +145,12 @@
           );
         })
         .forEach(function (r) {
+          var ativo = regiaoSelecionadaId === r.id;
           var item = document.createElement("button");
           item.type = "button";
-          item.className = "item-regiao";
+          item.className = "item-regiao" + (ativo ? " ativo" : "");
           item.setAttribute("data-regiao-id", r.id);
+          item.setAttribute("aria-pressed", ativo ? "true" : "false");
           item.innerHTML =
             '<span class="item-regiao__cor" style="background:' + r.cor + '" aria-hidden="true"></span>' +
             '<span>' +
@@ -156,13 +158,21 @@
               '<p class="item-regiao__regiao-nome">' + util.escaparHtml(r.regiao) + '</p>' +
             '</span>';
           item.addEventListener("click", function () {
-            selecionarRegiao(r.id);
+            selecionarRegiao(r.id, true);
           });
           lista.appendChild(item);
         });
 
+      var statusBusca = document.getElementById("status-busca-regioes");
       if (lista.children.length === 0) {
         lista.innerHTML = '<p class="painel-lateral__instrucao">Nenhuma região encontrada para essa busca.</p>';
+        if (statusBusca && termo) {
+          statusBusca.textContent = "Nenhuma região encontrada para " + filtro + ".";
+        }
+      } else if (statusBusca && termo) {
+        statusBusca.textContent = lista.children.length + (lista.children.length === 1 ? " consórcio encontrado." : " consórcios encontrados.");
+      } else if (statusBusca) {
+        statusBusca.textContent = "";
       }
     }
 
@@ -299,7 +309,7 @@
     );
   }
 
-  function selecionarRegiao(regionId) {
+  function selecionarRegiao(regionId, moverFocoPainel) {
     var regiao = regioesPorId[regionId];
     if (!regiao) {
       console.warn("[CONSIS360] nenhuma região encontrada para id:", regionId, "— regioesPorId tem chaves:", Object.keys(regioesPorId));
@@ -309,13 +319,21 @@
     aplicarEstiloSelecao();
     posicionarPinoSede(regiao);
     mostrarEstatisticasRegiao(regiao);
-    abrirPainelRegiao(regionId);
+    abrirPainelRegiao(regionId, moverFocoPainel);
 
-    document.querySelectorAll(".item-regiao").forEach(function (el) {
-      el.classList.toggle("ativo", Number(el.getAttribute("data-regiao-id")) === regionId);
+    document.querySelectorAll(".item-regiao[data-regiao-id]").forEach(function (el) {
+      var ehAtivo = Number(el.getAttribute("data-regiao-id")) === regionId;
+      el.classList.toggle("ativo", ehAtivo);
+      el.setAttribute("aria-pressed", ehAtivo ? "true" : "false");
     });
     var botaoTodos = document.getElementById("botao-todos-consorcios");
-    if (botaoTodos) botaoTodos.classList.remove("ativo");
+    if (botaoTodos) {
+      botaoTodos.classList.remove("ativo");
+      botaoTodos.setAttribute("aria-pressed", "false");
+    }
+    if (window.Consis360Acessibilidade && window.Consis360Acessibilidade.anunciar) {
+      window.Consis360Acessibilidade.anunciar("Consórcio selecionado: " + regiao.nomeReduzido + " (" + regiao.regiao + "). Ficha técnica disponível no painel de detalhes.");
+    }
   }
 
   function aplicarEstiloSelecao() {
@@ -337,7 +355,8 @@
     }
   }
 
-  function resetarSelecao() {
+  function resetarSelecao(retornarFocoLista) {
+    var idAnterior = regiaoSelecionadaId;
     regiaoSelecionadaId = null;
     if (camadaGeojson) {
       camadaGeojson.eachLayer(function (camada) { camadaGeojson.resetStyle(camada); });
@@ -347,13 +366,25 @@
     mostrarEstatisticasGerais();
     fecharPainel();
     removerPinoSede();
-    document.querySelectorAll(".item-regiao").forEach(function (el) { el.classList.remove("ativo"); });
+    document.querySelectorAll(".item-regiao[data-regiao-id]").forEach(function (el) {
+      el.classList.remove("ativo");
+      el.setAttribute("aria-pressed", "false");
+    });
     var botaoTodos = document.getElementById("botao-todos-consorcios");
-    if (botaoTodos) botaoTodos.classList.add("ativo");
+    if (botaoTodos) {
+      botaoTodos.classList.add("ativo");
+      botaoTodos.setAttribute("aria-pressed", "true");
+    }
     var campoBusca = document.getElementById("busca-municipio");
     if (campoBusca) campoBusca.value = "";
     var lista = document.getElementById("lista-regioes");
     if (lista && lista.__renderizar) lista.__renderizar("");
+    if (retornarFocoLista) {
+      var alvoFoco = idAnterior !== null
+        ? document.querySelector('.item-regiao[data-regiao-id="' + idAnterior + '"]')
+        : botaoTodos;
+      if (alvoFoco) alvoFoco.focus();
+    }
   }
 
   /* Ponto garantidamente DENTRO do município (o centro da caixa envolvente
@@ -446,7 +477,7 @@
     }
   }
 
-  function abrirPainelRegiao(regionId) {
+  function abrirPainelRegiao(regionId, moverFocoPainel) {
     var regiao = regioesPorId[regionId];
     if (!regiao) return;
     fecharTooltipAberto();
@@ -461,8 +492,15 @@
       var botaoFechar = painel.querySelector(".painel-detalhe__fechar");
       if (botaoFechar) {
         botaoFechar.addEventListener("click", function () {
-          resetarSelecao();
+          resetarSelecao(true);
         });
+      }
+      if (moverFocoPainel) {
+        var tituloPainel = painel.querySelector(".painel-detalhe__titulo");
+        if (tituloPainel) {
+          tituloPainel.setAttribute("tabindex", "-1");
+          tituloPainel.focus({ preventScroll: true });
+        }
       }
     } catch (erro) {
       console.error("CONSIS360: falha ao montar a ficha técnica de", regiao.nomeReduzido, erro);
@@ -473,7 +511,7 @@
         '". Veja o console do navegador (F12) para mais detalhes.</div>';
       painel.classList.add("aberto");
       var botaoFecharErro = painel.querySelector(".painel-detalhe__fechar");
-      if (botaoFecharErro) botaoFecharErro.addEventListener("click", function () { resetarSelecao(); });
+      if (botaoFecharErro) botaoFecharErro.addEventListener("click", function () { resetarSelecao(true); });
     }
   }
 

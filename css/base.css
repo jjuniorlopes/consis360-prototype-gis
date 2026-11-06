@@ -1,5 +1,6 @@
 /* ==========================================================================
-   CONSIS360 — Base / Reset
+   CONSIS360 — Base / Reset e Regras Globais de Acessibilidade
+   Conformidade: ABNT NBR 17225:2025 (WCAG 2.2 AA) e eMAG 3.1
    ========================================================================== */
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -9,6 +10,17 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Respeita preferência de redução de movimento (WCAG 2.3.3 / NBR 17225) */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
   margin: 0;
   font-family: var(--fonte-base);
@@ -16,7 +28,22 @@ body {
   background: var(--cor-fundo);
   line-height: var(--espaco-linhas);
   letter-spacing: var(--espaco-letras);
+  word-spacing: var(--espaco-palavras);
   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Impede que o banner fixo no topo cubra o elemento focado (WCAG 2.2 SC 2.4.11 Focus Not Obscured) */
+[id],
+main,
+header,
+footer,
+nav,
+a,
+button,
+input,
+select,
+textarea {
+  scroll-margin-top: 5rem;
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -24,26 +51,37 @@ img { max-width: 100%; height: auto; display: block; }
 a {
   color: var(--cor-link);
   text-decoration: underline;
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
 }
 a:visited { color: var(--cor-link-visitado); }
 a:hover { text-decoration-thickness: 2px; }
 
-/* Foco visível — obrigatório para navegação por teclado (WCAG 2.4.7) */
+/* Foco visível de duplo contraste — atende WCAG 2.2 SC 2.4.7 e 2.4.13 */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
+textarea:focus-visible,
 [tabindex]:focus-visible {
-  outline: 3px solid var(--cor-foco);
-  outline-offset: 2px;
+  outline: 3px solid var(--cor-foco) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 5px rgba(11, 47, 107, 0.35);
   border-radius: 4px;
+}
+
+[data-tema="escuro"] a:focus-visible,
+[data-tema="escuro"] button:focus-visible,
+[data-alto-contraste="ativo"] a:focus-visible,
+[data-alto-contraste="ativo"] button:focus-visible {
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.85);
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--cor-texto);
-  line-height: 1.25;
+  line-height: 1.28;
   font-weight: 700;
+  letter-spacing: var(--espaco-letras);
+  word-spacing: var(--espaco-palavras);
 }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.5rem; }
@@ -56,9 +94,10 @@ ul, ol { padding-left: 1.4rem; }
 button {
   font-family: inherit;
   cursor: pointer;
+  letter-spacing: inherit;
 }
 
-/* Classe utilitária: some visualmente mas continua acessível a leitor de tela */
+/* Classe utilitária: oculta visualmente mas preserva para leitor de tela */
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;
@@ -70,26 +109,172 @@ button {
 }
 
 /* Transforma o texto em maiúsculas visualmente, sem alterar o texto-fonte
-   (leitor de tela continua lendo a palavra normalmente, não "soletrada"). */
+   (leitor de tela continua lendo a palavra normalmente, não soletrada). */
 .text-uppercase {
   text-transform: uppercase;
 }
 
-/* Link "Pular para o conteúdo" — Alt+1 também leva ao mesmo destino */
+/* Link "Pular para o conteúdo" (eMAG / WCAG 2.4.1 Bypass Blocks) */
 .skip-link {
-  position: absolute;
-  left: var(--esp-3);
-  top: -60px;
+  position: fixed;
+  left: var(--esp-4);
+  top: -100px;
   background: var(--cor-azul-900);
-  color: #fff;
-  padding: var(--esp-2) var(--esp-4);
+  color: #ffffff !important;
+  border: 2px solid var(--cor-foco);
+  padding: var(--esp-3) var(--esp-4);
   border-radius: var(--raio-botao);
+  font-weight: 700;
   z-index: var(--z-skiplink);
-  transition: top 0.2s ease;
+  transition: top 0.18s ease;
   text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
 }
-.skip-link:focus {
+.skip-link:focus,
+.skip-link:focus-visible {
   top: var(--esp-3);
+}
+
+/* ---- Modo Escala de Cinza (Monocromático) ----
+   Aplicado nos containers de página (e não no body) para não criar containing block
+   que quebre position:fixed do VLibras e do painel de acessibilidade. */
+[data-escala-cinza="ativo"] .banner-topo,
+[data-escala-cinza="ativo"] .cabecalho-gov,
+[data-escala-cinza="ativo"] .cabecalho,
+[data-escala-cinza="ativo"] main,
+[data-escala-cinza="ativo"] .rodape,
+[data-escala-cinza="ativo"] .rodape-gov {
+  filter: grayscale(100%);
+}
+
+/* ---- Modo Esconder Imagens (padrão Sympla / EqualWeb) ----
+   Oculta imagens ilustrativas e logotipos da página preservando o layout e o painel de acessibilidade. */
+[data-esconder-imagens="ativo"] img:not(.icone-fixo__img):not(.painel-acessibilidade__logo-img),
+[data-esconder-imagens="ativo"] .banner-principal__imagem,
+[data-esconder-imagens="ativo"] .card-mapa__icone,
+[data-esconder-imagens="ativo"] .estatistica-card__icone {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* ---- Modo Leitura (padrão Sympla / EqualWeb — foco cognitivo sem distrações) ---- */
+[data-modo-leitura="ativo"] .banner-principal__imagem,
+[data-modo-leitura="ativo"] .block-social-network,
+[data-modo-leitura="ativo"] .card-mapa__icone,
+[data-modo-leitura="ativo"] .estatistica-card__icone {
+  display: none !important;
+}
+[data-modo-leitura="ativo"] main {
+  max-width: 960px;
+  margin-inline: auto;
+  padding-block: 1.25rem 2.5rem;
+  line-height: 1.95 !important;
+  letter-spacing: 0.03em;
+}
+[data-modo-leitura="ativo"] main p,
+[data-modo-leitura="ativo"] main li,
+[data-modo-leitura="ativo"] main dd,
+[data-modo-leitura="ativo"] main dt {
+  line-height: 1.95 !important;
+  font-size: 1.06em;
+}
+[data-modo-leitura="ativo"] main p:hover,
+[data-modo-leitura="ativo"] main li:hover,
+[data-modo-leitura="ativo"] .estatistica-card:hover,
+[data-modo-leitura="ativo"] .card-mapa:hover {
+  background-color: rgba(7, 86, 177, 0.07);
+  border-radius: 6px;
+}
+
+/* ---- Modo Destacar Links ---- */
+[data-destacar-links="ativo"] a:not(.skip-link) {
+  background-color: #fff3b0 !important;
+  color: #0b2f6b !important;
+  font-weight: 700 !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 2.5px !important;
+  text-underline-offset: 3px !important;
+  outline: 2px solid #d97706 !important;
+  outline-offset: 1px;
+  border-radius: 4px;
+  padding-inline: 3px;
+}
+[data-tema="escuro"][data-destacar-links="ativo"] a:not(.skip-link),
+[data-alto-contraste="ativo"][data-destacar-links="ativo"] a:not(.skip-link) {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  outline: 2px solid #ffffff !important;
+}
+
+/* ---- Alterar Cor da Fonte (Paleta RGB padrão Sympla / EqualWeb) ---- */
+[data-cor-fonte-ativa="ativo"] {
+  --cor-texto: var(--cor-fonte-personalizada) !important;
+  --cor-texto-suave: var(--cor-fonte-personalizada) !important;
+  --cor-link: var(--cor-fonte-personalizada) !important;
+  --cor-link-visitado: var(--cor-fonte-personalizada) !important;
+}
+[data-cor-fonte-ativa="ativo"] body :is(
+  h1, h2, h3, h4, h5, h6,
+  p, span, a, li, dt, dd, label, strong, em, small, blockquote, th, td,
+  .barra-menu__link,
+  .cabecalho-gov a,
+  .cabecalho-gov span,
+  .banner-principal__subtitulo,
+  .secao-titulo,
+  .secao-subtitulo,
+  .estatistica-card__valor,
+  .estatistica-card__rotulo,
+  .card-mapa__titulo,
+  .card-mapa__descricao,
+  .card-mapa__acao,
+  .rodape-gov,
+  .rodape-gov a,
+  .rodape-gov p,
+  .rodape-gov span,
+  .rodape-gov strong
+):not(#painel-acessibilidade *):not(.icones-fixos *) {
+  color: var(--cor-fonte-personalizada) !important;
+}
+
+/* ---- 1) Aumentar Cursor (Cursor Grande Branco com Contorno Preto — alta visibilidade 48x48px) ---- */
+[data-cursor="branco"],
+[data-cursor="branco"] body,
+[data-cursor="branco"] * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M8 4 L8 38 L17 29 L24 43 L30 40 L23 26 L36 26 Z' fill='%23ffffff' stroke='%23000000' stroke-width='3.2' stroke-linejoin='round'/%3E%3C/svg%3E") 6 4, auto !important;
+}
+[data-cursor="branco"] a,
+[data-cursor="branco"] button,
+[data-cursor="branco"] [role="button"],
+[data-cursor="branco"] input,
+[data-cursor="branco"] select,
+[data-cursor="branco"] label,
+[data-cursor="branco"] .leaflet-interactive {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='14' cy='12' r='10' fill='rgba(255,255,255,0.45)' stroke='%23000000' stroke-width='2'/%3E%3Cpath d='M10 6 L10 38 L18 30 L25 43 L31 40 L24 27 L36 27 Z' fill='%23ffffff' stroke='%23000000' stroke-width='3.2' stroke-linejoin='round'/%3E%3C/svg%3E") 10 6, pointer !important;
+}
+
+/* ---- 2) Aumentar e Escurecer Cursor (Cursor Grande Preto Sólido com Contorno Branco — 48x48px) ---- */
+[data-cursor="preto"],
+[data-cursor="preto"] body,
+[data-cursor="preto"] * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M8 4 L8 38 L17 29 L24 43 L30 40 L23 26 L36 26 Z' fill='%23000000' stroke='%23ffffff' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E") 6 4, auto !important;
+}
+[data-cursor="preto"] a,
+[data-cursor="preto"] button,
+[data-cursor="preto"] [role="button"],
+[data-cursor="preto"] input,
+[data-cursor="preto"] select,
+[data-cursor="preto"] label,
+[data-cursor="preto"] .leaflet-interactive {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Ccircle cx='14' cy='12' r='10' fill='rgba(0,0,0,0.22)' stroke='%23ffffff' stroke-width='2'/%3E%3Cpath d='M10 6 L10 38 L18 30 L25 43 L31 40 L24 27 L36 27 Z' fill='%23000000' stroke='%23ffffff' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E") 10 6, pointer !important;
+}
+
+/* ---- Destaque visual do elemento sendo lido em voz alta ("Ler Página") ---- */
+.leitura-ativa-destaque {
+  outline: 3px dashed var(--cor-foco) !important;
+  outline-offset: 4px !important;
+  background-color: rgba(255, 183, 3, 0.14) !important;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
 }
 
 .container {

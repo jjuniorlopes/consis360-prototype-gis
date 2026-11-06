@@ -1,42 +1,64 @@
 /* ==========================================================================
-   CONSIS360 — Ícones fixos de acessibilidade e painel flutuante
+   CONSIS360 — Ícones fixos de acessibilidade e Painel Flutuante Moderno
+   Conformidade: ABNT NBR 17225:2025 (WCAG 2.2 AA) e eMAG 3.1
+   Referência visual: Menu Acessibilidade.png + acessibilidade.jpg
    ========================================================================== */
 
 /* ---- Coluna de ícones fixos (canto direito, presente em todas as páginas) ---- */
 .icones-fixos {
   position: fixed;
-  right: var(--esp-4);
-  bottom: var(--esp-5);
+  right: 12px;
+  top: calc(50vh + 16px);
   display: flex;
   flex-direction: column;
-  gap: var(--esp-3);
+  align-items: center;
+  gap: 18px;
   z-index: var(--z-painel-acessibilidade);
 }
-
-/* O posicionamento do widget real do VLibras (window.VLibrasWidget.access,
-   dentro de Shadow DOM) é feito via JavaScript em navegacao.js — usando a
-   referência direta que o próprio script oficial expõe, não seletor CSS,
-   já que CSS externo não alcança conteúdo dentro de Shadow DOM. */
 
 .icone-fixo-item {
   position: relative;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Botão circular com o ícone oficial acessibilidade.jpg */
 .icone-fixo {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  border: none;
-  color: #fff;
+  border: 2px solid #ffffff;
+  padding: 0;
+  background: #1b4f91;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
 }
-.icone-fixo svg { width: 26px; height: 26px; }
-.icone-fixo--acessibilidade { background: var(--cor-azul-900); }
-.icone-fixo:hover { filter: brightness(1.1); }
+
+.icone-fixo:hover {
+  transform: scale(1.06);
+  filter: brightness(1.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.38);
+}
+
+.icone-fixo__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Quando o painel está aberto, o botão flutuante exibe o ícone preto com X circular */
+.icone-fixo[aria-expanded="true"] {
+  background: #000000;
+  border-color: #ffffff;
+}
 
 /* ---- Legenda (tooltip) ao passar o mouse/focar no ícone de acessibilidade ---- */
 .icone-fixo__legenda {
@@ -46,28 +68,22 @@
   transform: translate(6px, -50%);
   display: flex;
   align-items: center;
-  gap: var(--esp-2);
+  gap: 8px;
   white-space: nowrap;
-  background: var(--cor-azul-900);
-  color: #fff;
-  padding: var(--esp-2) var(--esp-4) var(--esp-2) var(--esp-2);
+  background: #1b4f91;
+  color: #ffffff;
+  padding: 6px 14px;
   border-radius: 999px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-  font-size: 0.85rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  font-family: var(--fonte-titulos);
+  font-size: 0.82rem;
   font-weight: 700;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
-.icone-fixo__legenda svg {
-  width: 22px;
-  height: 22px;
-  flex-shrink: 0;
-  background: rgba(255,255,255,0.18);
-  border-radius: 50%;
-  padding: 3px;
-}
+
 .icone-fixo-item:hover .icone-fixo__legenda,
 .icone-fixo-item:focus-within .icone-fixo__legenda {
   opacity: 1;
@@ -75,93 +91,770 @@
   transform: translate(0, -50%);
 }
 
-/* ---- Painel de acessibilidade (abre ao clicar no ícone universal) ---- */
+/* Oculta a legenda quando o painel já está aberto */
+.icone-fixo-item:has(.icone-fixo[aria-expanded="true"]) .icone-fixo__legenda {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ---- Painel Flutuante de Acessibilidade (Design Moderno em Cards 2 Colunas) ---- */
 .painel-acessibilidade {
   position: fixed;
-  right: var(--esp-4);
-  bottom: calc(var(--esp-5) + 60px);
-  width: 300px;
-  max-width: calc(100vw - 2rem);
-  background: var(--cor-fundo);
-  border: 1px solid var(--cor-borda);
-  border-radius: var(--raio-card);
-  box-shadow: 0 14px 40px rgba(0,0,0,0.3);
-  z-index: var(--z-painel-acessibilidade);
+  right: 12px;
+  top: 12px;
+  bottom: 12px;
+  width: 356px;
+  max-width: calc(100vw - 24px);
+  max-height: calc(100vh - 24px);
+  background: #f5f6f8;
+  color: #1c2530;
+  border: 1px solid #dcdfe6;
+  border-radius: 22px;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.32);
+  z-index: calc(var(--z-painel-acessibilidade) + 1);
   display: none;
+  flex-direction: column;
   overflow: hidden;
+  font-family: var(--fonte-titulos);
 }
-.painel-acessibilidade.aberto { display: block; }
 
-.painel-acessibilidade__cabecalho {
-  background: var(--cor-azul-900);
-  color: #fff;
-  padding: var(--esp-3) var(--esp-4);
+.painel-acessibilidade.aberto {
+  display: flex;
+}
+
+[data-tema="escuro"] .painel-acessibilidade {
+  background: #141b26;
+  color: #eef2f8;
+  border-color: #2e3a4e;
+}
+
+[data-alto-contraste="ativo"] .painel-acessibilidade {
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #ffff00;
+}
+
+/* Topo do painel com botão pílula "Redefinir Ajustes" (fiel à imagem anexa) */
+.painel-acessibilidade__topo {
+  padding: 16px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: inherit;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  flex-shrink: 0;
+}
+
+[data-tema="escuro"] .painel-acessibilidade__topo {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.painel-acessibilidade__redefinir {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 20px;
+  border-radius: 9px;
+  border: 1px solid #007cc3;
+  background: #007cc3;
+  color: #ffffff;
+  font-family: var(--fonte-titulos);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 3px 8px rgba(0, 124, 195, 0.28);
+  transition: background-color 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
+}
+
+.painel-acessibilidade__redefinir:hover {
+  background: #026aa7;
+  border-color: #026aa7;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(0, 124, 195, 0.36);
+}
+
+[data-tema="escuro"] .painel-acessibilidade__redefinir {
+  background: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+}
+[data-tema="escuro"] .painel-acessibilidade__redefinir:hover {
+  background: #0369a1;
+  color: #ffffff;
+}
+
+[data-alto-contraste="ativo"] .painel-acessibilidade__redefinir {
+  background: #000000;
+  color: #ffff00;
+  border: 2px solid #ffff00;
+}
+[data-alto-contraste="ativo"] .painel-acessibilidade__redefinir:hover {
+  background: #ffff00;
+  color: #000000;
+}
+
+/* Corpo rolável com grade de 2 colunas de cards */
+.painel-acessibilidade__corpo {
+  padding: 12px 14px 14px;
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
+
+.painel-acessibilidade__grade {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 11px;
+}
+
+.painel-acessibilidade__item {
+  margin: 0;
+  display: flex;
+}
+
+.painel-acessibilidade__card {
+  width: 100%;
+  min-height: 100px;
+  background: #ffffff;
+  border: 1.5px solid #e6e9ef;
+  border-radius: 16px;
+  padding: 14px 8px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  color: #1f2937;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05);
+  position: relative;
+  transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease, background-color 0.14s ease;
+}
+
+.painel-acessibilidade__card:hover {
+  transform: translateY(-2px);
+  border-color: #b4c2d8;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.1);
+}
+
+.painel-acessibilidade__card[aria-pressed="true"],
+.painel-acessibilidade__card.ativo {
+  border: 2px solid #0b2f6b;
+  background: #eef5ff;
+  box-shadow: 0 4px 12px rgba(11, 47, 107, 0.16);
+}
+
+/* Indicador de check no canto superior direito quando o card está ativo */
+.painel-acessibilidade__card[aria-pressed="true"]::after,
+.painel-acessibilidade__card.ativo::after {
+  content: "✓";
+  position: absolute;
+  top: 7px;
+  right: 8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #0b2f6b;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+[data-tema="escuro"] .painel-acessibilidade__card {
+  background: #1e2838;
+  border-color: #2f3d54;
+  color: #eef2f8;
+}
+[data-tema="escuro"] .painel-acessibilidade__card[aria-pressed="true"],
+[data-tema="escuro"] .painel-acessibilidade__card.ativo {
+  background: #253855;
+  border-color: #7db4ff;
+}
+[data-tema="escuro"] .painel-acessibilidade__card[aria-pressed="true"]::after,
+[data-tema="escuro"] .painel-acessibilidade__card.ativo::after {
+  background: #7db4ff;
+  color: #10161f;
+}
+
+[data-alto-contraste="ativo"] .painel-acessibilidade__card {
+  background: #000000;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  box-shadow: none;
+}
+[data-alto-contraste="ativo"] .painel-acessibilidade__card[aria-pressed="true"],
+[data-alto-contraste="ativo"] .painel-acessibilidade__card.ativo {
+  background: #222200;
+  border-color: #ffff00;
+  color: #ffff00;
+}
+[data-alto-contraste="ativo"] .painel-acessibilidade__card[aria-pressed="true"]::after,
+[data-alto-contraste="ativo"] .painel-acessibilidade__card.ativo::after {
+  background: #ffff00;
+  color: #000000;
+}
+
+.painel-acessibilidade__icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  color: #14171a;
+}
+
+[data-tema="escuro"] .painel-acessibilidade__icone {
+  color: #ffffff;
+}
+[data-alto-contraste="ativo"] .painel-acessibilidade__icone {
+  color: #ffff00;
+}
+
+.painel-acessibilidade__icone svg {
+  width: 30px;
+  height: 30px;
+}
+
+.painel-acessibilidade__icone-texto {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.painel-acessibilidade__rotulo {
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.25;
+  color: inherit;
+}
+
+.painel-acessibilidade__card[aria-pressed="true"] .painel-acessibilidade__rotulo,
+.painel-acessibilidade__card.ativo .painel-acessibilidade__rotulo {
+  font-weight: 700;
+}
+
+/* Barrinhas de nível (ex.: Fonte, Espaçamento) */
+.painel-acessibilidade__niveis {
+  display: flex;
+  gap: 4px;
+  margin-top: 2px;
+}
+.painel-acessibilidade__nivel-ponto {
+  width: 14px;
+  height: 4px;
+  border-radius: 2px;
+  background: #d1d5db;
+}
+.painel-acessibilidade__nivel-ponto.preenchido {
+  background: #0b2f6b;
+}
+[data-tema="escuro"] .painel-acessibilidade__nivel-ponto {
+  background: #3b4a63;
+}
+[data-tema="escuro"] .painel-acessibilidade__nivel-ponto.preenchido {
+  background: #7db4ff;
+}
+[data-alto-contraste="ativo"] .painel-acessibilidade__nivel-ponto.preenchido {
+  background: #ffff00;
+}
+
+/* ---- Seletor de Cores + Código RGB ("Alterar cor da Fonte" — conforme imagem anexa) ---- */
+.painel-acessibilidade__paleta-box {
+  margin-top: 12px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+.painel-acessibilidade__paleta-box[hidden] {
+  display: none;
+}
+
+[data-tema="escuro"] .painel-acessibilidade__paleta-box {
+  background: #1e2838;
+  border-color: #354560;
+}
+[data-alto-contraste="ativo"] .painel-acessibilidade__paleta-box {
+  background: #000000;
+  border: 2px solid #ffff00;
+}
+
+/* Área 2D de Saturação / Brilho (igual à imagem anexa) */
+.painel-acessibilidade__espectro {
+  position: relative;
+  width: 100%;
+  height: 132px;
+  border-radius: 6px;
+  background-color: #ff0000;
+  background-image:
+    linear-gradient(to top, #000000, rgba(0, 0, 0, 0)),
+    linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
+  cursor: crosshair;
+  user-select: none;
+  touch-action: none;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.painel-acessibilidade__espectro-cursor {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 0 0 1.5px #000000, 0 2px 4px rgba(0, 0, 0, 0.4);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  top: 30%;
+  left: 25%;
+}
+
+/* Linha de controles: Conta-gotas + Círculo de preview + Barra de matiz (arco-íris) */
+.painel-acessibilidade__controles-cor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.painel-acessibilidade__conta-gotas {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: #111827;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background-color 0.15s ease;
+}
+
+.painel-acessibilidade__conta-gotas:hover {
+  background: #f1f5f9;
+}
+
+[data-tema="escuro"] .painel-acessibilidade__conta-gotas {
+  color: #f8fafc;
+}
+[data-tema="escuro"] .painel-acessibilidade__conta-gotas:hover {
+  background: #334155;
+}
+[data-alto-contraste="ativo"] .painel-acessibilidade__conta-gotas {
+  color: #ffff00;
+}
+
+.painel-acessibilidade__conta-gotas svg {
+  width: 20px;
+  height: 20px;
+}
+
+.painel-acessibilidade__amostra-cor {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(0, 0, 0, 0.25);
+  background: rgb(160, 131, 131);
+  flex-shrink: 0;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.painel-acessibilidade__matiz-slider {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    #ff0000 0%,
+    #ff00ff 17%,
+    #0000ff 33%,
+    #00ffff 50%,
+    #00ff00 67%,
+    #ffff00 83%,
+    #ff0000 100%
+  );
+  outline: none;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.painel-acessibilidade__matiz-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: currentColor;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+.painel-acessibilidade__matiz-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: currentColor;
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+}
+
+/* Caixas para digitar o código RGB (R, G, B) igual ao modelo da imagem anexa */
+.painel-acessibilidade__rgb-linha {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: 8px;
+  align-items: start;
+}
+
+.painel-acessibilidade__rgb-campo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.painel-acessibilidade__rgb-input {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #0f172a;
+  font-family: var(--fonte-titulos);
+  font-size: 0.92rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 4px;
+  -moz-appearance: textfield;
+}
+
+.painel-acessibilidade__rgb-input::-webkit-outer-spin-button,
+.painel-acessibilidade__rgb-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.painel-acessibilidade__rgb-input:focus {
+  border-color: #0756B1;
+  outline: 2px solid rgba(7, 86, 177, 0.25);
+}
+
+[data-tema="escuro"] .painel-acessibilidade__rgb-input {
+  background: #0f172a;
+  color: #f8fafc;
+  border-color: #475569;
+}
+
+[data-alto-contraste="ativo"] .painel-acessibilidade__rgb-input {
+  background: #000000;
+  color: #ffff00;
+  border-color: #ffff00;
+}
+
+.painel-acessibilidade__rgb-rotulo {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+[data-tema="escuro"] .painel-acessibilidade__rgb-rotulo {
+  color: #cbd5e1;
+}
+[data-alto-contraste="ativo"] .painel-acessibilidade__rgb-rotulo {
+  color: #ffffff;
+}
+
+.painel-acessibilidade__rgb-setas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 2px;
+  color: #475569;
+  font-size: 0.8rem;
+  user-select: none;
+}
+
+/* Paleta rápida de cores + botão de restaurar cor original */
+.painel-acessibilidade__paleta-grade {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  width: 100%;
+  justify-items: center;
+  padding-top: 6px;
+  border-top: 1px solid #e5e7eb;
+}
+
+[data-tema="escuro"] .painel-acessibilidade__paleta-grade {
+  border-top-color: #334155;
+}
+
+.painel-acessibilidade__cor-circulo {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.22);
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.14s ease, box-shadow 0.14s ease, border-color 0.14s ease;
+}
+
+.painel-acessibilidade__cor-circulo:hover {
+  transform: scale(1.14);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.28);
+}
+
+.painel-acessibilidade__cor-circulo[aria-pressed="true"] {
+  transform: scale(1.14);
+  border: 2.5px solid #0b2f6b;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #0b2f6b;
+}
+
+[data-tema="escuro"] .painel-acessibilidade__cor-circulo[aria-pressed="true"] {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px #1e2838, 0 0 0 4px #7db4ff;
+}
+
+.painel-acessibilidade__cor-circulo[aria-pressed="true"]::after {
+  content: "✓";
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+  line-height: 1;
+}
+
+.painel-acessibilidade__cor-circulo[data-cor-clara="true"][aria-pressed="true"]::after {
+  color: #000000;
+  text-shadow: none;
+}
+
+.painel-acessibilidade__paleta-rodape {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-.painel-acessibilidade__cabecalho h2 {
-  font-size: 0.95rem;
-  margin: 0;
-  color: #fff;
-}
-.painel-acessibilidade__fechar {
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 1.2rem;
-  line-height: 1;
-  padding: var(--esp-1);
-}
-
-.painel-acessibilidade__lista {
-  list-style: none;
-  margin: 0;
-  padding: var(--esp-2);
-  display: grid;
-  gap: var(--esp-1);
-  max-height: 60vh;
-  overflow-y: auto;
-}
-
-.painel-acessibilidade__item button {
   width: 100%;
+  gap: 8px;
+}
+
+.painel-acessibilidade__cor-codigo {
+  font-family: monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #334155;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  padding: 3px 8px;
+}
+
+[data-tema="escuro"] .painel-acessibilidade__cor-codigo {
+  color: #e2e8f0;
+  background: #0f172a;
+  border-color: #475569;
+}
+
+[data-alto-contraste="ativo"] .painel-acessibilidade__cor-codigo {
+  color: #ffff00;
+  background: #000000;
+  border-color: #ffff00;
+}
+
+.painel-acessibilidade__cor-cancelar {
+  background: transparent;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #1e293b;
+  cursor: pointer;
+  transition: background-color 0.14s ease;
+}
+
+.painel-acessibilidade__cor-cancelar:hover {
+  background: #e2e8f0;
+}
+
+[data-tema="escuro"] .painel-acessibilidade__cor-cancelar {
+  color: #e2e8f0;
+  border-color: #475569;
+}
+[data-tema="escuro"] .painel-acessibilidade__cor-cancelar:hover {
+  background: #334155;
+}
+
+/* ---- Gaveta de Atalhos de Teclado (e-MAG) dentro do painel ---- */
+.painel-acessibilidade__atalhos-box {
+  margin-top: 12px;
+  background: #ffffff;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 14px;
+  padding: 12px;
+  font-size: 0.8rem;
+}
+.painel-acessibilidade__atalhos-box[hidden] {
+  display: none;
+}
+[data-tema="escuro"] .painel-acessibilidade__atalhos-box {
+  background: #1e2838;
+  border-color: #354560;
+}
+[data-alto-contraste="ativo"] .painel-acessibilidade__atalhos-box {
+  background: #000000;
+  border: 2px solid #ffff00;
+}
+.painel-acessibilidade__atalhos-titulo {
+  margin: 0 0 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+.painel-acessibilidade__atalhos-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+.painel-acessibilidade__atalhos-lista li {
   display: flex;
   align-items: center;
-  gap: var(--esp-3);
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  padding: var(--esp-3);
-  text-align: left;
-  color: var(--cor-texto);
-  font-size: 0.9rem;
+  justify-content: space-between;
+  gap: 8px;
 }
-.painel-acessibilidade__item button:hover {
-  background: var(--cor-fundo-alt);
-}
-.painel-acessibilidade__item button[aria-pressed="true"] {
-  background: var(--cor-azul-100);
-  border-color: var(--cor-azul-700);
+.painel-acessibilidade__atalhos-lista kbd {
+  background: #eef2f6;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  padding: 2px 6px;
+  font-family: monospace;
+  font-size: 0.76rem;
   font-weight: 700;
+  color: #0b2f6b;
+  white-space: nowrap;
 }
-.painel-acessibilidade__item svg {
-  width: 20px;
-  height: 20px;
-  flex-shrink: 0;
-  color: var(--cor-azul-700);
+[data-tema="escuro"] .painel-acessibilidade__atalhos-lista kbd {
+  background: #10161f;
+  border-color: #475569;
+  color: #7db4ff;
+}
+[data-alto-contraste="ativo"] .painel-acessibilidade__atalhos-lista kbd {
+  background: #ffff00;
+  color: #000000;
+  border-color: #ffffff;
 }
 
+/* ---- Rodapé do painel: Assinatura Governo do Estado da Bahia + Botão Fechar Circular ---- */
 .painel-acessibilidade__rodape {
-  padding: var(--esp-3);
-  border-top: 1px solid var(--cor-borda);
+  padding: 10px 14px 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  background: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-shrink: 0;
 }
-.painel-acessibilidade__resetar {
-  width: 100%;
+
+[data-tema="escuro"] .painel-acessibilidade__rodape {
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.painel-acessibilidade__assinatura {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.painel-acessibilidade__assinatura-texto {
+  font-size: 0.72rem;
+  color: #374151;
+  font-weight: 500;
+}
+[data-tema="escuro"] .painel-acessibilidade__assinatura-texto {
+  color: #cbd5e1;
+}
+[data-alto-contraste="ativo"] .painel-acessibilidade__assinatura-texto {
+  color: #ffffff;
+}
+
+.painel-acessibilidade__logo-bahia {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.painel-acessibilidade__logo-img {
+  height: 36px;
+  width: auto;
+  max-width: 170px;
+  object-fit: contain;
+  display: block;
+}
+
+.painel-acessibilidade__fechar-circular {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #000000;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.32);
+  display: flex;
+  align-items: center;
   justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.painel-acessibilidade__fechar-circular:hover {
+  transform: scale(1.06);
+  background: #222222;
+}
+
+.painel-acessibilidade__fechar-circular svg {
+  width: 28px;
+  height: 28px;
 }
 
 @media (max-width: 480px) {
-  .icones-fixos { right: var(--esp-3); bottom: var(--esp-4); }
-  .painel-acessibilidade { right: var(--esp-3); }
+  .icones-fixos { right: 8px; }
+  .painel-acessibilidade {
+    right: 8px;
+    top: 8px;
+    bottom: 8px;
+    width: calc(100vw - 16px);
+  }
 }

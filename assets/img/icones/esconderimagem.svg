@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!-- Parte superior direita do quadro -->
+  <path d="M10.5 5.5H24a2.5 2.5 0 0 1 2.5 2.5v13.5"/>
+  <!-- Parte inferior esquerda do quadro com montanha -->
+  <path d="M5.5 8.5V24A2.5 2.5 0 0 0 8 26.5h15.5"/>
+  <path d="M9.5 22.5l4.2-5.2 3.1 3.8 2-2.2 3.2 3.6H9.5Z" fill="currentColor"/>
+  <!-- Linha diagonal cortando a imagem -->
+  <path d="M4 4l24 24" stroke-width="2.5"/>
+</svg>
+

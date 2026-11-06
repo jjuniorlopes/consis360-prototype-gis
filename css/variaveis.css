@@ -1,7 +1,6 @@
 /* ==========================================================================
-   CONSIS360 — Variáveis globais de design
-   Tokens de cor, tipografia e espaçamento. Tudo em variáveis CSS para que
-   o modo alto contraste / escuro só precise sobrescrever este arquivo.
+   CONSIS360 — Variáveis globais de design e tokens de Acessibilidade
+   Conformidade: ABNT NBR 17225:2025 (WCAG 2.2 AA) e eMAG 3.1 (gov.br)
    ========================================================================== */
 
 :root {
@@ -23,6 +22,7 @@
   --cor-card-sombra: rgba(15, 40, 90, 0.10);
 
   --cor-foco: #ffb703;
+  --cor-foco-anel: #0b2f6b;
   --cor-link: #0f4c9c;
   --cor-link-visitado: #5a3ea3;
 
@@ -33,10 +33,11 @@
   --fonte-base: "Segoe UI", Arial, Helvetica, sans-serif;
   --fonte-titulos: "Poppins", "Segoe UI", Arial, sans-serif;
   --fonte-banner: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --fonte-dislexia: "OpenDyslexic", "Comic Sans MS", Verdana, sans-serif;
+  --fonte-dislexia: "OpenDyslexic", "Comic Sans MS", "Trebuchet MS", Verdana, sans-serif;
   --fonte-tamanho-base: 16px;
   --fonte-escala: 1;
   --espaco-letras: normal;
+  --espaco-palavras: normal;
   --espaco-linhas: 1.6;
 
   /* Espaçamento (escala 4px) */
@@ -57,15 +58,15 @@
 
   /* Camadas */
   --z-banner: 100;
-  --z-painel-acessibilidade: 200;
+  --z-painel-acessibilidade: 2147483640;
   --z-modal: 300;
-  --z-skiplink: 400;
+  --z-skiplink: 2147483645;
 
   /* Largura de conteúdo */
   --largura-maxima: 1280px;
 }
 
-/* Modo escuro / alto contraste para baixa visão */
+/* Modo escuro (conforto visual em baixa luminosidade) */
 [data-tema="escuro"] {
   --cor-texto: #eef2f8;
   --cor-texto-suave: #c3ccd9;
@@ -75,18 +76,55 @@
   --cor-card-fundo: #1b2432;
   --cor-card-sombra: rgba(0, 0, 0, 0.5);
   --cor-azul-100: #1b2c46;
+  --cor-azul-700: #66a3ff;
+  --cor-azul-900: #16376c;
   --cor-link: #7db4ff;
   --cor-link-visitado: #c9a6ff;
   --cor-foco: #ffd166;
 }
 
-/* Fonte para dislexia */
-[data-fonte="dislexia"] {
-  --fonte-base: var(--fonte-dislexia);
+/* Alto contraste (eMAG / ABNT NBR 17225:2025 — razão >= 7:1 / AAA) */
+[data-alto-contraste="ativo"] {
+  --cor-texto: #ffffff;
+  --cor-texto-suave: #ffff00;
+  --cor-fundo: #000000;
+  --cor-fundo-alt: #0a0a0a;
+  --cor-borda: #ffffff;
+  --cor-card-fundo: #000000;
+  --cor-card-sombra: rgba(255, 255, 255, 0.25);
+  --cor-azul-900: #000000;
+  --cor-azul-700: #ffff00;
+  --cor-azul-600: #ffff00;
+  --cor-azul-500: #ffff00;
+  --cor-azul-100: #1f1f00;
+  --cor-vermelho-700: #ff6b6b;
+  --cor-vermelho-600: #ff8787;
+  --cor-link: #ffff00;
+  --cor-link-visitado: #00ffff;
+  --cor-foco: #00ffff;
 }
 
-/* --fonte-escala é ajustada via JS (inline style no <html>) pelos botões A-, A, A+ */
+/* Fonte para dislexia — aplica em texto base, títulos e banner */
+[data-fonte="dislexia"] {
+  --fonte-base: var(--fonte-dislexia);
+  --fonte-titulos: var(--fonte-dislexia);
+  --fonte-banner: var(--fonte-dislexia);
+}
 
-/* Espaçamento de letras/linhas controlado pelo painel de acessibilidade */
-[data-espaco-letras="ativo"] { --espaco-letras: 0.06em; }
-[data-espaco-linhas="ativo"] { --espaco-linhas: 2.1; }
+/* Espaçamento de letras e linhas (WCAG 2.2 SC 1.4.12 Text Spacing) */
+[data-espaco-letras="nivel-1"] {
+  --espaco-letras: 0.08em;
+  --espaco-palavras: 0.12em;
+}
+[data-espaco-letras="nivel-2"] {
+  --espaco-letras: 0.14em;
+  --espaco-palavras: 0.18em;
+}
+[data-espaco-letras="ativo"] {
+  --espaco-letras: 0.12em;
+  --espaco-palavras: 0.16em;
+}
+
+[data-espaco-linhas="nivel-1"] { --espaco-linhas: 1.9; }
+[data-espaco-linhas="nivel-2"] { --espaco-linhas: 2.25; }
+[data-espaco-linhas="ativo"] { --espaco-linhas: 2.05; }
