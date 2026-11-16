@@ -35,57 +35,96 @@
     return (
       '<a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal (Alt + 1)</a>' +
       '<div class="banner-topo top-header" role="region" aria-label="Barra de acessibilidade e redes sociais">' +
-        '<div class="container banner-topo__conteudo">' +
-          '<div class="banner-topo__esquerda">' +
-            '<a href="' + BASE + 'paginas/acessibilidade.html" accesskey="4" class="banner-topo__link text-resize__label text-uppercase"' + attrCorrente("acessibilidade.html") + '>Acessibilidade</a>' +
-            '<div class="banner-topo__grupo" role="group" aria-label="Ajustar tamanho da fonte">' +
-              '<span class="sr-only">Ajustar tamanho da fonte:</span>' +
-              '<button type="button" class="changer text-resize__icon text-decoration-none px-1 banner-topo__fonte-btn" data-acao="diminuir-fonte" aria-label="Diminuir tamanho da fonte">' +
-                '<i class="fa-solid fa-a" aria-hidden="true"></i><sup>-</sup>' +
-              '</button>' +
-              '<button type="button" class="changer text-resize__icon text-decoration-none px-1 banner-topo__fonte-btn" data-acao="aumentar-fonte" aria-label="Aumentar tamanho da fonte">' +
-                '<i class="fa-solid fa-a" aria-hidden="true"></i><sup>+</sup>' +
-              '</button>' +
-              '<button type="button" class="changer text-resize__icon text-decoration-none px-1 banner-topo__fonte-btn" data-acao="fonte-normal" aria-label="Tamanho de fonte padrão">' +
-                '<i class="fa-solid fa-a" aria-hidden="true"></i>' +
+        '<div class="top-header__content container banner-topo__conteudo">' +
+          '<div class="region region-header">' +
+            '<div id="block-bagov-base-textresize" class="block block-text-resize block-text-resize-block top-link-acessibilidade">' +
+              '<div class="content banner-topo__grupo" role="group" aria-label="Acessibilidade e tamanho da fonte">' +
+                '<a href="' + BASE + 'paginas/acessibilidade.html" accesskey="4" class="resize-label text-resize__label text-uppercase text-decoration-none banner-topo__link"' + attrCorrente("acessibilidade.html") + '>Acessibilidade</a>' +
+                '<button type="button" id="text_resize_decrease" class="changer text-resize__icon text-decoration-none px-1 banner-topo__fonte-btn" data-acao="diminuir-fonte" aria-label="Diminuir tamanho da fonte">' +
+                  '<span class="fa-regular fa-a" aria-hidden="true"></span><sup class="letter">-</sup>' +
+                '</button>' +
+                '<button type="button" id="text_resize_increase" class="changer text-resize__icon text-decoration-none px-1 banner-topo__fonte-btn" data-acao="aumentar-fonte" aria-label="Aumentar tamanho da fonte">' +
+                  '<span class="fa-regular fa-a" aria-hidden="true"></span><sup class="letter">+</sup>' +
+                '</button>' +
+                '<button type="button" id="text_resize_reset" class="changer text-resize__icon text-decoration-none px-1 banner-topo__fonte-btn" data-acao="fonte-normal" aria-label="Tamanho de fonte padrão">' +
+                  '<span class="fa-regular fa-a" aria-hidden="true"></span><sup class="letter"></sup>' +
+                '</button>' +
+              '</div>' +
+            '</div>' +
+            '<div id="block-bagov-base-bagovbotaodeconstraste" class="block block-bagov-base-blocks block-contrast-block">' +
+              '<button type="button" id="contrast-btn" class="banner-topo__contraste" accesskey="5" data-acao="alto-contraste" aria-pressed="false" title="Botão de contraste" aria-label="Alternar alto contraste (Alt + 5)">' +
+                '<i class="fa fa-adjust" aria-hidden="true"></i>' +
               '</button>' +
             '</div>' +
-            '<button type="button" class="banner-topo__contraste" accesskey="5" data-acao="alto-contraste" aria-pressed="false" aria-label="Alternar alto contraste (Alt + 5)">' +
-              '<i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>' +
-            '</button>' +
-            '<a href="' + BASE + 'paginas/acesso-informacao.html" class="acesso-informacao__item text-uppercase"' + attrCorrente("acesso-informacao.html") + '>' + iconeInfoBanner() + ' <span>Acesso à Informação</span></a>' +
-            '<a href="' + BASE + 'paginas/politica-privacidade.html" class="politica-privacidade__item_description text-uppercase"' + attrCorrente("politica-privacidade.html") + '>Política de Privacidade</a>' +
-          '</div>' +
-          '<div class="block-social-network" aria-label="Redes sociais da SEPLAN Bahia">' +
-            '<a class="icon-social-network" href="https://www.flickr.com/photos/163559352@N07/" target="_blank" rel="noopener noreferrer" aria-label="Flickr da SEPLAN Bahia">' +
-              '<i class="fa-brands fa-flickr" aria-hidden="true"></i>' +
-            '</a>' +
-            '<a class="icon-social-network" href="https://www.instagram.com/seplanbahia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da SEPLAN Bahia">' +
-              '<i class="fa-brands fa-instagram" aria-hidden="true"></i>' +
-            '</a>' +
-            '<a class="icon-social-network" href="https://www.youtube.com/@seplanbahia" target="_blank" rel="noopener noreferrer" aria-label="YouTube da SEPLAN Bahia">' +
-              '<i class="fa-brands fa-youtube" aria-hidden="true"></i>' +
-            '</a>' +
+            '<div id="block-bagov-base-bagovacessoainformacao" class="block block-bagov-base-blocks block-acesso-informacao-block">' +
+              '<div class="top-link-info acesso-informacao">' +
+                '<a class="acesso-informacao__item" href="' + BASE + 'paginas/acesso-informacao.html"' + attrCorrente("acesso-informacao.html") + '>' +
+                  '<img class="acesso-informacao__item_image" src="' + BASE + 'assets/img/icones/acesso-informacao.png" alt="" aria-hidden="true">' +
+                  '<span class="acesso-informacao__item_description text-uppercase">Acesso à informação</span>' +
+                '</a>' +
+              '</div>' +
+            '</div>' +
+            '<div id="block-bagov-base-bagovpoliticadeprivacidade" class="block block-bagov-base-blocks block-politica-privacidade-block">' +
+              '<div class="top-link-pol politica-privacidade">' +
+                '<a class="politica-privacidade__item" href="' + BASE + 'paginas/politica-privacidade.html"' + attrCorrente("politica-privacidade.html") + '>' +
+                  '<span class="politica-privacidade__item_description text-uppercase">Política de Privacidade</span>' +
+                '</a>' +
+              '</div>' +
+            '</div>' +
+            '<div id="block-bagov-base-bagovredessociais" class="block block-bagov-base-blocks block-block-socialnetwork-bagov">' +
+              '<div class="block-social-network item-list" aria-label="Redes sociais da SEPLAN Bahia">' +
+                '<ul class="list-unstyled d-flex m-0">' +
+                  '<li><a href="https://www.flickr.com/photos/163559352@N07/" target="_blank" rel="noopener noreferrer" aria-label="Flickr da SEPLAN Bahia"><i class="icon-social-network fa-brands fa-flickr" aria-hidden="true"></i></a></li>' +
+                  '<li><a href="https://www.instagram.com/seplanbahia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da SEPLAN Bahia"><i class="icon-social-network fa-brands fa-instagram" aria-hidden="true"></i></a></li>' +
+                  '<li><a href="https://www.youtube.com/@seplanbahia" target="_blank" rel="noopener noreferrer" aria-label="YouTube da SEPLAN Bahia"><i class="icon-social-network fa-brands fa-youtube" aria-hidden="true"></i></a></li>' +
+                '</ul>' +
+              '</div>' +
+            '</div>' +
           '</div>' +
         '</div>' +
       '</div>' +
       '<div class="cabecalho-gov">' +
-        '<div class="container cabecalho-gov__container">' +
-          '<div class="cabecalho-gov__topo">' +
-            '<a class="cabecalho-gov__marca" href="https://www.ba.gov.br/" target="_blank" rel="noopener noreferrer" aria-label="ba.gov.br - Plataforma de serviços e informações do Estado da Bahia">' +
-              '<img class="cabecalho-gov__logo-ba" src="' + BASE + 'assets/img/icones/ba_gov.png" alt="ba.gov.br - Plataforma de serviços e informações do Estado da Bahia">' +
-            '</a>' +
-            '<nav id="menu-principal" class="barra-menu" aria-label="Navegação principal">' +
-              '<ul class="barra-menu__lista">' +
-                '<li><a class="barra-menu__link text-uppercase" href="' + BASE + 'index.html"' + attrCorrente("index.html") + '>Página Inicial</a></li>' +
-                '<li><a class="barra-menu__link text-uppercase" href="' + BASE + 'paginas/mapa-multifinalitarios.html"' + attrCorrente("mapa-multifinalitarios.html") + '>Consórcios Multifinalitários</a></li>' +
-                '<li><a class="barra-menu__link text-uppercase" href="' + BASE + 'paginas/mapa-saude.html"' + attrCorrente("mapa-saude.html") + '>Consórcios de Saúde</a></li>' +
-              '</ul>' +
-            '</nav>' +
+        '<nav class="navbar navbar-expand-lg header-multi-site-navbar">' +
+          '<div class="container justify-content-start align-items-sm-start">' +
+            '<div class="w-100 d-flex align-items-start align-items-xl-center">' +
+              '<div class="header-multi-site-navbar__brand w-100 d-flex align-items-center align-items-xl-center justify-content-between">' +
+                '<div class="region region-nav-branding">' +
+                  '<div class="header-multi-site__logo">' +
+                    '<h1>' +
+                      '<a tabindex="100" class="header-multi-site__logo" href="https://www.ba.gov.br/" target="_blank" rel="noopener noreferrer">' +
+                        '<img class="mw-100 d-block" title="Clique para voltar para tela principal" src="https://www.ba.gov.br/seplan/themes/custom/bagov_base/logo.png" onerror="this.onerror=null;this.src=\'' + BASE + 'assets/img/icones/ba-gov-br.png\';" alt="Governo do Estado da Bahia"/>' +
+                      '</a>' +
+                    '</h1>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="collapse navbar-collapse flex-grow-0 header-multi-site-links__navbar" id="bagovMultisiteMenu">' +
+                  '<div class="region region-nav-additional">' +
+                    '<div id="block-bagov-base-bagovmenumultisites" class="block block-bagov-base-blocks block-menu-multisites-block">' +
+                      '<nav id="menu-governo-bagov" aria-label="Navegação principal">' +
+                        '<ul class="nav navbar-nav px-lg-0 px-2 barra-menu__lista">' +
+                          '<li class="nav-item text-uppercase fw-bold"><a id="menu-principal" class="nav-link nav-text barra-menu__link text-uppercase" href="' + BASE + 'index.html"' + attrCorrente("index.html") + '>Página Inicial</a></li>' +
+                          '<li class="nav-item text-uppercase fw-bold"><a class="nav-link nav-text barra-menu__link text-uppercase" href="' + BASE + 'paginas/mapa-multifinalitarios.html"' + attrCorrente("mapa-multifinalitarios.html") + '>Consórcios Multifinalitários</a></li>' +
+                          '<li class="nav-item text-uppercase fw-bold"><a class="nav-link nav-text barra-menu__link text-uppercase" href="' + BASE + 'paginas/mapa-saude.html"' + attrCorrente("mapa-saude.html") + '>Consórcios de Saúde</a></li>' +
+                        '</ul>' +
+                      '</nav>' +
+                    '</div>' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+            '</div>' +
           '</div>' +
-          '<div class="cabecalho-gov__orgao text-uppercase">SEPLAN - SECRETARIA DO PLANEJAMENTO</div>' +
-          '<hr class="cabecalho-gov__linha" aria-hidden="true">' +
-          '<div id="app-trilha-cabecalho"></div>' +
+        '</nav>' +
+        '<div class="header-multi-site-subheader">' +
+          '<div class="container cabecalho-gov__subheader">' +
+            '<div id="block-site-name">' +
+              '<h5 class="site-name text-uppercase fw-normal cabecalho-gov__orgao">' +
+                '<a class="text-decoration-none header-multi-site-subheader__link" href="' + BASE + 'index.html" title="Início" rel="home">SEPLAN - Secretaria do Planejamento</a>' +
+              '</h5>' +
+            '</div>' +
+          '</div>' +
+          '<div class="container">' +
+            '<div id="app-trilha-cabecalho"></div>' +
+          '</div>' +
         '</div>' +
       '</div>' +
       '<header class="cabecalho">' +
@@ -143,15 +182,22 @@
     return '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m15 5-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   }
 
-  function montarTrilha(textoAtual, incluirBotaoVoltar) {
+  function montarTrilha(textoAtual) {
     return (
-      '<div class="barra-trilha">' +
-        (incluirBotaoVoltar ? montarBotaoVoltar() : '') +
-        '<nav class="trilha" aria-label="Trilha de navegação (Breadcrumb)">' +
-          '<a class="trilha__inicio" href="' + BASE + 'index.html">Página Inicial</a>' +
-          '<span class="trilha__separador" aria-hidden="true">/</span>' +
-          '<span class="trilha__atual" aria-current="page">' + textoAtual + '</span>' +
-        '</nav>' +
+      '<div class="region region-breadcrumb barra-trilha">' +
+        '<div id="block-bagov-base-breadcrumbs" class="block block-system block-system-breadcrumb-block">' +
+          '<nav aria-label="breadcrumb">' +
+            '<h2 id="system-breadcrumb" class="visually-hidden sr-only">Trilha de navegação</h2>' +
+            '<ol class="breadcrumb">' +
+              '<li class="breadcrumb-item">' +
+                '<a href="' + BASE + 'index.html" title="Início">Início</a>' +
+              '</li>' +
+              '<li class="breadcrumb-item" aria-current="page">' +
+                textoAtual +
+              '</li>' +
+            '</ol>' +
+          '</nav>' +
+        '</div>' +
       '</div>'
     );
   }

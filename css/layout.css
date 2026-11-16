@@ -11,46 +11,49 @@
   --bs-nav-link-hover-color: #053e80;
 }
 
-/* ---- Banner superior de acessibilidade e redes sociais (.top-header) ---- */
+/* ---- Banner superior de acessibilidade e redes sociais (.top-header — padrão oficial ba.gov.br/seplan) ---- */
 .banner-topo,
 .top-header {
-  background: #0756B1;
+  background-color: var(--default, #0756B1);
   color: #ffffff;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 1.5;
   position: sticky;
   top: 0;
   z-index: var(--z-banner);
 }
 
 [data-alto-contraste="ativo"] .banner-topo {
-  background: #000000;
+  background-color: #000000;
   border-bottom: 1px solid #ffff00;
 }
 
-.banner-topo__conteudo {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px 24px;
-  padding-top: 8px;
-  padding-bottom: 8px;
+.top-header__content {
+  min-height: 44px;
 }
 
-.banner-topo__esquerda {
+.region-header {
   display: flex;
-  flex-wrap: wrap;
+  min-height: 44px;
   align-items: center;
-  gap: 10px 18px;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
+.region-header > *:not(:first-child) {
+  margin-left: 30px;
+}
+
+.region-header > div:last-child {
+  margin-left: auto;
+}
+
+.block-text-resize-block .content,
 .banner-topo__grupo {
   display: flex;
   align-items: center;
-  gap: 4px;
 }
 
 .top-header a,
@@ -59,51 +62,79 @@
 .banner-topo a:visited,
 .banner-topo button {
   background: transparent;
-  border: 1px solid transparent;
+  border: none;
   color: #ffffff;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 1.5;
   text-decoration: none;
   cursor: pointer;
-  padding: 4px 6px;
-  border-radius: 4px;
+  padding: 0;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: background-color 0.15s ease, opacity 0.15s ease;
+  transition: opacity 0.15s ease;
 }
 
-.banner-topo__link {
-  font-weight: 400;
+div[class*="top-link-"] a {
+  text-decoration: none;
+}
+
+div[class*="top-link-"] a:hover,
+.block-text-resize-block .content .text-resize__icon:hover,
+#contrast-btn:hover {
+  text-decoration: none;
+  opacity: 0.7;
+  color: #ffffff;
+}
+
+.changer.text-resize__icon.text-decoration-none.px-1 {
+  margin: 0 !important;
+  text-indent: initial !important;
+  background: none !important;
+  width: auto !important;
+  height: auto !important;
+  padding-left: 0.25rem !important;
+  padding-right: 0.25rem !important;
 }
 
 .changer.text-resize__icon.text-decoration-none.px-1 span {
   margin-left: 10px;
 }
 
-.banner-topo__fonte-btn {
-  padding: 4px 6px;
-  font-weight: 600;
-}
-
-.banner-topo__fonte-btn sup {
-  font-size: 0.72em;
+.changer.text-resize__icon.text-decoration-none.px-1 sup.letter {
+  top: -0.5em;
+  font-size: 0.75em;
+  position: relative;
   line-height: 0;
-  margin-left: 1px;
+  vertical-align: baseline;
 }
 
-.banner-topo button:hover,
-.banner-topo__esquerda a:hover {
-  background: rgba(255, 255, 255, 0.15);
+#contrast-btn {
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.acesso-informacao__item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.acesso-informacao__item_image {
+  width: 19px;
+  height: 18px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .banner-topo button[aria-pressed="true"],
-.banner-topo__esquerda a[aria-current="page"] {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.55);
+.region-header a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 [data-alto-contraste="ativo"] .banner-topo button,
@@ -111,51 +142,68 @@
   color: #ffff00;
 }
 [data-alto-contraste="ativo"] .banner-topo button[aria-pressed="true"],
-[data-alto-contraste="ativo"] .banner-topo__esquerda a[aria-current="page"] {
+[data-alto-contraste="ativo"] .region-header a[aria-current="page"] {
   background: #ffff00;
   color: #000000 !important;
-  border-color: #ffffff;
 }
 
-/* Ícones de Redes Sociais no Banner (padrão oficial ba.gov.br) */
+/* Ícones de Redes Sociais no Banner (padrão oficial ba.gov.br/seplan) */
 .block-social-network {
+  margin: 0;
+}
+
+.block-social-network ul {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.block-social-network ul li {
+  margin: 0 0.25em;
+}
+
+.block-social-network ul li:first-child {
+  margin-left: 0;
+}
+
+.block-social-network ul li:last-child {
+  margin-right: 0;
+}
+
+.block-social-network ul li a {
+  width: 26px;
+  height: 26px;
+  display: block;
+  text-decoration: none;
 }
 
 .block-social-network .icon-social-network {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #ffffff;
+  border: 1px solid;
   width: 26px;
   height: 26px;
   padding: 2px;
   border-radius: 4px;
   color: var(--default, #0756B1) !important;
-  background-color: #fff !important;
-  font-size: 15px;
-  transition: transform 0.15s ease, filter 0.15s ease;
+  background-color: #ffffff !important;
 }
 
-.block-social-network .icon-social-network i {
-  color: var(--default, #0756B1) !important;
-  font-size: 15px;
-  line-height: 1;
+.block-social-network .icon-social-network::before {
+  font-size: 16px;
 }
 
-.block-social-network .icon-social-network:hover,
-.block-social-network .icon-social-network:focus-visible {
-  transform: translateY(-1px);
-  filter: brightness(0.93);
+.block-social-network ul li a:hover {
+  opacity: 0.85;
 }
 
 [data-alto-contraste="ativo"] .block-social-network .icon-social-network {
   background-color: #ffff00 !important;
   border-color: #ffffff;
-}
-[data-alto-contraste="ativo"] .block-social-network .icon-social-network i {
   color: #000000 !important;
 }
 
@@ -167,40 +215,107 @@
   }
 }
 
-/* ---- Faixa Institucional: ba.gov.br + Menu Principal + SEPLAN ---- */
-.cabecalho-gov {
-  background: var(--cor-fundo);
-  padding: 18px 0 0;
+@media (max-width: 768px) {
+  .region-header > *:not(:first-child) {
+    margin-left: 14px;
+  }
+  .acesso-informacao__item_image {
+    display: none !important;
+  }
 }
 
-.cabecalho-gov__topo {
+/* ---- Faixa Institucional: ba.gov.br + Menu Principal + SEPLAN (padrão ba.gov.br/seplan) ---- */
+.cabecalho-gov {
+  background: var(--cor-fundo);
+}
+
+.w-100 {
+  width: 100% !important;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.d-block {
+  display: block !important;
+}
+
+.mw-100 {
+  max-width: 100% !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.justify-content-start {
+  justify-content: flex-start !important;
+}
+
+.flex-grow-0 {
+  flex-grow: 0 !important;
+}
+
+.header-multi-site-navbar {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-start;
-  gap: 20px 64px;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
-.cabecalho-gov__marca {
-  display: inline-flex;
+.header-multi-site-navbar > .container {
+  display: flex;
+  flex-wrap: inherit;
   align-items: center;
+  justify-content: flex-start;
+}
+
+.header-multi-site-navbar__brand {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start !important;
+  gap: 12px 24px;
+}
+
+.header-multi-site__logo {
+  width: 280px;
+  max-width: 290px;
+  display: block;
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.cabecalho-gov__logo-ba {
-  height: 54px;
-  width: auto;
-  object-fit: contain;
+.header-multi-site__logo h1 {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  line-height: 1;
+}
+
+.header-multi-site__logo img {
+  max-width: 100%;
+  height: auto;
   display: block;
-  transition: transform 0.2s ease;
 }
 
-.cabecalho-gov__marca:hover .cabecalho-gov__logo-ba {
-  transform: scale(1.02);
+@media (max-width: 980px) {
+  .header-multi-site__logo {
+    width: 162px;
+  }
 }
 
-/* Menu de Navegação Principal (cor azul uniforme #0756B1 + efeito moderno de hover/seleção) */
+/* Menu de Navegação Principal (mesma tipografia Poppins 16px Bold de "Governo, Serviços, Notícias e Observatório") */
+.header-multi-site-links__navbar,
 .barra-menu {
   display: flex;
   align-items: center;
@@ -208,12 +323,19 @@
 
 .barra-menu__lista {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  gap: 14px 28px;
+  gap: 4px 8px;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.barra-menu__lista .nav-item {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
 }
 
 .barra-menu__link,
@@ -223,14 +345,14 @@
   background: transparent !important;
   box-shadow: none !important;
   border: none;
-  color: #0756B1;
+  color: var(--default, #0756B1);
   text-decoration: none;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 1.4;
-  padding: 8px 4px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 700 !important;
+  line-height: 1.5;
+  text-transform: uppercase !important;
+  padding: 0.5rem 0.5rem;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
@@ -244,8 +366,8 @@
   content: "";
   position: absolute;
   bottom: 2px;
-  left: 0;
-  right: 0;
+  left: 0.5rem;
+  right: 0.5rem;
   height: 2.5px;
   background: #0756B1;
   border-radius: 999px;
@@ -273,7 +395,7 @@
   color: #0756B1;
   background: transparent !important;
   box-shadow: none !important;
-  font-weight: 700;
+  font-weight: 700 !important;
 }
 
 [data-tema="escuro"] .barra-menu__link,
@@ -299,34 +421,64 @@
   outline: 1px solid #ffff00;
 }
 
-/* Subtítulo SEPLAN - SECRETARIA DO PLANEJAMENTO + Linha Divisória Azul */
-.cabecalho-gov__orgao {
-  margin-top: 16px;
-  font-family: var(--fonte-titulos);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.25;
-  letter-spacing: var(--espaco-letras);
-  color: #0756b1;
-  text-transform: uppercase;
+/* Subtítulo SEPLAN - Secretaria do Planejamento + Linha Divisória Azul (padrão ba.gov.br/seplan) */
+.header-multi-site-subheader {
+  min-height: 35px;
 }
 
-[data-tema="escuro"] .cabecalho-gov__orgao {
+.header-multi-site-subheader .cabecalho-gov__subheader {
+  border-bottom: 2px solid #0756b1;
+  padding-bottom: 0.25rem;
+}
+
+[data-alto-contraste="ativo"] .header-multi-site-subheader .cabecalho-gov__subheader {
+  border-bottom-color: #ffff00;
+}
+
+#block-site-name {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+}
+
+#block-site-name > h5.site-name,
+.cabecalho-gov__orgao {
+  margin: 0.5rem 0 0 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400 !important;
+  line-height: 1.2;
+  color: #0756b1;
+  text-transform: uppercase !important;
+}
+
+.header-multi-site-subheader__link,
+.header-multi-site-subheader__link:link,
+.header-multi-site-subheader__link:visited {
+  color: #0756b1;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400 !important;
+  line-height: 1.2;
+  text-transform: uppercase !important;
+}
+
+.header-multi-site-subheader__link:hover {
+  color: #0756b1;
+  opacity: 0.7;
+  text-decoration: none;
+}
+
+[data-tema="escuro"] .cabecalho-gov__orgao,
+[data-tema="escuro"] .header-multi-site-subheader__link,
+[data-tema="escuro"] .header-multi-site-subheader__link:visited {
   color: #9dc4ff;
 }
-[data-alto-contraste="ativo"] .cabecalho-gov__orgao {
+[data-alto-contraste="ativo"] .cabecalho-gov__orgao,
+[data-alto-contraste="ativo"] .header-multi-site-subheader__link,
+[data-alto-contraste="ativo"] .header-multi-site-subheader__link:visited {
   color: #ffffff;
-}
-
-.cabecalho-gov__linha {
-  height: 2px;
-  background: #1c4f82;
-  margin: 8px 0 0;
-  border: none;
-}
-
-[data-alto-contraste="ativo"] .cabecalho-gov__linha {
-  background: #ffff00;
 }
 
 /* ---- Cabeçalho do Sistema (Logo CONSIS360 + Título Centralizado conforme Layout_pagina.png) ---- */
@@ -365,65 +517,145 @@
   color: #ffff00;
 }
 
-/* ---- Trilha de navegação (breadcrumb) + Botão Voltar abaixo da linha SEPLAN ---- */
-.barra-trilha {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 18px;
-  padding: 12px 0 4px;
+/* ---- Trilha de navegação (breadcrumb padrão https://www.ba.gov.br/seplan/pdibahia2050) ---- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
-.trilha {
-  display: inline-flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: var(--esp-2);
+.barra-trilha,
+.region-breadcrumb {
   padding: 0;
-  font-family: var(--fonte-titulos);
-  font-size: 0.9375rem;
-  font-weight: 400;
+}
+
+.breadcrumb {
+  --bs-breadcrumb-padding-x: 0;
+  --bs-breadcrumb-padding-y: 0;
+  --bs-breadcrumb-margin-bottom: 1rem;
+  --bs-breadcrumb-divider-color: #6c757d;
+  --bs-breadcrumb-item-padding-x: 0.5rem;
+  --bs-breadcrumb-item-active-color: #6c757d;
+  padding-bottom: 0.5em;
+}
+
+ol.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0 0.5rem 0;
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: rgba(0, 0, 0, 0);
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
   line-height: 1.5;
-  color: #000000;
 }
-.trilha__inicio,
-.trilha__inicio:link,
-.trilha__inicio:visited {
-  color: #000000;
-  text-decoration: underline;
+
+ol.breadcrumb li.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
 }
-.trilha__inicio:hover {
-  color: #000000;
-  text-decoration-thickness: 2px;
+
+ol.breadcrumb li.breadcrumb-item a,
+ol.breadcrumb li.breadcrumb-item a:link,
+ol.breadcrumb li.breadcrumb-item a:visited {
+  text-decoration: none !important;
+  color: var(--default, #0756B1);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
 }
-.trilha__separador {
-  color: #000000;
+
+ol.breadcrumb li.breadcrumb-item a:hover {
+  color: var(--bs-nav-link-color, #2888f6);
 }
-.trilha__atual {
-  color: #000000;
+
+ol.breadcrumb li.breadcrumb-item + .breadcrumb-item {
+  padding-left: var(--bs-breadcrumb-item-padding-x, 0.5rem);
+}
+
+ol.breadcrumb li.breadcrumb-item + .breadcrumb-item::before {
+  content: "›" !important;
+  font-size: 1.4rem;
+  line-height: 1;
+  float: left;
+  padding-right: var(--bs-breadcrumb-item-padding-x, 0.5rem);
+  color: var(--bs-breadcrumb-divider-color, #6c757d);
+}
+
+ol.breadcrumb li.breadcrumb-item:last-child {
+  color: var(--bs-nav-link-color, #2888f6);
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
   font-weight: 500;
+  line-height: 1.5;
+  display: inline-flex;
+  align-items: center;
 }
 
-[data-tema="escuro"] .trilha,
-[data-tema="escuro"] .trilha__inicio,
-[data-tema="escuro"] .trilha__inicio:visited,
-[data-tema="escuro"] .trilha__separador,
-[data-tema="escuro"] .trilha__atual {
-  color: #eef2f8;
+ol.breadcrumb li:first-child::before {
+  content: none;
 }
 
-[data-alto-contraste="ativo"] .trilha,
-[data-alto-contraste="ativo"] .trilha__inicio,
-[data-alto-contraste="ativo"] .trilha__inicio:visited,
-[data-alto-contraste="ativo"] .trilha__separador,
-[data-alto-contraste="ativo"] .trilha__atual {
+ol.breadcrumb li:first-child a,
+ol.breadcrumb li:first-child a:link,
+ol.breadcrumb li:first-child a:visited {
+  font-size: 0;
+  color: var(--default, #0756B1);
+}
+
+ol.breadcrumb li:first-child a::before {
+  content: "\f015";
+  font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+ol.breadcrumb li:first-child a:hover {
+  color: #0c326f;
+}
+
+[data-tema="escuro"] ol.breadcrumb li:first-child a,
+[data-tema="escuro"] ol.breadcrumb li:first-child a:visited,
+[data-tema="escuro"] ol.breadcrumb li.breadcrumb-item:last-child {
+  color: #7db4ff;
+}
+[data-tema="escuro"] ol.breadcrumb li.breadcrumb-item + .breadcrumb-item::before {
+  color: #c3ccd9;
+}
+
+[data-alto-contraste="ativo"] ol.breadcrumb li:first-child a,
+[data-alto-contraste="ativo"] ol.breadcrumb li:first-child a:visited,
+[data-alto-contraste="ativo"] ol.breadcrumb li.breadcrumb-item + .breadcrumb-item::before,
+[data-alto-contraste="ativo"] ol.breadcrumb li.breadcrumb-item:last-child {
   color: #ffff00;
 }
 
-/* ---- Banner principal (imagem institucional) ---- */
+/* ---- Banner principal (imagem institucional alinhada ao container de ba.gov.br/seplan) ---- */
 .banner-principal {
-  border-bottom: 1px solid var(--cor-borda);
   background: var(--cor-fundo);
+  line-height: 0;
+  padding: 0.25rem 0 0;
+}
+.banner-principal__moldura {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   line-height: 0;
 }
 .banner-principal__imagem {
@@ -483,7 +715,6 @@
 }
 
 .rodape__principal {
-  max-width: 1080px;
   margin: 0 auto;
 }
 
