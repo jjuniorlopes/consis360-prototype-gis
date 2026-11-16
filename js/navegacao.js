@@ -119,12 +119,12 @@
               '<p class="rodape__texto">2ª Avenida, nº 250, CAB, Salvador, BA,<br>CEP: 41745-003.</p>' +
               '<hr class="rodape__divisor" aria-hidden="true">' +
               '<p class="rodape__texto">Horário de funcionamento:<br>Segunda a sexta, das 8h30 às 12h e das 13h30 às 18h</p>' +
-              '<p class="rodape__texto rodape__ouvidoria">Exerça sua cidadania. <a href="https://www.ba.gov.br/ouvidoria" target="_blank" rel="noopener noreferrer">Fale com a Ouvidoria Geral do Estado</a>.</p>' +
+              '<p class="rodape__texto rodape__ouvidoria">Exerça sua cidadania. <a href="https://www.ba.gov.br/ouvidoria/" target="_blank" rel="noopener noreferrer">Fale com a Ouvidoria Geral do Estado</a>.</p>' +
             '</div>' +
             '<div class="rodape__coluna">' +
               '<h2 class="rodape__coluna-titulo">Guia rápido</h2>' +
               '<ul class="rodape__guia-lista">' +
-                '<li><a href="https://www.ba.gov.br/seplan" target="_blank" rel="noopener noreferrer" class="text-uppercase">CONTATO</a></li>' +
+                '<li><a href="https://www.ba.gov.br/seplan/fale-conosco" target="_blank" rel="noopener noreferrer" class="text-uppercase">CONTATO</a></li>' +
               '</ul>' +
             '</div>' +
           '</div>' +
