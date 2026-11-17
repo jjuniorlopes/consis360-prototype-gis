@@ -181,11 +181,11 @@
 [data-alto-contraste="ativo"] .botao-voltar,
 [data-alto-contraste="ativo"] .botao-voltar:visited,
 [data-alto-contraste="ativo"] .botao-voltar .botao-voltar__texto {
-  color: #ffff00;
-  border-color: #ffff00;
+  color: #ffffff;
+  border-color: #ffffff;
 }
 [data-alto-contraste="ativo"] .botao-voltar__icone {
-  background: #ffff00;
+  background: #ffffff;
   color: #000000;
 }
 
@@ -225,17 +225,35 @@
   border-color: var(--cor-borda);
 }
 [data-alto-contraste="ativo"] .estatistica-card,
-[data-alto-contraste="ativo"] .card-mapa {
-  border: 2px solid #ffffff;
-  box-shadow: none;
+[data-alto-contraste="ativo"] .card-mapa,
+[data-alto-contraste="ativo"] .card-consorcio,
+body.alto-contraste .estatistica-card,
+body.alto-contraste .card-mapa,
+body.alto-contraste .card-consorcio {
+  background-color: #000000 !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: none !important;
+  color: #ffffff !important;
 }
-[data-alto-contraste="ativo"] .estatistica-card__valor {
-  color: #ffffff;
+[data-alto-contraste="ativo"] .estatistica-card__valor,
+[data-alto-contraste="ativo"] .estatistica-card__rotulo,
+[data-alto-contraste="ativo"] .card-mapa--multi .card-mapa__icone,
+[data-alto-contraste="ativo"] .card-mapa--multi .card-mapa__titulo,
+[data-alto-contraste="ativo"] .card-mapa--saude .card-mapa__icone,
+[data-alto-contraste="ativo"] .card-mapa--saude .card-mapa__titulo {
+  color: #ffffff !important;
 }
 [data-alto-contraste="ativo"] .card-mapa--multi .card-mapa__rodape,
 [data-alto-contraste="ativo"] .card-mapa--saude .card-mapa__rodape {
-  background: #ffff00;
-  color: #000000;
+  background: #000000 !important;
+  color: #ffffff !important;
+  border-top: 1.5px solid #ffffff !important;
+}
+[data-alto-contraste="ativo"] .botao,
+[data-alto-contraste="ativo"] .botao--secundario {
+  background: #000000 !important;
+  border: 1.5px solid #ffffff !important;
+  color: #ffffff !important;
 }
 .estatistica-card__texto {
   display: flex;

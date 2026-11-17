@@ -131,7 +131,7 @@
 [data-alto-contraste="ativo"] .painel-acessibilidade {
   background: #000000;
   color: #ffffff;
-  border: 2px solid #ffff00;
+  border: 2px solid #ffffff;
 }
 
 /* Topo do painel com botão pílula "Redefinir Ajustes" (fiel à imagem anexa) */
@@ -190,11 +190,11 @@
 
 [data-alto-contraste="ativo"] .painel-acessibilidade__redefinir {
   background: #000000;
-  color: #ffff00;
-  border: 2px solid #ffff00;
+  color: #ffffff;
+  border: 2px solid #ffffff;
 }
 [data-alto-contraste="ativo"] .painel-acessibilidade__redefinir:hover {
-  background: #ffff00;
+  background: #ffffff;
   color: #000000;
 }
 
@@ -288,20 +288,20 @@
 }
 
 [data-alto-contraste="ativo"] .painel-acessibilidade__card {
-  background: #000000;
-  border: 2px solid #ffffff;
+  background: #1a1a1a;
+  border: 2px solid #666666;
   color: #ffffff;
   box-shadow: none;
 }
 [data-alto-contraste="ativo"] .painel-acessibilidade__card[aria-pressed="true"],
 [data-alto-contraste="ativo"] .painel-acessibilidade__card.ativo {
-  background: #222200;
-  border-color: #ffff00;
-  color: #ffff00;
+  background: #333333;
+  border-color: #ffffff;
+  color: #ffffff;
 }
 [data-alto-contraste="ativo"] .painel-acessibilidade__card[aria-pressed="true"]::after,
 [data-alto-contraste="ativo"] .painel-acessibilidade__card.ativo::after {
-  background: #ffff00;
+  background: #ffffff;
   color: #000000;
 }
 
@@ -317,7 +317,7 @@
   color: #ffffff;
 }
 [data-alto-contraste="ativo"] .painel-acessibilidade__icone {
-  color: #ffff00;
+  color: #ffffff;
 }
 
 .painel-acessibilidade__icone svg {
@@ -728,8 +728,8 @@
   border-color: #354560;
 }
 [data-alto-contraste="ativo"] .painel-acessibilidade__atalhos-box {
-  background: #000000;
-  border: 2px solid #ffff00;
+  background: #1a1a1a;
+  border: 2px solid #ffffff;
 }
 .painel-acessibilidade__atalhos-titulo {
   margin: 0 0 8px;
@@ -767,7 +767,7 @@
   color: #7db4ff;
 }
 [data-alto-contraste="ativo"] .painel-acessibilidade__atalhos-lista kbd {
-  background: #ffff00;
+  background: #ffffff;
   color: #000000;
   border-color: #ffffff;
 }

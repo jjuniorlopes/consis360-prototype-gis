@@ -25,9 +25,12 @@
   z-index: var(--z-banner);
 }
 
-[data-alto-contraste="ativo"] .banner-topo {
-  background-color: #000000;
-  border-bottom: 1px solid #ffff00;
+[data-alto-contraste="ativo"] .banner-topo,
+[data-alto-contraste="ativo"] .top-header,
+body.alto-contraste .banner-topo,
+body.alto-contraste .top-header {
+  background: #000000 !important;
+  border-bottom: 1px solid #ffffff !important;
 }
 
 .top-header__content {
@@ -93,9 +96,12 @@ div[class*="top-link-"] a:hover,
   text-indent: initial !important;
   background: none !important;
   width: auto !important;
+  min-width: 24px;
+  min-height: 24px;
   height: auto !important;
   padding-left: 0.25rem !important;
   padding-right: 0.25rem !important;
+  justify-content: center;
 }
 
 .changer.text-resize__icon.text-decoration-none.px-1 span {
@@ -115,6 +121,9 @@ div[class*="top-link-"] a:hover,
   color: #ffffff;
   font-size: 1rem;
   line-height: 1.5;
+  min-width: 24px;
+  min-height: 24px;
+  justify-content: center;
 }
 
 .acesso-informacao__item {
@@ -138,13 +147,22 @@ div[class*="top-link-"] a:hover,
 }
 
 [data-alto-contraste="ativo"] .banner-topo button,
-[data-alto-contraste="ativo"] .banner-topo a {
-  color: #ffff00;
+[data-alto-contraste="ativo"] .banner-topo a,
+[data-alto-contraste="ativo"] .banner-topo a span,
+[data-alto-contraste="ativo"] .banner-topo button span,
+[data-alto-contraste="ativo"] .banner-topo button sup,
+[data-alto-contraste="ativo"] #contrast-btn,
+body.alto-contraste .banner-topo button,
+body.alto-contraste .banner-topo a {
+  color: #ffffff !important;
 }
 [data-alto-contraste="ativo"] .banner-topo button[aria-pressed="true"],
 [data-alto-contraste="ativo"] .region-header a[aria-current="page"] {
-  background: #ffff00;
-  color: #000000 !important;
+  background: #000000 !important;
+  color: #ffffff !important;
+  outline: 1.5px solid #ffffff;
+  border-radius: 4px;
+  padding: 2px 6px;
 }
 
 /* Ícones de Redes Sociais no Banner (padrão oficial ba.gov.br/seplan) */
@@ -201,10 +219,11 @@ div[class*="top-link-"] a:hover,
   opacity: 0.85;
 }
 
-[data-alto-contraste="ativo"] .block-social-network .icon-social-network {
-  background-color: #ffff00 !important;
-  border-color: #ffffff;
-  color: #000000 !important;
+[data-alto-contraste="ativo"] .block-social-network .icon-social-network,
+body.alto-contraste .block-social-network .icon-social-network {
+  background-color: #000000 !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
 }
 
 @media (max-width: 992px) {
@@ -295,7 +314,8 @@ div[class*="top-link-"] a:hover,
   flex-shrink: 0;
 }
 
-.header-multi-site__logo h1 {
+.header-multi-site__logo h1,
+.header-multi-site__logo-heading {
   margin: 0;
   padding: 0;
   font-size: inherit;
@@ -385,8 +405,7 @@ div[class*="top-link-"] a:hover,
 }
 
 .barra-menu__link:hover::after,
-.barra-menu__link:focus-visible::after,
-.barra-menu__link[aria-current="page"]::after {
+.barra-menu__link:focus-visible::after {
   transform: scaleX(1);
 }
 
@@ -410,15 +429,39 @@ div[class*="top-link-"] a:hover,
 }
 
 [data-alto-contraste="ativo"] .barra-menu__link,
-[data-alto-contraste="ativo"] .barra-menu__link:visited {
-  color: #ffff00;
+[data-alto-contraste="ativo"] .barra-menu__link:visited,
+[data-alto-contraste="ativo"] .barra-menu__link:hover {
+  color: #ffffff;
 }
 [data-alto-contraste="ativo"] .barra-menu__link::after {
-  background-color: #ffff00;
+  background-color: #ffffff;
 }
 [data-alto-contraste="ativo"] .barra-menu__link[aria-current="page"] {
-  color: #ffff00 !important;
-  outline: 1px solid #ffff00;
+  color: #ffffff !important;
+  outline: 1px solid #ffffff;
+}
+
+@media (max-width: 768px) {
+  .header-multi-site-navbar__brand {
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px;
+    text-align: center;
+  }
+  .header-multi-site__logo {
+    margin: 0 auto;
+  }
+  .barra-menu__lista {
+    justify-content: center;
+    gap: 4px 6px;
+  }
+  .barra-menu__link,
+  .barra-menu__link:link,
+  .barra-menu__link:visited {
+    font-size: 0.78rem;
+    padding: 0.35rem 0.45rem;
+  }
 }
 
 /* Subtítulo SEPLAN - Secretaria do Planejamento + Linha Divisória Azul (padrão ba.gov.br/seplan) */
@@ -431,8 +474,11 @@ div[class*="top-link-"] a:hover,
   padding-bottom: 0.25rem;
 }
 
-[data-alto-contraste="ativo"] .header-multi-site-subheader .cabecalho-gov__subheader {
-  border-bottom-color: #ffff00;
+[data-alto-contraste="ativo"] .header-multi-site-subheader .cabecalho-gov__subheader,
+[data-alto-contraste="ativo"] .rodape__divisor,
+body.alto-contraste .header-multi-site-subheader .cabecalho-gov__subheader,
+body.alto-contraste .rodape__divisor {
+  border-color: #ffffff !important;
 }
 
 #block-site-name {
@@ -514,7 +560,7 @@ div[class*="top-link-"] a:hover,
   color: #7db4ff;
 }
 [data-alto-contraste="ativo"] .cabecalho__titulo {
-  color: #ffff00;
+  color: #ffffff;
 }
 
 /* ---- Trilha de navegação (breadcrumb padrão https://www.ba.gov.br/seplan/pdibahia2050) ---- */
@@ -643,7 +689,7 @@ ol.breadcrumb li:first-child a:hover {
 [data-alto-contraste="ativo"] ol.breadcrumb li:first-child a:visited,
 [data-alto-contraste="ativo"] ol.breadcrumb li.breadcrumb-item + .breadcrumb-item::before,
 [data-alto-contraste="ativo"] ol.breadcrumb li.breadcrumb-item:last-child {
-  color: #ffff00;
+  color: #ffffff;
 }
 
 /* ---- Banner principal (imagem institucional alinhada ao container de ba.gov.br/seplan) ---- */
@@ -710,8 +756,9 @@ ol.breadcrumb li:first-child a:hover {
   margin-bottom: var(--esp-6);
 }
 
-[data-alto-contraste="ativo"] .rodape__faixa-azul {
-  background: #ffff00;
+[data-alto-contraste="ativo"] .rodape__faixa-azul,
+body.alto-contraste .rodape__faixa-azul {
+  background: #ffffff !important;
 }
 
 .rodape__principal {
@@ -754,9 +801,10 @@ ol.breadcrumb li:first-child a:hover {
   color: #7db4ff;
   border-bottom-color: #7db4ff;
 }
-[data-alto-contraste="ativo"] .rodape__coluna-titulo {
-  color: #ffff00;
-  border-bottom-color: #ffff00;
+[data-alto-contraste="ativo"] .rodape__coluna-titulo,
+body.alto-contraste .rodape__coluna-titulo {
+  color: #ffffff !important;
+  border-bottom-color: #ffffff !important;
 }
 
 @font-face {

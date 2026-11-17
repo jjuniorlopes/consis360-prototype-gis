@@ -192,6 +192,9 @@
     raiz.style.setProperty("--fonte-escala", Number(estado.escalaFonte || 1).toFixed(2));
     raiz.setAttribute("data-tema", estado.tema === "escuro" ? "escuro" : "claro");
     raiz.setAttribute("data-alto-contraste", estado.altoContraste ? "ativo" : "inativo");
+    if (document.body) {
+      document.body.classList.toggle("alto-contraste", Boolean(estado.altoContraste));
+    }
     raiz.setAttribute("data-escala-cinza", estado.escalaCinza ? "ativo" : "inativo");
     raiz.setAttribute("data-destacar-links", estado.destacarLinks ? "ativo" : "inativo");
     raiz.setAttribute("data-fonte", estado.fonte === "dislexia" ? "dislexia" : "padrao");
@@ -912,14 +915,15 @@
         '<div id="painel-acessibilidade-atalhos" class="painel-acessibilidade__atalhos-box" hidden>' +
           '<h3 class="painel-acessibilidade__atalhos-titulo">Teclas de Atalho (Padrão e-MAG)</h3>' +
           '<ul class="painel-acessibilidade__atalhos-lista">' +
-            '<li><span>Conteúdo principal</span><kbd>Alt + 1</kbd></li>' +
-            '<li><span>Menu principal</span><kbd>Alt + 2</kbd></li>' +
-            '<li><span>Rodapé da página</span><kbd>Alt + 3</kbd></li>' +
-            '<li><span>Página de Acessibilidade</span><kbd>Alt + 4</kbd></li>' +
-            '<li><span>Alternar Alto Contraste</span><kbd>Alt + 5</kbd></li>' +
-            '<li><span>Abrir VLibras</span><kbd>Alt + 6</kbd></li>' +
-            '<li><span>Ler / Parar Conteúdo</span><kbd>Alt + 7</kbd></li>' +
-            '<li><span>Abrir Menu de Acessibilidade</span><kbd>Alt + 0</kbd></li>' +
+            '<li><span>Conteúdo Inicial da Página</span><kbd>Alt + 1</kbd></li>' +
+            '<li><span>Menu Principal</span><kbd>Alt + 2</kbd></li>' +
+            '<li><span>Caixa de Pesquisa</span><kbd>Alt + 3</kbd></li>' +
+            '<li><span>Rodapé</span><kbd>Alt + 4</kbd></li>' +
+            '<li><span>Acessibilidade</span><kbd>Alt + 5</kbd></li>' +
+            '<li><span>Alto Contraste</span><kbd>Alt + 6</kbd></li>' +
+            '<li><span>VLibras</span><kbd>Alt + 7</kbd></li>' +
+            '<li><span>Mapa do Site</span><kbd>Alt + 8</kbd></li>' +
+            '<li><span>Menu de Acessibilidade</span><kbd>Alt + 0</kbd></li>' +
           '</ul>' +
         '</div>' +
       '</div>' +
@@ -1222,6 +1226,17 @@
     var digito = extrairNumeroAtalho(evento);
     if (!digito) return;
 
+    function focarPesquisa() {
+      var campoBusca = document.getElementById("busca-municipio");
+      if (campoBusca) {
+        campoBusca.focus({ preventScroll: false });
+        campoBusca.scrollIntoView({ behavior: "smooth", block: "center" });
+        anunciar("Foco movido para a caixa de pesquisa.");
+        return;
+      }
+      anunciar("A caixa de pesquisa está disponível nas páginas de mapas. Pressione Alt + 8 para abrir o Mapa do Site.");
+    }
+
     switch (digito) {
       case "1":
         evento.preventDefault();
@@ -1233,27 +1248,28 @@
         break;
       case "3":
         evento.preventDefault();
-        focarLandmark("rodape-principal");
+        focarPesquisa();
         break;
       case "4":
         evento.preventDefault();
-        window.location.href = obterCaminhoBase() + "paginas/acessibilidade.html";
+        focarLandmark("rodape-principal");
         break;
       case "5":
         evento.preventDefault();
-        alternarAltoContraste();
+        window.open("https://www.ba.gov.br/acessibilidade", "_blank", "noopener,noreferrer");
+        anunciar("Abrindo página de Acessibilidade em nova aba.");
         break;
       case "6":
         evento.preventDefault();
-        acionarVlibras();
+        alternarAltoContraste();
         break;
       case "7":
         evento.preventDefault();
-        if (lendoPagina) {
-          pararLeituraPagina(false);
-        } else {
-          iniciarLeituraPagina();
-        }
+        acionarVlibras();
+        break;
+      case "8":
+        evento.preventDefault();
+        window.location.href = obterCaminhoBase() + "paginas/mapa-site.html";
         break;
       case "0":
         evento.preventDefault();

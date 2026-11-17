@@ -83,25 +83,26 @@
   --cor-foco: #ffd166;
 }
 
-/* Alto contraste (eMAG / ABNT NBR 17225:2025 — razão >= 7:1 / AAA) */
+/* Alto contraste (padrão PAGINA-PE — fundo preto #000000, textos e bordas brancas #ffffff) */
 [data-alto-contraste="ativo"] {
+  --default: #000000;
   --cor-texto: #ffffff;
-  --cor-texto-suave: #ffff00;
+  --cor-texto-suave: #ffffff;
   --cor-fundo: #000000;
-  --cor-fundo-alt: #0a0a0a;
+  --cor-fundo-alt: #000000;
   --cor-borda: #ffffff;
   --cor-card-fundo: #000000;
-  --cor-card-sombra: rgba(255, 255, 255, 0.25);
+  --cor-card-sombra: none;
   --cor-azul-900: #000000;
-  --cor-azul-700: #ffff00;
-  --cor-azul-600: #ffff00;
-  --cor-azul-500: #ffff00;
-  --cor-azul-100: #1f1f00;
-  --cor-vermelho-700: #ff6b6b;
-  --cor-vermelho-600: #ff8787;
-  --cor-link: #ffff00;
-  --cor-link-visitado: #00ffff;
-  --cor-foco: #00ffff;
+  --cor-azul-700: #ffffff;
+  --cor-azul-600: #ffffff;
+  --cor-azul-500: #ffffff;
+  --cor-azul-100: #000000;
+  --cor-vermelho-700: #ffffff;
+  --cor-vermelho-600: #ffffff;
+  --cor-link: #ffffff;
+  --cor-link-visitado: #ffffff;
+  --cor-foco: #ffffff;
 }
 
 /* Fonte para dislexia — aplica em texto base, títulos e banner */

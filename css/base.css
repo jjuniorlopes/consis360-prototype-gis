@@ -135,6 +135,48 @@ button {
   top: var(--esp-3);
 }
 
+/* ---- Modo Alto Contraste (padrão PAGINA-PE: fundo preto #000000, textos e bordas #ffffff) ---- */
+[data-alto-contraste="ativo"],
+[data-alto-contraste="ativo"] body,
+body.alto-contraste {
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #ffffff !important;
+}
+[data-alto-contraste="ativo"] p,
+[data-alto-contraste="ativo"] span:not(.item-regiao__cor),
+[data-alto-contraste="ativo"] li,
+[data-alto-contraste="ativo"] dt,
+[data-alto-contraste="ativo"] dd,
+[data-alto-contraste="ativo"] td,
+[data-alto-contraste="ativo"] th,
+[data-alto-contraste="ativo"] a,
+[data-alto-contraste="ativo"] h1,
+[data-alto-contraste="ativo"] h2,
+[data-alto-contraste="ativo"] h3,
+[data-alto-contraste="ativo"] h4,
+[data-alto-contraste="ativo"] h5,
+[data-alto-contraste="ativo"] h6,
+body.alto-contraste p,
+body.alto-contraste span:not(.item-regiao__cor),
+body.alto-contraste li,
+body.alto-contraste a,
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste h3,
+body.alto-contraste h4 {
+  color: #ffffff !important;
+}
+[data-alto-contraste="ativo"] svg:not(.leaflet-container svg):not(#painel-acessibilidade svg):not(.icones-fixos svg),
+body.alto-contraste svg:not(.leaflet-container svg):not(#painel-acessibilidade svg):not(.icones-fixos svg) {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+[data-alto-contraste="ativo"] img:not(.icone-fixo__img):not(.painel-acessibilidade__logo-img) {
+  filter: grayscale(100%) contrast(115%);
+  -webkit-filter: grayscale(100%) contrast(115%);
+}
+
 /* ---- Modo Escala de Cinza (Monocromático) ----
    Aplicado nos containers de página (e não no body) para não criar containing block
    que quebre position:fixed do VLibras e do painel de acessibilidade. */

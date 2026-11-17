@@ -39,7 +39,7 @@
           '<div class="region region-header">' +
             '<div id="block-bagov-base-textresize" class="block block-text-resize block-text-resize-block top-link-acessibilidade">' +
               '<div class="content banner-topo__grupo" role="group" aria-label="Acessibilidade e tamanho da fonte">' +
-                '<a href="' + BASE + 'paginas/acessibilidade.html" accesskey="4" class="resize-label text-resize__label text-uppercase text-decoration-none banner-topo__link"' + attrCorrente("acessibilidade.html") + '>Acessibilidade</a>' +
+                '<a href="https://www.ba.gov.br/acessibilidade" target="_blank" rel="noopener noreferrer" accesskey="5" class="resize-label text-resize__label text-uppercase text-decoration-none banner-topo__link">Acessibilidade<span class="sr-only"> (abre em nova aba)</span></a>' +
                 '<button type="button" id="text_resize_decrease" class="changer text-resize__icon text-decoration-none px-1 banner-topo__fonte-btn" data-acao="diminuir-fonte" aria-label="Diminuir tamanho da fonte">' +
                   '<span class="fa-regular fa-a" aria-hidden="true"></span><sup class="letter">-</sup>' +
                 '</button>' +
@@ -52,31 +52,31 @@
               '</div>' +
             '</div>' +
             '<div id="block-bagov-base-bagovbotaodeconstraste" class="block block-bagov-base-blocks block-contrast-block">' +
-              '<button type="button" id="contrast-btn" class="banner-topo__contraste" accesskey="5" data-acao="alto-contraste" aria-pressed="false" title="Botão de contraste" aria-label="Alternar alto contraste (Alt + 5)">' +
+              '<button type="button" id="contrast-btn" class="banner-topo__contraste" accesskey="6" data-acao="alto-contraste" aria-pressed="false" title="Botão de contraste (Alt + 6)" aria-label="Alternar alto contraste (Alt + 6)">' +
                 '<i class="fa fa-adjust" aria-hidden="true"></i>' +
               '</button>' +
             '</div>' +
             '<div id="block-bagov-base-bagovacessoainformacao" class="block block-bagov-base-blocks block-acesso-informacao-block">' +
               '<div class="top-link-info acesso-informacao">' +
-                '<a class="acesso-informacao__item" href="' + BASE + 'paginas/acesso-informacao.html"' + attrCorrente("acesso-informacao.html") + '>' +
+                '<a class="acesso-informacao__item" href="https://www.ba.gov.br/comunicacao/lei-de-acesso-a-informacao" target="_blank" rel="noopener noreferrer">' +
                   '<img class="acesso-informacao__item_image" src="' + BASE + 'assets/img/icones/acesso-informacao.png" alt="" aria-hidden="true">' +
-                  '<span class="acesso-informacao__item_description text-uppercase">Acesso à informação</span>' +
+                  '<span class="acesso-informacao__item_description text-uppercase">Acesso à informação<span class="sr-only"> (abre em nova aba)</span></span>' +
                 '</a>' +
               '</div>' +
             '</div>' +
             '<div id="block-bagov-base-bagovpoliticadeprivacidade" class="block block-bagov-base-blocks block-politica-privacidade-block">' +
               '<div class="top-link-pol politica-privacidade">' +
-                '<a class="politica-privacidade__item" href="' + BASE + 'paginas/politica-privacidade.html"' + attrCorrente("politica-privacidade.html") + '>' +
-                  '<span class="politica-privacidade__item_description text-uppercase">Política de Privacidade</span>' +
+                '<a class="politica-privacidade__item" href="https://www.ba.gov.br/politica-privacidade" target="_blank" rel="noopener noreferrer">' +
+                  '<span class="politica-privacidade__item_description text-uppercase">Política de Privacidade<span class="sr-only"> (abre em nova aba)</span></span>' +
                 '</a>' +
               '</div>' +
             '</div>' +
             '<div id="block-bagov-base-bagovredessociais" class="block block-bagov-base-blocks block-block-socialnetwork-bagov">' +
               '<div class="block-social-network item-list" aria-label="Redes sociais da SEPLAN Bahia">' +
                 '<ul class="list-unstyled d-flex m-0">' +
-                  '<li><a href="https://www.flickr.com/photos/163559352@N07/" target="_blank" rel="noopener noreferrer" aria-label="Flickr da SEPLAN Bahia"><i class="icon-social-network fa-brands fa-flickr" aria-hidden="true"></i></a></li>' +
-                  '<li><a href="https://www.instagram.com/seplanbahia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da SEPLAN Bahia"><i class="icon-social-network fa-brands fa-instagram" aria-hidden="true"></i></a></li>' +
-                  '<li><a href="https://www.youtube.com/@seplanbahia" target="_blank" rel="noopener noreferrer" aria-label="YouTube da SEPLAN Bahia"><i class="icon-social-network fa-brands fa-youtube" aria-hidden="true"></i></a></li>' +
+                  '<li><a href="https://www.flickr.com/photos/163559352@N07/" target="_blank" rel="noopener noreferrer" aria-label="Flickr da SEPLAN Bahia (abre em nova aba)"><i class="icon-social-network fa-brands fa-flickr" aria-hidden="true"></i></a></li>' +
+                  '<li><a href="https://www.instagram.com/seplanbahia/" target="_blank" rel="noopener noreferrer" aria-label="Instagram da SEPLAN Bahia (abre em nova aba)"><i class="icon-social-network fa-brands fa-instagram" aria-hidden="true"></i></a></li>' +
+                  '<li><a href="https://www.youtube.com/@seplanbahia" target="_blank" rel="noopener noreferrer" aria-label="YouTube da SEPLAN Bahia (abre em nova aba)"><i class="icon-social-network fa-brands fa-youtube" aria-hidden="true"></i></a></li>' +
                 '</ul>' +
               '</div>' +
             '</div>' +
@@ -84,25 +84,25 @@
         '</div>' +
       '</div>' +
       '<div class="cabecalho-gov">' +
-        '<nav class="navbar navbar-expand-lg header-multi-site-navbar">' +
+        '<div class="navbar navbar-expand-lg header-multi-site-navbar">' +
           '<div class="container justify-content-start align-items-sm-start">' +
             '<div class="w-100 d-flex align-items-start align-items-xl-center">' +
               '<div class="header-multi-site-navbar__brand w-100 d-flex align-items-center align-items-xl-center justify-content-between">' +
                 '<div class="region region-nav-branding">' +
                   '<div class="header-multi-site__logo">' +
-                    '<h1>' +
-                      '<a tabindex="100" class="header-multi-site__logo" href="https://www.ba.gov.br/" target="_blank" rel="noopener noreferrer">' +
+                    '<div class="header-multi-site__logo-heading">' +
+                      '<a tabindex="0" class="header-multi-site__logo" href="https://www.ba.gov.br/" target="_blank" rel="noopener noreferrer" aria-label="Portal ba.gov.br - Governo do Estado da Bahia (abre em nova aba)">' +
                         '<img class="mw-100 d-block" title="Clique para voltar para tela principal" src="https://www.ba.gov.br/seplan/themes/custom/bagov_base/logo.png" onerror="this.onerror=null;this.src=\'' + BASE + 'assets/img/icones/ba-gov-br.png\';" alt="Governo do Estado da Bahia"/>' +
                       '</a>' +
-                    '</h1>' +
+                    '</div>' +
                   '</div>' +
                 '</div>' +
                 '<div class="collapse navbar-collapse flex-grow-0 header-multi-site-links__navbar" id="bagovMultisiteMenu">' +
                   '<div class="region region-nav-additional">' +
                     '<div id="block-bagov-base-bagovmenumultisites" class="block block-bagov-base-blocks block-menu-multisites-block">' +
-                      '<nav id="menu-governo-bagov" aria-label="Navegação principal">' +
+                      '<nav id="menu-principal" class="nav-links-top" tabindex="-1" aria-label="Menu de Navegação Principal">' +
                         '<ul class="nav navbar-nav px-lg-0 px-2 barra-menu__lista">' +
-                          '<li class="nav-item text-uppercase fw-bold"><a id="menu-principal" class="nav-link nav-text barra-menu__link text-uppercase" href="' + BASE + 'index.html"' + attrCorrente("index.html") + '>Página Inicial</a></li>' +
+                          '<li class="nav-item text-uppercase fw-bold"><a class="nav-link nav-text barra-menu__link text-uppercase" href="' + BASE + 'index.html"' + attrCorrente("index.html") + '>Página Inicial</a></li>' +
                           '<li class="nav-item text-uppercase fw-bold"><a class="nav-link nav-text barra-menu__link text-uppercase" href="' + BASE + 'paginas/mapa-multifinalitarios.html"' + attrCorrente("mapa-multifinalitarios.html") + '>Consórcios Multifinalitários</a></li>' +
                           '<li class="nav-item text-uppercase fw-bold"><a class="nav-link nav-text barra-menu__link text-uppercase" href="' + BASE + 'paginas/mapa-saude.html"' + attrCorrente("mapa-saude.html") + '>Consórcios de Saúde</a></li>' +
                         '</ul>' +
@@ -113,13 +113,13 @@
               '</div>' +
             '</div>' +
           '</div>' +
-        '</nav>' +
+        '</div>' +
         '<div class="header-multi-site-subheader">' +
           '<div class="container cabecalho-gov__subheader">' +
             '<div id="block-site-name">' +
-              '<h5 class="site-name text-uppercase fw-normal cabecalho-gov__orgao">' +
+              '<div class="cabecalho-gov__orgao text-uppercase">' +
                 '<a class="text-decoration-none header-multi-site-subheader__link" href="' + BASE + 'index.html" title="Início" rel="home">SEPLAN - Secretaria do Planejamento</a>' +
-              '</h5>' +
+              '</div>' +
             '</div>' +
           '</div>' +
           '<div class="container">' +
@@ -131,9 +131,9 @@
         '<div class="container cabecalho__conteudo">' +
           '<img class="cabecalho__logo" src="' + BASE + 'assets/img/icones/logo-consis360.png" alt="Brasão da Coordenação dos Consórcios Públicos do Estado da Bahia" width="44" height="44">' +
           '<div>' +
-            '<h1 class="cabecalho__titulo">' +
-              'SISTEMA DE INFORMAÇÃO GEOGRÁFICAS (SIG/GIS) — CONSIS360' +
-            '</h1>' +
+            (paginaAtualEh("index.html")
+              ? '<h1 class="cabecalho__titulo">SISTEMA DE INFORMAÇÃO GEOGRÁFICAS (SIG/GIS) — CONSIS360</h1>'
+              : '<p class="cabecalho__titulo">SISTEMA DE INFORMAÇÃO GEOGRÁFICAS (SIG/GIS) — CONSIS360</p>') +
           '</div>' +
         '</div>' +
       '</header>'
@@ -148,7 +148,7 @@
         '<div class="container rodape__principal">' +
           '<div class="rodape__grade">' +
             '<div class="rodape__coluna-logo">' +
-              '<a href="https://www.ba.gov.br/" target="_blank" rel="noopener noreferrer" aria-label="Portal Oficial do Governo do Estado da Bahia">' +
+              '<a href="https://www.ba.gov.br/" target="_blank" rel="noopener noreferrer" aria-label="Portal Oficial do Governo do Estado da Bahia (abre em nova aba)">' +
                 '<img class="rodape__logo-governo" src="' + BASE + 'assets/img/icones/governo_da_gente.png" alt="Governo da Bahia — Do Lado da Gente">' +
               '</a>' +
             '</div>' +
@@ -158,12 +158,13 @@
               '<p class="rodape__texto">2ª Avenida, nº 250, CAB, Salvador, BA,<br>CEP: 41745-003.</p>' +
               '<hr class="rodape__divisor" aria-hidden="true">' +
               '<p class="rodape__texto">Horário de funcionamento:<br>Segunda a sexta, das 8h30 às 12h e das 13h30 às 18h</p>' +
-              '<p class="rodape__texto rodape__ouvidoria">Exerça sua cidadania. <a href="https://www.ba.gov.br/ouvidoria/" target="_blank" rel="noopener noreferrer">Fale com a Ouvidoria Geral do Estado</a>.</p>' +
+              '<p class="rodape__texto rodape__ouvidoria">Exerça sua cidadania. <a href="https://www.ba.gov.br/ouvidoria/" target="_blank" rel="noopener noreferrer">Fale com a Ouvidoria Geral do Estado<span class="sr-only"> (abre em nova aba)</span></a>.</p>' +
             '</div>' +
             '<div class="rodape__coluna">' +
               '<h2 class="rodape__coluna-titulo">Guia rápido</h2>' +
               '<ul class="rodape__guia-lista">' +
-                '<li><a href="https://www.ba.gov.br/seplan/fale-conosco" target="_blank" rel="noopener noreferrer" class="text-uppercase">CONTATO</a></li>' +
+                '<li><a href="https://www.ba.gov.br/seplan/fale-conosco" target="_blank" rel="noopener noreferrer" class="text-uppercase">CONTATO<span class="sr-only"> (abre em nova aba)</span></a></li>' +
+                '<li><a href="' + BASE + 'paginas/mapa-site.html" accesskey="8" class="text-uppercase"' + attrCorrente("mapa-site.html") + '>MAPA DO SITE</a></li>' +
               '</ul>' +
             '</div>' +
           '</div>' +

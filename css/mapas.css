@@ -171,10 +171,24 @@
   border-color: var(--cor-azul-700);
   background: var(--cor-azul-100);
 }
+[data-alto-contraste="ativo"] .painel-lateral,
+[data-alto-contraste="ativo"] .mapa-caixa,
+[data-alto-contraste="ativo"] .painel-detalhe,
+[data-alto-contraste="ativo"] .item-regiao,
+[data-alto-contraste="ativo"] .busca-municipio {
+  background: #000000 !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+}
+[data-alto-contraste="ativo"] .busca-municipio::placeholder {
+  color: #ffffff !important;
+}
 [data-alto-contraste="ativo"] .item-regiao.ativo,
 [data-alto-contraste="ativo"] .item-regiao[aria-pressed="true"] {
-  border: 2px solid #ffff00;
-  background: #222200;
+  border: 2px solid #ffffff !important;
+  background: #000000 !important;
+  color: #ffffff !important;
 }
 .item-regiao__cor {
   width: 16px;
