@@ -10,6 +10,13 @@
   gap: var(--esp-5);
 }
 
+@media (max-width: 640px) {
+  .grade-cards {
+    grid-template-columns: minmax(0, 320px);
+    gap: var(--esp-4);
+  }
+}
+
 /* ---- Card "Mapa Consórcios" (mapa dobrado + pin, faixa colorida embaixo) ---- */
 .card-mapa {
   display: flex;

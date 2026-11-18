@@ -306,3 +306,31 @@
   margin: var(--esp-2) 0 0;
 }
 
+@media (max-width: 640px) {
+  .pagina-mapa {
+    padding: var(--esp-4) 0 var(--esp-6);
+  }
+  .pagina-mapa__titulo-central {
+    margin-bottom: var(--esp-5);
+  }
+  .pagina-mapa__titulo-central h1 {
+    font-size: 1.45rem;
+    line-height: 1.25;
+  }
+  .pagina-mapa__subtitulo {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  #mapa-leaflet {
+    height: 340px;
+  }
+  .mapa-exportar {
+    flex-direction: column;
+    gap: var(--esp-2);
+  }
+  .mapa-exportar .botao {
+    width: 100%;
+    justify-content: center;
+  }
+}
+

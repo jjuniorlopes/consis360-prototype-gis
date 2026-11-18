@@ -849,8 +849,12 @@
   height: 28px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .icones-fixos { right: 8px; }
+  .icone-fixo--acessibilidade {
+    width: 42px;
+    height: 42px;
+  }
   .painel-acessibilidade {
     right: 8px;
     top: 8px;
